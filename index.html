@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Học Tin Học - NDGB</title>
+    <title>Trang Chủ - Học Tin Học NDGB</title>
     <link rel="icon" href="file/logo.png" type="image/png" />
     <style>
         :root{
@@ -560,6 +560,16 @@
             contentArea.querySelectorAll('.lessons ul li').forEach((li, index) => {
                 li.style.setProperty('--i', index);
             });
+
+            // Thêm xử lý click để chuyển trang
+            contentArea.querySelectorAll('.lesson-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const href = btn.getAttribute('data-href');
+                    if(href) {
+                        location.pathname = href;
+                    }
+                });
+            });
         }
 
         function renderTest(){
@@ -583,6 +593,16 @@
             // Thêm animation delay
             contentArea.querySelectorAll('.lessons ul li').forEach((li, index) => {
                 li.style.setProperty('--i', index);
+            });
+
+            // Thêm xử lý click để chuyển trang
+            contentArea.querySelectorAll('.lesson-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const href = btn.getAttribute('data-href');
+                    if(href) {
+                        location.pathname = href;
+                    }
+                });
             });
         }
 
