@@ -629,6 +629,29 @@
                 }
             });
         });
+        window.addEventListener('load', () => {
+            const hash = window.location.hash;
+
+            // Bỏ active cũ
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+
+            if (hash === '#lesson') {
+                document.querySelector('.nav-item[data-id="study"]').classList.add('active');
+                renderStudy();
+            } 
+            else if (hash === '#exercise') {
+                document.querySelector('.nav-item[data-id="exercise"]').classList.add('active');
+                renderExercise();
+            } 
+            else if (hash === '#test') {
+                document.querySelector('.nav-item[data-id="test"]').classList.add('active');
+                renderTest();
+            } 
+            else {
+                document.querySelector('.nav-item[data-id="home"]').classList.add('active');
+                renderHome();
+            }
+        });
     </script>
 </body>
 </html>
