@@ -151,3 +151,65 @@ nav{
     animation:fadeIn 0.6s ease-out forwards;
 }
 .ico img{filter:brightness(0) invert(1);}
+
+    main.main {
+      text-align: justify; /* căn đều 2 bên */
+    }
+
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+
+    .question h4 { margin: 0 0 10px; font-size: 1.1em; }
+    .answers label { display: block; margin: 4px 0; cursor: pointer; }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    .nav-btn {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+
+    .nav-btn img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+      filter: brightness(0) saturate(100%) invert(30%) sepia(95%) saturate(600%) hue-rotate(90deg);
+    }
+
+    .nav-btn.next img {
+      filter: brightness(0) saturate(100%) invert(29%) sepia(73%) saturate(2476%) hue-rotate(201deg) brightness(92%) contrast(98%);
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      height: 40px;
+      margin: 20px auto;
+      background: #1e5ef4; /* xanh đậm tiêu đề */
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 10px;
+      border-top: 2px solid #ccc;
+      text-align: center;
+      font-weight: bold;
+    }

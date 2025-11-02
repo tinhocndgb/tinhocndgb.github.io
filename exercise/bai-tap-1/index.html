@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài 2 - Nhập môn Tin học</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/exercise/style.css" />
+  <style>
+    .question {margin-bottom:20px;padding:15px;border:1px solid #ddd;border-radius:8px;background:#fafafa}
+    .question h4 {margin:0 0 10px;font-size:1.1em}
+    .answers label {display:block;margin:4px 0;cursor:pointer}
+    .result-box {margin-top:20px;padding:10px;border-top:2px solid #ccc;text-align:center;font-weight:bold}
+    .submit-btn {margin-top:15px;padding:10px 15px;border:none;background:#007bff;color:#fff;border-radius:5px;cursor:pointer}
+    .submit-btn:hover {background:#0056b3}
+  </style>
+</head>
+<body>
+  <div class="window">
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo">
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB" style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng · Gia Bảo</div>
+        </div>
+      </div>
+
+      <nav aria-label="chức năng">
+        <div class="nav-item" data-id="home">
+          <div class="ico"><img src="/file/home.svg" alt="Home" width="25" height="25" /></div>
+          <div class="label">Trang chủ</div>
+        </div>
+        <div class="nav-item" data-id="study">
+          <div class="ico"><img src="/file/lesson.svg" alt="Lesson" width="25" height="25" /></div>
+          <div class="label">Học bài mới</div>
+        </div>
+        <div class="nav-item active" data-id="exercise">
+          <div class="ico"><img src="/file/exercise.png" alt="Exercise" width="25" height="25" /></div>
+          <div class="label">Làm bài tập</div>
+        </div>
+        <div class="nav-item" data-id="test">
+          <div class="ico"><img src="/file/test.svg" alt="Test" width="25" height="25" /></div>
+          <div class="label">Kiểm tra</div>
+        </div>
+      </nav>
+    </aside>
+
+
+    <main class="main">
+      <div class="title-top">Làm bài tập - Bài 2: Nhập môn Tin học</div>
+      <h1>Bài tập trắc nghiệm</h1>
+
+      <div id="question-container"></div>
+
+      <div class="nav-buttons">
+        <button class="nav-btn prev" onclick="prevQuestion()">
+          <img src="/file/truoc.svg" alt="Trước">
+        </button>
+        <button class="nav-btn next" onclick="nextQuestion()">
+          <img src="/file/sau.svg" alt="Sau">
+        </button>
+      </div>
+
+      <button class="submit-btn" onclick="submitQuiz()">NỘP BÀI</button>
+      <div class="result-box" id="result"></div>
+    </main>
+  </div>
+
+  <script>
+    /* 
+      🧭 HƯỚNG DẪN THÊM CÂU HỎI
+      ===========================
+      1️⃣ Trắc nghiệm A,B,C,D: thêm 1 object vào quizData.multipleChoice:
+        {
+          question: "Câu hỏi?",
+          options: ["Đáp án A","Đáp án B","Đáp án C","Đáp án D"],
+          answer: 1 // chỉ số đáp án đúng (0=A, 1=B, 2=C, 3=D)
+        }
+
+      2️⃣ Đúng/Sai: thêm vào quizData.trueFalse:
+        { question: "Câu hỏi?", answer: true }
+
+      3️⃣ Trả lời ngắn: thêm vào quizData.shortAnswer:
+        { question: "Câu hỏi?", keywords: ["từ khóa 1", "từ khóa 2"] }
+    */
+
+    const quizData = {
+      multipleChoice: [
+        {
+          question: "Máy tính điện tử là gì?",
+          options: [
+            "Thiết bị dùng để thực hiện các phép tính và xử lý thông tin tự động.",
+            "Một loại máy in thông minh.",
+            "Thiết bị lưu trữ dữ liệu lâu dài.",
+            "Một chương trình phần mềm chạy trên điện thoại."
+          ],
+          answer: 0
+        },
+        {
+          question: "Thiết bị nào sau đây thuộc phần cứng?",
+          options: ["CPU", "Hệ điều hành", "Microsoft Word", "Phần mềm diệt virus"],
+          answer: 0
+        }
+      ],
+      trueFalse: [
+        { question: "CPU là bộ xử lý trung tâm của máy tính.", answer: true },
+        { question: "Màn hình là phần mềm hiển thị hình ảnh.", answer: false }
+      ],
+      shortAnswer: [
+        { question: "Kể tên 2 thiết bị vào của máy tính.", keywords: ["chuột", "bàn phím", "mic", "camera"] },
+        { question: "Bộ nhớ chính gồm hai thành phần nào?", keywords: ["ram", "rom"] }
+      ]
+    };
+
+    let allQuestions = [];
+    let currentIndex = 0;
+
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    function prepareQuestions() {
+      const mc = shuffle([...quizData.multipleChoice]);
+      const tf = shuffle([...quizData.trueFalse]);
+      const sa = shuffle([...quizData.shortAnswer]);
+      allQuestions = [
+        ...mc.map(q => ({ ...q, type: "mc" })),
+        ...tf.map(q => ({ ...q, type: "tf" })),
+        ...sa.map(q => ({ ...q, type: "sa" }))
+      ];
+    }
+
+    function renderQuestion() {
+      const q = allQuestions[currentIndex];
+      const container = document.getElementById("question-container");
+      let html = `<div class='question'>
+        <h4>Câu ${currentIndex + 1}/${allQuestions.length}: ${q.question}</h4>`;
+
+      if (q.type === "mc") {
+        const shuffledOptions = shuffle([...q.options]);
+        shuffledOptions.forEach((opt, i) => {
+          html += `<label><input type="radio" name="q${currentIndex}" value="${opt}"> ${String.fromCharCode(65 + i)}. ${opt}</label>`;
+        });
+      } else if (q.type === "tf") {
+        html += `<label><input type="radio" name="q${currentIndex}" value="true"> Đúng</label>`;
+        html += `<label><input type="radio" name="q${currentIndex}" value="false"> Sai</label>`;
+      } else if (q.type === "sa") {
+        html += `<input type="text" name="q${currentIndex}" placeholder="Nhập câu trả lời..." style="width:100%;padding:6px;border:1px solid #ccc;border-radius:4px">`;
+      }
+
+      html += "</div>";
+      container.innerHTML = html;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < allQuestions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+      }
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      let total = 7;
+      const maxScore = allQuestions.length;
+
+      allQuestions.forEach((q, i) => {
+        const el = document.querySelector(`[name="q${i}"]:checked`) || document.querySelector(`[name="q${i}"]`);
+        if (!el) return;
+        const val = el.value ? el.value.toLowerCase() : "";
+
+        if (q.type === "mc" && val === q.options[q.answer].toLowerCase()) score++;
+        if (q.type === "tf" && String(q.answer) === val) score++;
+        if (q.type === "sa" && q.keywords.some(k => val.includes(k))) score++;
+      });
+
+      const final = (score / maxScore * total).toFixed(2);
+      document.getElementById("result").innerText = `Bạn đạt ${final}/7 điểm`;
+    }
+
+    prepareQuestions();
+    renderQuestion();
+  </script>
+  <script src="/exercise/script.js"></script>
+</body>
+</html>
