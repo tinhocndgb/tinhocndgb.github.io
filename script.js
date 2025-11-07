@@ -1,7 +1,14 @@
+// ===============================
+// 🌟 KHỞI TẠO BIẾN TOÀN CỤC
+// ===============================
 const contentArea = document.getElementById('content-area');
 const mainH1 = document.querySelector('.main h1');
 
-// hiệu ứng chuyển trang
+// ===============================
+// ⚙️ HÀM DÙNG CHUNG
+// ===============================
+
+// Hiệu ứng chuyển trang mượt
 async function switchContent(renderFn) {
   contentArea.style.animation = 'fadeOut 0.2s ease-out forwards';
   await new Promise(resolve => setTimeout(resolve, 200));
@@ -9,7 +16,7 @@ async function switchContent(renderFn) {
   contentArea.style.animation = 'pageIn 0.5s ease-out forwards';
 }
 
-// tạo slug từ tên bài
+// Tạo slug từ tên bài
 function slugify(str) {
   return String(str)
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -19,18 +26,34 @@ function slugify(str) {
     .replace(/\s+/g, '-');
 }
 
-// ======= CÁC TRANG =======
+// Gán hiệu ứng delay từng item
+function applyItemDelay() {
+  contentArea.querySelectorAll('.lessons ul li').forEach((li, index) => {
+    li.style.setProperty('--i', index);
+  });
+}
+
+// Gán sự kiện click cho danh sách bài học / khối
+function applyLessonClicks() {
+  contentArea.querySelectorAll('.lesson-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      location.pathname = btn.getAttribute('data-href');
+    });
+  });
+}
+
+// ===============================
+// 📄 CÁC TRANG NỘI DUNG
+// ===============================
 
 // Trang chủ
 function renderHome() {
   mainH1.textContent = 'Trang chủ';
   document.title = 'Trang chủ - Học Tin Học NDGB';
-  contentArea.innerHTML = `
-    <p class="lead">Trang web nhằm cung cấp nền tảng học tin học mọi lúc mọi nơi với mọi công cụ bạn có bên mình. 
-    Nội dung học tập, kiểm tra sẽ cập nhật thường xuyên để bạn tiếp thu kiến thức mới một cách hiệu quả hơn.</p>`;
+  contentArea.innerHTML = `<p class="lead">Trang web nhằm cung cấp nền tảng học môn <a>Tin Học</a> mọi lúc mọi nơi với mọi công cụ bạn có bên mình. Nội dung học tập, kiểm tra sẽ cập nhật thường xuyên để bạn tiếp thu kiến thức mới một cách hiệu quả hơn. Bạn có thể liên lạc với chúng tôi qua email: <a href="mailto:/tinhoc.ndgb@gmail.com">tinhoc.ndgb@gmail.com</a></p>`;
 }
 
-// Học bài mới → chọn khối
+// Học bài mới → chọn lớp
 function renderStudy() {
   mainH1.textContent = 'Học bài mới';
   document.title = 'Học bài mới - Học Tin Học NDGB';
@@ -42,18 +65,9 @@ function renderStudy() {
         <li><button class="lesson-btn" data-href="/lesson/lop-11">Lớp 11</button></li>
         <li><button class="lesson-btn" data-href="/lesson/lop-12">Lớp 12</button></li>
       </ul>
-    </div>
-  `;
-
-  contentArea.querySelectorAll('.lessons ul li').forEach((li, index) => {
-    li.style.setProperty('--i', index);
-  });
-
-  contentArea.querySelectorAll('.lesson-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      location.pathname = btn.getAttribute('data-href');
-    });
-  });
+    </div>`;
+  applyItemDelay();
+  applyLessonClicks();
 }
 
 // Làm bài tập → chọn khối
@@ -68,18 +82,9 @@ function renderExercise() {
         <li><button class="lesson-btn" data-href="/exercise/lop-11">Lớp 11</button></li>
         <li><button class="lesson-btn" data-href="/exercise/lop-12">Lớp 12</button></li>
       </ul>
-    </div>
-  `;
-
-  contentArea.querySelectorAll('.lessons ul li').forEach((li, index) => {
-    li.style.setProperty('--i', index);
-  });
-
-  contentArea.querySelectorAll('.lesson-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      location.pathname = btn.getAttribute('data-href');
-    });
-  });
+    </div>`;
+  applyItemDelay();
+  applyLessonClicks();
 }
 
 // Kiểm tra → chọn khối
@@ -94,63 +99,64 @@ function renderTest() {
         <li><button class="lesson-btn" data-href="/test/lop-11">Lớp 11</button></li>
         <li><button class="lesson-btn" data-href="/test/lop-12">Lớp 12</button></li>
       </ul>
-    </div>
-  `;
-
-  contentArea.querySelectorAll('.lessons ul li').forEach((li, index) => {
-    li.style.setProperty('--i', index);
-  });
-
-  contentArea.querySelectorAll('.lesson-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      location.pathname = btn.getAttribute('data-href');
-    });
-  });
+    </div>`;
+  applyItemDelay();
+  applyLessonClicks();
 }
 
-// ======= CHUYỂN TAB =======
+// Trang tạm / chưa cập nhật
+function renderComingSoon(label) {
+  mainH1.textContent = label;
+  document.title = `${label} - Học Tin Học NDGB`;
+  contentArea.innerHTML = `<p class="lead">Nội dung cho "${label}" sẽ được cập nhật sau.</p>`;
+}
+
+// ===============================
+// 🧭 CHUYỂN TAB MENU
+// ===============================
 document.querySelectorAll('.nav-item').forEach(item => {
   item.addEventListener('click', async () => {
+    // Xóa & đặt active
     document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
     setTimeout(() => item.classList.add('active'), 50);
 
     const id = item.getAttribute('data-id');
 
-    if (id === 'study') await switchContent(renderStudy);
-    else if (id === 'home') await switchContent(renderHome);
+    if (id === 'home') await switchContent(renderHome);
+    else if (id === 'study') await switchContent(renderStudy);
     else if (id === 'exercise') await switchContent(renderExercise);
     else if (id === 'test') await switchContent(renderTest);
-    else {
-      const label = item.querySelector('.label').textContent.trim();
-      await switchContent(() => {
-        mainH1.textContent = label;
-        document.title = label + ' - Học Tin Học NDGB';
-        contentArea.innerHTML = `<p class="lead">Nội dung cho "${label}" sẽ được cập nhật.</p>`;
-      });
-    }
+    else await switchContent(() => renderComingSoon(item.querySelector('.label').textContent.trim()));
   });
 });
 
-// ======= TỰ MỞ TAB ĐÚNG KHI LOAD =======
+// ===============================
+// 🧩 TỰ MỞ TAB ĐÚNG KHI LOAD
+// ===============================
 window.addEventListener('load', () => {
   const hash = window.location.hash;
-  document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(i => i.classList.remove('active'));
 
-  if (hash === '#lesson') {
-    document.querySelector('.nav-item[data-id="lesson"]').classList.add('active');
-    renderStudy();
-  } else if (hash === '#exercise') {
-    document.querySelector('.nav-item[data-id="exercise"]').classList.add('active');
-    renderExercise();
-  } else if (hash === '#test') {
-    document.querySelector('.nav-item[data-id="test"]').classList.add('active');
-    renderTest();
+  const map = {
+    '#lesson': { id: 'lesson', render: renderStudy },
+    '#study': { id: 'study', render: renderStudy },
+    '#exercise': { id: 'exercise', render: renderExercise },
+    '#test': { id: 'test', render: renderTest }
+  };
+
+  const selected = map[hash];
+  if (selected) {
+    document.querySelector(`.nav-item[data-id="${selected.id}"]`).classList.add('active');
+    selected.render();
   } else {
     document.querySelector('.nav-item[data-id="home"]').classList.add('active');
     renderHome();
   }
 
-  // ======= TỰ CĂN GIỮA / CĂN TRÁI THANH TAB CHUẨN MỌI THIẾT BỊ =======
+  // ===============================
+  // 🔧 CĂN CHỈNH THANH TAB
+  // ===============================
   function adjustNavAlignment() {
     const nav = document.querySelector('nav');
     if (!nav) return;
@@ -158,39 +164,24 @@ window.addEventListener('load', () => {
     const items = nav.querySelectorAll('.nav-item');
     if (!items.length) return;
 
-    // Tổng chiều rộng thực tế của các tab (bao gồm margin)
     const totalWidth = Array.from(items).reduce((sum, item) => {
       const style = getComputedStyle(item);
       return sum + item.offsetWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
     }, 0);
 
-    // Nếu tổng lớn hơn chiều rộng nav => cần cuộn => căn trái, ngược lại căn giữa
-    if (totalWidth > nav.clientWidth + 1) {
-      nav.style.justifyContent = 'flex-start';
-    } else {
-      nav.style.justifyContent = 'center';
-    }
+    nav.style.justifyContent = totalWidth > nav.clientWidth + 1 ? 'flex-start' : 'center';
   }
 
-  // Đợi layout ổn định hẳn rồi kiểm tra
-  window.addEventListener('load', () => {
-    // Chạy lần đầu sau khi render xong (delay nhỏ để đảm bảo media query đã áp dụng)
-    setTimeout(adjustNavAlignment, 300);
+  // Gọi sau khi render ổn định
+  setTimeout(adjustNavAlignment, 300);
 
-    // Theo dõi thay đổi kích thước nav (khi đổi màn hình hoặc tab)
-    const nav = document.querySelector('nav');
-    if (nav && 'ResizeObserver' in window) {
-      const observer = new ResizeObserver(adjustNavAlignment);
-      observer.observe(nav);
-    }
+  const nav = document.querySelector('nav');
+  if (nav && 'ResizeObserver' in window) {
+    new ResizeObserver(adjustNavAlignment).observe(nav);
+  }
 
-    // Gọi lại khi user resize thủ công
-    window.addEventListener('resize', adjustNavAlignment);
-  });
-
-  // Khi đổi tab, kiểm tra lại
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', adjustNavAlignment);
-  });
-
+  window.addEventListener('resize', adjustNavAlignment);
+  document.querySelectorAll('.nav-item').forEach(item =>
+    item.addEventListener('click', adjustNavAlignment)
+  );
 });
