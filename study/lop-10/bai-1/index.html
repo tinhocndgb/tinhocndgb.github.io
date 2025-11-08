@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài Mẫu | Học Tin Học NDGB</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/study/bai.css" />
+</head>
+<body>
+  <div class="window">
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo" aria-hidden>
+          <style>
+            .logo { border:0 !important; box-shadow:none !important; width:160px; height:160px; }
+            @media (max-width:880px){ .logo { width:100px; height:100px; } }
+          </style>
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB"
+              style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng - Gia Bảo</div>
+        </div>
+
+        <!-- ============ Navigation ============ -->
+        <nav aria-label="chức năng">
+          <div class="nav-item" data-id="home">
+            <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
+            <div class="label">Trang chủ</div>
+          </div>
+
+          <div class="nav-item active" data-id="study">
+            <div class="ico"><img src="/file/lesson.svg" alt="Lesson Icon" width="25" height="25" /></div>
+            <div class="label">Học bài mới</div>
+          </div>
+
+          <div class="nav-item" data-id="exercise">
+            <div class="ico"><img src="/file/exercise.png" alt="Exercise Icon" width="25" height="25" /></div>
+            <div class="label">Làm bài tập</div>
+          </div>
+
+          <div class="nav-item" data-id="test">
+            <div class="ico"><img src="/file/test.svg" alt="Test Icon" width="25" height="25" /></div>
+            <div class="label">Kiểm tra</div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ============ Main Content ============ -->
+    <main class="main">
+      <div class="lesson-page fade-in">
+        <div class="lesson-header">
+          <div class="topic">Chủ đề A: Máy tính và xã hội tri thức – Tin học 10</div>
+          <h1>BÀI 1: THÔNG TIN VÀ DỮ LIỆU</h1>
+        </div>
+
+        <div class="lesson-content">
+          <h2>1. Khái niệm “Thông tin” và “Dữ liệu”</h2>
+
+          <h4>a. Dữ liệu là gì?</h4>
+          <p>•  Dữ liệu (Data) là tập hợp các con số, chữ, hình ảnh, âm thanh,… chưa được xử lý.</p>
+          <p>•	Dữ liệu chưa có ý nghĩa cho đến khi được con người hiểu, phân tích hoặc xử lý.</p>
+          <p>👉 Ví dụ:</p>
+          <p>•	100, 28, 5/10,… chỉ là dữ liệu.</p>
+          <p>•	Khi biết “100 là điểm kiểm tra của bạn Lan”, ta có thông tin.</p>
+
+          <h4>b. Thông tin là gì?</h4>
+          <p>•	Thông tin (Information) là dữ liệu đã được xử lý, mang ý nghĩa và giúp con người hiểu, ra quyết định.</p>
+          <p>•	Thông tin có thể thể hiện qua chữ, số, hình ảnh, âm thanh, video…</p>
+          <p>👉 Ví dụ:</p>
+          <p>•	“Nhiệt độ hôm nay là 28°C” là thông tin, giúp ta biết hôm nay trời nóng.</p>
+
+          <h4>c. Mối quan hệ giữa dữ liệu và thông tin</h4>
+          <table>
+            <tr>
+              <th>Dữ liệu</th>
+              <th>Xử lý</th>
+              <th>Thông tin</th>
+            </tr>
+            <tr>
+              <td>Số liệu, ký hiệu, tín hiệu</td>
+              <td>→ Tính toán, phân tích, so sánh</td>
+              <td>→ Kết quả có ý nghĩa, giúp ra quyết định</td>
+            </tr>
+          </table>
+          <p>👉 Kết luận:</p>
+          <p>Dữ liệu là “nguyên liệu thô”, thông tin là “sản phẩm” sau khi xử lý dữ liệu.</p>
+
+          <h2>2. Đơn vị đo lượng thông tin</h2>
+          <p>•	Máy tính lưu trữ thông tin dưới dạng bit (binary digit – 0 hoặc 1).</p>
+          <p>•	Các đơn vị lớn hơn:</p>
+          <table>
+            <tr>
+              <th>Đơn vị</th>
+              <th>Ký hiệu</th>
+              <th>Giá trị tương đương</th>
+            </tr>
+            <tr>
+              <td>Bit</td>
+              <td>b</td>
+              <td>0 hoặc 1</td>
+            </tr>
+            <tr>
+              <td>Byte</td>
+              <td>B</td>
+              <td>8 bit</td>
+            </tr>
+            <tr>
+              <td>Kilobyte</td>
+              <td>KB</td>
+              <td>1024 B</td>
+            </tr>
+            <tr>
+              <td>Megabyte</td>
+              <td>MB</td>
+              <td>1024 KB</td>
+            </tr>
+            <tr>
+              <td>Gigabyte</td>
+              <td>GB</td>
+              <td>1024 MB</td>
+            </tr>
+            <tr>
+              <td>Terabyte</td>
+              <td>TB</td>
+              <td>1024 GB</td>
+            </tr>
+          </table>
+            <p>👉 Ví dụ:</p>
+            <p>•	Ảnh chụp = vài MB.</p>
+            <p>•	Phim HD = vài GB.</p>
+            <P>•	Ổ cứng = hàng trăm GB hoặc TB.</P>
+
+          <h2>3. Biểu diễn và xử lý thông tin bằng máy tính</h2>
+          <h4>a. Máy tính chỉ hiểu dữ liệu số (0 và 1)</h4>
+          <p>•	Mọi loại thông tin (chữ, ảnh, âm thanh, video) đều phải mã hóa thành dãy bit để máy tính hiểu và xử lý.</p>
+          <p>👉 Ví dụ:</p>
+          <p>•	Ký tự “A” có mã ASCII là 01000001.</p>
+          <p>•	Ảnh → hàng triệu điểm ảnh (pixel), mỗi pixel có mã màu (dạng số).</p>
+
+          <h4>b. Quá trình xử lý thông tin trong máy tính</h4>
+          <p>1.	Nhập (Input) → qua bàn phím, chuột, camera,...</p>
+          <p>2.	Xử lý (Processing) → CPU tính toán, xử lý dữ liệu.</p>
+          <p>3.	Xuất (Output) → hiển thị ra màn hình, in, loa,...</p>
+          <div class="image-box">
+            <img src="hinh1.png" alt="Quá trình xử lý thông tin trong máy tính">
+            <div class="caption">Hình 1: Quá trình xử lý thông tin trong máy tính</div>
+          </div>
+          <p>👉 Kết luận:</p>
+          <p>Máy tính giúp xử lý lượng dữ liệu khổng lồ nhanh chóng, chính xác → tạo thông tin hữu ích cho học tập và đời sống.</p>
+
+          <h2>🧩 Tóm tắt ghi nhớ</h2>
+          <table>
+            <tr>
+              <th>Nội dung</th>
+              <th>Ý chính</th>
+            </tr>
+            <tr>
+              <td>Dữ liệu</td>
+              <td>Nguyên liệu thô, chưa có ý nghĩa</td>
+            </tr>
+            <tr>
+              <td>Thông tin</td>
+              <td>Dữ liệu đã xử lý, có ý nghĩa</td>
+            </tr>
+            <tr>
+              <td>Quan hệ</td>
+              <td>Dữ liệu → Xử lý → Thông tin</td>
+            </tr>
+            <tr>
+              <td>Đơn vị</td>
+              <td>Bit, Byte, KB, MB, GB, TB</td>
+            </tr>
+            <tr>
+              <td>Máy tính</td>
+              <td>Xử lý – lưu trữ – truyền thông tin bằng dãy bit</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="lesson-footer">
+          <button class="exercise-btn" onclick="location.href='/exercise/lop-10/bai-1'">
+            Làm bài tập
+          </button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="/study/bai.js"></script>
+</body>
+</html>
