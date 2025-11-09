@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài 1 - Bên trong máy tính | Học Tin Học NDGB</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/study/bai.css" />
+</head>
+<body>
+  <div class="window">
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo" aria-hidden>
+          <style>
+            .logo { border:0 !important; box-shadow:none !important; width:160px; height:160px; }
+            @media (max-width:880px){ .logo { width:100px; height:100px; } }
+          </style>
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB"
+              style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng - Gia Bảo</div>
+        </div>
+
+        <!-- ============ Navigation ============ -->
+        <nav aria-label="chức năng">
+          <div class="nav-item" data-id="home">
+            <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
+            <div class="label">Trang chủ</div>
+          </div>
+
+          <div class="nav-item active" data-id="study">
+            <div class="ico"><img src="/file/lesson.svg" alt="Lesson Icon" width="25" height="25" /></div>
+            <div class="label">Học bài mới</div>
+          </div>
+
+          <div class="nav-item" data-id="exercise">
+            <div class="ico"><img src="/file/exercise.png" alt="Exercise Icon" width="25" height="25" /></div>
+            <div class="label">Làm bài tập</div>
+          </div>
+
+          <div class="nav-item" data-id="test">
+            <div class="ico"><img src="/file/test.svg" alt="Test Icon" width="25" height="25" /></div>
+            <div class="label">Kiểm tra</div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ============ Main Content ============ -->
+    <main class="main">
+      <div class="lesson-page fade-in">
+        <div class="lesson-header">
+          <div class="topic">Chủ đề A: Máy tính và xã hội tri thức – Tin học 11</div>
+          <h1>BÀI 1: BÊN TRONG MÁY TÍNH</h1>
+        </div>
+
+        <div class="lesson-content">
+            <h3>🎯 Mục tiêu bài học</h3>
+            <p>Sau khi học xong bài này, học sinh có thể:</p>
+            <p>• Nhận biết được các bộ phận chính bên trong máy tính.</p>
+            <p>• Trình bày được vai trò, chức năng cơ bản của từng bộ phận phần cứng.</p>
+            <p>• Mô tả được nguyên lý cơ bản của quá trình xử lý dữ liệu trong máy tính.</p>
+
+            <h3>🧩 1. Cấu tạo các bộ phận chính bên trong máy tính</h3>
+            <p>• Máy tính gồm <b>phần cứng</b> và <b>phần mềm</b>. Trong đó, phần cứng là các thiết bị vật lý có thể cầm nắm được.</p>
+            <p>• Các bộ phận chính bên trong máy tính gồm:</p>
+
+            <h4>Bộ xử lý trung tâm (CPU)</h4>
+            <p>• Là “<b>bộ não</b>” của máy tính, chịu trách nhiệm điều khiển và xử lý mọi thao tác.</p>
+            <p>• Gồm 2 phần chính:</p>
+            <p>– <b>Bộ điều khiển (CU)</b>: điều phối hoạt động của các bộ phận.</p>
+            <p>– <b>Bộ số học – logic (ALU)</b>: thực hiện các phép tính và so sánh logic.</p>
+
+            <h4>Bộ nhớ trong (RAM, ROM)</h4>
+            <p>• <b>RAM</b>: lưu trữ tạm thời dữ liệu và chương trình đang chạy.</p>
+            <p>• <b>ROM</b>: chứa các lệnh cố định, không bị mất khi tắt máy.</p>
+
+            <h4>Thiết bị lưu trữ</h4>
+            <p>• Dùng để lưu trữ dữ liệu lâu dài: <b>ổ cứng (HDD)</b>, <b>ổ thể rắn (SSD)</b>, <b>USB</b>, <b>đĩa CD/DVD</b>.</p>
+
+            <h4>Thiết bị vào (Input devices)</h4>
+            <p>• Dùng để nhập dữ liệu: bàn phím, chuột, máy quét, micro,…</p>
+
+            <h4>Thiết bị ra (Output devices)</h4>
+            <p>• Hiển thị hoặc xuất dữ liệu: màn hình, máy in, loa,…</p>
+
+            <h4>Bo mạch chủ (Mainboard / Motherboard)</h4>
+            <p>• Là bảng mạch kết nối tất cả các thiết bị trên lại với nhau.</p>
+            <p>• Chứa các khe cắm RAM, CPU, card đồ họa, v.v.</p>
+
+            <div class="image-box">
+            <img src="hinh1.png" alt="Cấu tạo các bộ phận chính bên trong máy tính">
+            <div class="caption">Hình 1: Các bộ phận chính bên trong máy tính</div>
+            </div>
+
+            <h3>⚙️ 2. Vai trò và chức năng của từng bộ phận phần cứng</h3>
+            <table>
+            <tr>
+                <th>Bộ phận</th>
+                <th>Chức năng chính</th>
+            </tr>
+            <tr>
+                <td>CPU</td>
+                <td>Xử lý dữ liệu và điều khiển toàn bộ hoạt động của máy tính.</td>
+            </tr>
+            <tr>
+                <td>RAM</td>
+                <td>Lưu trữ tạm thời dữ liệu và chương trình đang được thực hiện.</td>
+            </tr>
+            <tr>
+                <td>ROM</td>
+                <td>Lưu trữ cố định các lệnh khởi động máy; dữ liệu không mất khi tắt máy.</td>
+            </tr>
+            <tr>
+                <td>Ổ cứng (HDD/SSD)</td>
+                <td>Lưu trữ dữ liệu lâu dài, kể cả khi máy tắt.</td>
+            </tr>
+            <tr>
+                <td>Bo mạch chủ</td>
+                <td>Kết nối và truyền dữ liệu giữa các linh kiện, đảm bảo thông tin được trao đổi.</td>
+            </tr>
+            <tr>
+                <td>Thiết bị vào/ra</td>
+                <td>Giúp người dùng giao tiếp với máy tính: nhập dữ liệu và nhận kết quả.</td>
+            </tr>
+            </table>
+
+            <h3>🔄 3. Nguyên lý cơ bản của quá trình xử lý dữ liệu trong máy tính</h3>
+            <p>• Quá trình xử lý dữ liệu trong máy tính gồm 3 bước chính:</p>
+            <p>1. <b>Nhập dữ liệu (Input):</b> Dữ liệu được đưa vào thông qua các thiết bị nhập.</p>
+            <p>2. <b>Xử lý dữ liệu (Processing):</b> CPU nhận dữ liệu, xử lý theo chương trình đã định, sử dụng bộ nhớ RAM và ROM.</p>
+            <p>3. <b>Xuất dữ liệu (Output):</b> Kết quả được đưa ra các thiết bị xuất (màn hình, máy in, loa,…).</p>
+
+            <p>👉 <b>Mô hình tổng quát:</b> Dữ liệu vào → Xử lý → Kết quả ra</p>
+            <p>• <b>Ví dụ:</b> Khi nhập phép tính “5 + 3” → CPU xử lý → màn hình hiển thị kết quả “8”.</p>
+
+            <div class="image-box">
+            <img src="hinh2.png" alt="Quá trình xử lý dữ liệu trong máy tính">
+            <div class="caption">Hình 2: Quá trình xử lý dữ liệu trong máy tính</div>
+            </div>
+
+            <h3>💡 Ghi nhớ</h3>
+            <p>• Máy tính gồm phần cứng và phần mềm; phần cứng là thiết bị vật lý.</p>
+            <p>• CPU là bộ não của máy tính; RAM và ROM là bộ nhớ trong.</p>
+            <p>• Thiết bị vào/ra giúp giao tiếp giữa con người và máy tính.</p>
+            <p>• Quá trình xử lý dữ liệu luôn theo 3 bước: Nhập – Xử lý – Xuất.</p>
+
+            <h3>📘 Nguồn tham khảo</h3>
+            <p>• SGK Tin học 11 – Cánh Diều.</p>
+            <p>• SGK Tin học 11 – Kết Nối Tri Thức với Cuộc Sống.</p>
+            <p>• SGK Tin học 11 – Chân Trời Sáng Tạo.</p>
+        </div>
+
+        <div class="lesson-footer">
+          <button class="exercise-btn" onclick="location.href='/exercise/lop-11/bai-1'">
+            Làm bài tập (Hiện chưa hoạt động)
+          </button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="/study/bai.js"></script>
+</body>
+</html>
