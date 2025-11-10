@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài 1 - Thông tin và xử lí thông tin | Học Tin Học NDGB</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/exercise/bai.css" />
+</head>
+<body>
+  <div class="window">
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo" aria-hidden>
+          <style>
+            .logo { border:0 !important; box-shadow:none !important; width:160px; height:160px; }
+            @media (max-width:880px){ .logo { width:100px; height:100px; } }
+          </style>
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB"
+              style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng - Gia Bảo</div>
+        </div>
+
+        <!-- ============ Navigation ============ -->
+        <nav aria-label="chức năng">
+          <div class="nav-item" data-id="home">
+            <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
+            <div class="label">Trang chủ</div>
+          </div>
+
+          <div class="nav-item" data-id="study">
+            <div class="ico"><img src="/file/lesson.svg" alt="Lesson Icon" width="25" height="25" /></div>
+            <div class="label">Học bài mới</div>
+          </div>
+
+          <div class="nav-item active" data-id="exercise">
+            <div class="ico"><img src="/file/exercise.png" alt="Exercise Icon" width="25" height="25" /></div>
+            <div class="label">Làm bài tập</div>
+          </div>
+
+          <div class="nav-item" data-id="test">
+            <div class="ico"><img src="/file/test.svg" alt="Test Icon" width="25" height="25" /></div>
+            <div class="label">Kiểm tra</div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ============ Main Content ============ -->
+    <main class="main">
+      <div class="lesson-page fade-in">
+        <div class="lesson-header">
+          <div class="topic">Chủ đề A: Máy tính và xã hội tri thức – Tin học 10</div>
+          <h1>BÀI 1: THÔNG TIN VÀ XỬ LÍ THÔNG TIN</h1>
+        </div>
+
+        <div class="lesson-footer">
+          <!-- KHUNG BÀI KIỂM TRA -->
+          <div id="quiz-container" class="quiz-container" aria-live="polite">
+            <h3 id="quiz-title">Bài kiểm tra trắc nghiệm</h3>
+
+            <div id="quiz-questions">
+              <!-- CÂU 1 -->
+              <div class="quiz-q" data-answer="C">
+                <h4>Phát biểu nào dưới đây đúng nhất về sự khác nhau giữa thông tin và dữ liệu?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q1" value="A"> Thông tin và dữ liệu là cùng một khái niệm.</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="B"> Thông tin là dữ liệu chưa qua xử lý.</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="C"> Thông tin mang ý nghĩa với con người, dữ liệu là cách biểu diễn thông tin trong máy tính.</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="D"> Dữ liệu là nội dung giúp con người hiểu biết và ra quyết định.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Thông tin có ý nghĩa với con người; dữ liệu là hình thức biểu diễn thông tin để máy tính xử lý.
+                </div>
+              </div>
+
+              <!-- CÂU 2 -->
+              <div class="quiz-q" data-answer="C">
+                <h4>Máy tính thực hiện các bước xử lý dữ liệu theo trình tự nào?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q2" value="A"> Nhập → Xuất → Xử lý</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="B"> Xử lý → Nhập → Xuất</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="C"> Nhập → Xử lý → Xuất</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="D"> Xử lý → Xuất → Nhập</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Quá trình xử lý thông tin gồm 3 bước: <b>Nhập → Xử lý → Xuất</b>.
+                </div>
+              </div>
+
+              <!-- CÂU 3 -->
+              <div class="quiz-q" data-answer="B">
+                <h4>Máy tính biểu diễn dữ liệu bằng hệ đếm nào?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q3" value="A"> Hệ thập phân (cơ số 10)</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="B"> Hệ nhị phân (cơ số 2)</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="C"> Hệ bát phân (cơ số 8)</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="D"> Hệ thập lục phân (cơ số 16)</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Máy tính chỉ hiểu hai trạng thái điện: bật (1) và tắt (0), nên dùng <b>hệ nhị phân</b> để biểu diễn dữ liệu.
+                </div>
+              </div>
+
+              <!-- CÂU 4 -->
+              <div class="quiz-q" data-answer="C">
+                <h4>1 byte tương ứng với bao nhiêu bit?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q4" value="A"> 2 bit</label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="B"> 4 bit</label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="C"> 8 bit</label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="D"> 16 bit</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> 1 byte gồm <b>8 bit</b>, là đơn vị cơ bản để biểu diễn một ký tự trong máy tính.
+                </div>
+              </div>
+
+              <!-- CÂU 5 -->
+              <div class="quiz-q" data-answer="A">
+                <h4>Thông tin văn bản được máy tính biểu diễn bằng cách nào?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q5" value="A"> Mỗi ký tự được biểu diễn bằng mã nhị phân theo bảng mã (ASCII, Unicode).</label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="B"> Mỗi chữ được chụp ảnh và lưu thành hình ảnh.</label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="C"> Ghi âm giọng nói con người để lưu ký tự.</label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="D"> Biểu diễn bằng hệ thập phân với các con số từ 0 đến 9.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Máy tính mã hóa từng ký tự văn bản thành dãy bit (0 và 1) theo bảng mã như <b>ASCII</b> hoặc <b>Unicode</b>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Nút nộp -->
+            <div style="text-align:center;margin-top:18px;">
+              <button id="submit-quiz" class="exercise-btn">Nộp bài</button>
+            </div>
+
+            <!-- Hiển thị điểm / đáp án -->
+            <div id="quiz-result" style="margin-top:14px; font-weight:700; display:none;"></div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/exercise/bai.js"></script>
+</body>
+</html>
