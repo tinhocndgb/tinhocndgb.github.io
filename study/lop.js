@@ -60,3 +60,11 @@ document.querySelectorAll('.lesson-btn').forEach(btn => {
     location.href = btn.getAttribute('data-href');
   });
 });
+
+
+// Gán click cho danh sách bài học
+document.querySelectorAll('.lesson-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    location.href = btn.getAttribute('data-href');
+  });
+});

@@ -515,7 +515,7 @@ td {
 }
 
 hl {
-  background-color: #001aff54;
+  background: #ffef8a;
+  padding: 0 4px;
   border-radius: 4px;
-  padding: 0 2px;
 }
