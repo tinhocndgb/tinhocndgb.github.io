@@ -195,6 +195,49 @@ window.addEventListener('load', () => {
         });
     }
 
+    function gradeQuiz() {
+    if (submitted) return;
+    submitted = true;
+
+    let total = 0;
+    let correct = 0;
+
+    const allQuestions = document.querySelectorAll('.quiz-q');
+
+    allQuestions.forEach(q => {
+        total++;
+        const correctAns = q.getAttribute('data-answer');
+        const selected = q.querySelector('input[type="radio"]:checked');
+        const selectedVal = selected ? selected.value : null;
+        const options = q.querySelectorAll('.quiz-option');
+
+        options.forEach(opt => {
+            const val = opt.querySelector('input').value;
+            opt.classList.add('disabled');
+            if (val === correctAns) opt.classList.add('option-correct');
+            if (selectedVal === val && val !== correctAns)
+                opt.classList.add('option-wrong');
+        });
+
+        if (selectedVal === correctAns) correct++;
+    });
+
+    resultBox.style.display = 'block';
+    resultBox.innerText = `Bạn đạt: ${correct} / ${total} câu đúng.`;
+    quizContainer.classList.add('quiz-locked');
+    submitBtn.disabled = true;
+
+    // 🧠 Hiện giải thích
+    document.querySelectorAll('.explanation').forEach(e => {
+        e.style.display = 'block';
+    });
+
+    // 🔄 Ẩn nút nộp, hiện nút học tiếp
+    const nextLessonBtn = document.getElementById('next-lesson');
+    submitBtn.style.display = 'none';
+    if (nextLessonBtn) nextLessonBtn.style.display = 'inline-block';
+}
+
     // ⚙️ Khởi tạo quiz
     function handleQuizInit() {
         if (!quizContainer) return;
