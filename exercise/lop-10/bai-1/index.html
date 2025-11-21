@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài 1 - Thông tin và xử lí thông tin | Học Tin Học NDGB</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/exercise/bai.css" />
+</head>
+<body>
+  <div class="window">
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo" aria-hidden>
+          <style>
+            .logo { border:0 !important; box-shadow:none !important; width:160px; height:160px; }
+            @media (max-width:880px){ .logo { width:100px; height:100px; } }
+          </style>
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB"
+              style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng - Gia Bảo</div>
+        </div>
+
+        <!-- ============ Navigation ============ -->
+        <nav aria-label="chức năng">
+          <div class="nav-item" data-id="home">
+            <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
+            <div class="label">Trang chủ</div>
+          </div>
+
+          <div class="nav-item" data-id="study">
+            <div class="ico"><img src="/file/lesson.svg" alt="Lesson Icon" width="25" height="25" /></div>
+            <div class="label">Học bài mới</div>
+          </div>
+
+          <div class="nav-item active" data-id="exercise">
+            <div class="ico"><img src="/file/exercise.png" alt="Exercise Icon" width="25" height="25" /></div>
+            <div class="label">Làm bài tập</div>
+          </div>
+
+          <div class="nav-item" data-id="test">
+            <div class="ico"><img src="/file/test.svg" alt="Test Icon" width="25" height="25" /></div>
+            <div class="label">Kiểm tra</div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ============ Main Content ============ -->
+    <main class="main">
+      <div class="lesson-page fade-in">
+        <div class="lesson-header">
+          <div class="topic">Chủ đề A: Máy tính và xã hội tri thức – Tin học 10</div>
+          <h1>BÀI 1: THÔNG TIN VÀ DỮ LIỆU</h1>
+        </div>
+
+        <div class="lesson-footer">
+          <!-- KHUNG BÀI KIỂM TRA -->
+          <div id="quiz-container" class="quiz-container" aria-live="polite">
+            <h3 id="quiz-title">Bài kiểm tra trắc nghiệm</h3>
+
+            <div id="quiz-questions">
+              <!-- ========== TRẮC NGHIỆM BÀI 1: THÔNG TIN VÀ DỮ LIỆU (PHẦN GHI NHỚ) ========== -->
+
+              <!-- I. KHÁI NIỆM THÔNG TIN -->
+              <div class="quiz-q" data-answer="C">
+                <h4>“Thông tin” là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q1" value="A"> Là toàn bộ dữ liệu lưu trong máy tính.</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="B"> Là các con số, ký hiệu chưa có ý nghĩa.</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="C"> Là những gì giúp con người hiểu biết và ra quyết định đúng đắn.</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="D"> Là dữ liệu được nhập vào máy tính.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Thông tin mang ý nghĩa đối với con người và giúp ta nhận thức, hành động phù hợp.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="A">
+                <h4>Thông tin chỉ có ích khi nào?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q2" value="A"> Khi giúp con người đưa ra quyết định đúng.</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="B"> Khi được lưu trong máy tính.</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="C"> Khi được mã hoá bằng ký hiệu nhị phân.</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="D"> Khi có dung lượng lớn.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Thông tin chỉ có giá trị khi hỗ trợ con người trong suy nghĩ, hành động, ra quyết định.
+                </div>
+              </div>
+
+              <!-- II. KHÁI NIỆM DỮ LIỆU -->
+              <div class="quiz-q" data-answer="B">
+                <h4>Dữ liệu là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q3" value="A"> Là thông tin đã được xử lý.</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="B"> Là hình thức biểu diễn của thông tin bằng con số, ký hiệu, hình ảnh hoặc âm thanh.</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="C"> Là thông tin sai lệch.</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="D"> Là kết quả sau khi máy tính xuất ra.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Dữ liệu là dạng thể hiện của thông tin để lưu trữ, truyền tải và xử lý.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="C">
+                <h4>Trong ví dụ “36, 37, 38 °C”, dãy số đó là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q4" value="A"> Là thông tin.</label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="B"> Là kết quả xử lý.</label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="C"> Là dữ liệu.</label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="D"> Là tệp tin.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Các con số này chỉ thể hiện dữ liệu; khi hiểu đó là nhiệt độ, ta mới có thông tin.
+                </div>
+              </div>
+
+              <!-- III. MỐI QUAN HỆ DỮ LIỆU - THÔNG TIN -->
+              <div class="quiz-q" data-answer="A">
+                <h4>Mối quan hệ giữa dữ liệu và thông tin là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q5" value="A"> Dữ liệu sau khi được xử lý sẽ trở thành thông tin.</label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="B"> Thông tin là dữ liệu chưa được mã hóa.</label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="C"> Dữ liệu và thông tin hoàn toàn giống nhau.</label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="D"> Thông tin chỉ tồn tại trong máy tính.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Khi dữ liệu được phân tích, sắp xếp và hiểu, nó trở thành thông tin.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="C">
+                <h4>Phát biểu nào sau đây đúng?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q6" value="A"> Thông tin là dữ liệu gốc.</label>
+                  <label class="quiz-option"><input type="radio" name="q6" value="B"> Dữ liệu là kết quả cuối cùng của xử lý.</label>
+                  <label class="quiz-option"><input type="radio" name="q6" value="C"> Dữ liệu là nguyên liệu, thông tin là sản phẩm.</label>
+                  <label class="quiz-option"><input type="radio" name="q6" value="D"> Thông tin không liên quan đến dữ liệu.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Dữ liệu được xem như nguyên liệu đầu vào, còn thông tin là kết quả sau xử lý.
+                </div>
+              </div>
+
+              <!-- IV. CÁC DẠNG THÔNG TIN -->
+              <div class="quiz-q" data-answer="D">
+                <h4>Dạng thông tin nào sau đây máy tính <b>không</b> xử lý được?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q7" value="A"> Văn bản.</label>
+                  <label class="quiz-option"><input type="radio" name="q7" value="B"> Hình ảnh.</label>
+                  <label class="quiz-option"><input type="radio" name="q7" value="C"> Âm thanh.</label>
+                  <label class="quiz-option"><input type="radio" name="q7" value="D"> Mùi hương.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Máy tính hiện nay chưa thể thu và xử lý thông tin dạng mùi hương.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="B">
+                <h4>Dạng thông tin nào dưới đây là phổ biến nhất trong giao tiếp hàng ngày?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q8" value="A"> Âm thanh.</label>
+                  <label class="quiz-option"><input type="radio" name="q8" value="B"> Văn bản.</label>
+                  <label class="quiz-option"><input type="radio" name="q8" value="C"> Video.</label>
+                  <label class="quiz-option"><input type="radio" name="q8" value="D"> Hình ảnh động.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Văn bản là dạng thông tin thông dụng nhất trong học tập, công việc và giao tiếp.
+                </div>
+              </div>
+
+              <!-- V. QUÁ TRÌNH XỬ LÝ THÔNG TIN -->
+              <div class="quiz-q" data-answer="A">
+                <h4>Quá trình xử lý thông tin gồm các bước nào?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q9" value="A"> Nhập → Xử lý → Xuất.</label>
+                  <label class="quiz-option"><input type="radio" name="q9" value="B"> Nhập → Xuất → Xử lý.</label>
+                  <label class="quiz-option"><input type="radio" name="q9" value="C"> Xử lý → Nhập → Xuất.</label>
+                  <label class="quiz-option"><input type="radio" name="q9" value="D"> Xuất → Nhập → Xử lý.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Đây là chu trình cơ bản trong mọi hệ thống xử lý thông tin, kể cả máy tính.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="C">
+                <h4>Bước “Xử lý” trong quy trình xử lý thông tin có ý nghĩa gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q10" value="A"> Thu thập dữ liệu từ người dùng.</label>
+                  <label class="quiz-option"><input type="radio" name="q10" value="B"> Trình bày kết quả ra thiết bị xuất.</label>
+                  <label class="quiz-option"><input type="radio" name="q10" value="C"> Phân tích, tính toán, sắp xếp dữ liệu để tạo ra thông tin.</label>
+                  <label class="quiz-option"><input type="radio" name="q10" value="D"> Lưu trữ dữ liệu vào bộ nhớ máy tính.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Bước xử lý giúp chuyển đổi dữ liệu thô thành thông tin có ý nghĩa.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="B">
+                <h4>Bước “Xuất” trong quy trình xử lý thông tin nhằm mục đích gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q11" value="A"> Nhập dữ liệu vào máy tính.</label>
+                  <label class="quiz-option"><input type="radio" name="q11" value="B"> Hiển thị hoặc in kết quả thông tin ra ngoài.</label>
+                  <label class="quiz-option"><input type="radio" name="q11" value="C"> Lưu dữ liệu tạm thời trong bộ nhớ.</label>
+                  <label class="quiz-option"><input type="radio" name="q11" value="D"> Chuyển thông tin thành dữ liệu mới.</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Giai đoạn “xuất” giúp người dùng nhận được kết quả xử lý dưới dạng thông tin hữu ích.
+                </div>
+              </div>
+            </div>
+            
+            <!-- Nút nộp -->
+            <div style="text-align:center;margin-top:18px;">
+              <button id="submit-quiz" class="exercise-btn">Nộp bài</button>
+              <button id="next-lesson" class="exercise-btn" style="display:none;" onclick="location.href='/study/lop-10/bai-2'">Học bài tiếp theo</button>
+            </div>
+
+            <!-- Hiển thị điểm / đáp án -->
+            <div id="quiz-result" style="margin-top:14px; font-weight:700; display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/exercise/bai.js"></script>
+</body>
+</html>

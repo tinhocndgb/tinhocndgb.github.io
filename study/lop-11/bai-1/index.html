@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài 1 - Bên trong máy tính | Học Tin Học NDGB</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/study/bai.css" />
+</head>
+<body>
+  <div class="window">
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo" aria-hidden>
+          <style>
+            .logo { border:0 !important; box-shadow:none !important; width:160px; height:160px; }
+            @media (max-width:880px){ .logo { width:100px; height:100px; } }
+          </style>
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB"
+              style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng - Gia Bảo</div>
+        </div>
+
+        <!-- ============ Navigation ============ -->
+        <nav aria-label="chức năng">
+          <div class="nav-item" data-id="home">
+            <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
+            <div class="label">Trang chủ</div>
+          </div>
+
+          <div class="nav-item active" data-id="study">
+            <div class="ico"><img src="/file/lesson.svg" alt="Lesson Icon" width="25" height="25" /></div>
+            <div class="label">Học bài mới</div>
+          </div>
+
+          <div class="nav-item" data-id="exercise">
+            <div class="ico"><img src="/file/exercise.png" alt="Exercise Icon" width="25" height="25" /></div>
+            <div class="label">Làm bài tập</div>
+          </div>
+
+          <div class="nav-item" data-id="test">
+            <div class="ico"><img src="/file/test.svg" alt="Test Icon" width="25" height="25" /></div>
+            <div class="label">Kiểm tra</div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ============ Main Content ============ -->
+    <main class="main">
+      <div class="lesson-page fade-in">
+        <div class="lesson-header">
+          <div class="topic">Chủ đề A: Máy tính và xã hội tri thức – Tin học 11</div>
+          <h1>BÀI 1: BÊN TRONG MÁY TÍNH</h1>
+        </div>
+
+        <div class="lesson-content">
+            <h2>🎯 MỤC TIÊU BÀI HỌC</h2>
+            <p>Học xong bài này, học sinh có thể:</p>
+            <ul>
+                <li>Hiểu được vai trò của <hl>hệ điều hành</hl> trong máy tính.</li>
+                <li>Phân biệt được <hl>phần mềm hệ thống</hl> và <hl>phần mềm ứng dụng</hl>.</li>
+                <li>Nhận biết các <hl>thiết bị số thông minh</hl> và <hl>cảm biến</hl>.</li>
+                <li>Trình bày được <hl>nguyên lý kết nối</hl> trong <hl>Internet vạn vật (IoT)</hl>.</li>
+            </ul>
+
+            <h2>🧩 1. Hệ điều hành và phần mềm máy tính</h2>
+            <p><b>Hệ điều hành (Operating System - OS)</b> là phần mềm quan trọng nhất giúp <hl>điều khiển và quản lý toàn bộ hoạt động của máy tính</hl>.</p>
+            <p>Nó tạo môi trường làm việc để người dùng tương tác với máy tính, đồng thời đảm bảo các phần mềm và phần cứng hoạt động hài hòa.</p>
+
+            <div class="example-box">
+                <p><b>💡 Ví dụ:</b></p>
+                <ul>
+                    <li>Khi bạn bấm vào biểu tượng “Word”, hệ điều hành sẽ nạp chương trình vào bộ nhớ và cấp quyền truy cập ổ đĩa để mở file.</li>
+                    <li>Hệ điều hành phổ biến: <hl>Windows</hl>, <hl>macOS</hl>, <hl>Linux</hl>, <hl>Android</hl>, <hl>iOS</hl>.</li>
+                </ul>
+            </div>
+
+            <h3>⚙️ Vai trò của hệ điều hành</h3>
+            <p>Hệ điều hành thực hiện nhiều chức năng quan trọng:</p>
+            <ul>
+                <li>Quản lý tài nguyên phần cứng (<hl>CPU</hl>, <hl>bộ nhớ</hl>, thiết bị vào/ra).</li>
+                <li>Tổ chức, lưu trữ và truy xuất <hl>tệp tin</hl>.</li>
+                <li>Điều phối hoạt động giữa các phần mềm.</li>
+                <li>Hiển thị <hl>giao diện người dùng</hl>.</li>
+            </ul>
+
+            <div class="image-box">
+                <img src="hinh1-he-dieu-hanh.png" alt="Minh họa vai trò hệ điều hành">
+                <div class="caption">Hình 1: Hệ điều hành quản lý và điều phối mọi hoạt động của máy tính.</div>
+            </div>
+
+            <h3>🧠 Phân loại phần mềm</h3>
+            <p>Phần mềm máy tính được chia làm hai loại chính:</p>
+            <table>
+                <tr>
+                    <th>Phần mềm hệ thống</th>
+                    <th>Phần mềm ứng dụng</th>
+                </tr>
+                <tr>
+                    <td>Điều khiển, quản lý hoạt động của máy tính.<br>Ví dụ: <hl>Windows</hl>, <hl>Linux</hl>.</td>
+                    <td>Phục vụ nhu cầu cụ thể của người dùng.<br>Ví dụ: <hl>Word</hl>, <hl>Excel</hl>, <hl>Chrome</hl>.</td>
+                </tr>
+                <tr>
+                    <td><hl>Là nền tảng</hl> để phần mềm khác chạy được.</td>
+                    <td><hl>Phụ thuộc vào hệ điều hành</hl> để hoạt động.</td>
+                </tr>
+            </table>
+
+            <h2>📱 2. Thiết bị số thông minh và cảm biến</h2>
+            <p><b>Thiết bị số thông minh</b> là những thiết bị có thể <hl>thu thập dữ liệu, xử lí và kết nối mạng</hl> để hoạt động tự động.</p>
+
+            <ul>
+                <li>Ví dụ: điện thoại, tivi, đồng hồ thông minh, robot hút bụi, camera an ninh,...</li>
+            </ul>
+
+            <p><b>Cảm biến (sensor)</b> là bộ phận giúp thiết bị thông minh <hl>nhận biết được trạng thái môi trường xung quanh</hl> như ánh sáng, âm thanh, nhiệt độ, chuyển động,...</p>
+
+            <div class="example-box">
+                <p><b>🪄 Ví dụ:</b></p>
+                <ul>
+                    <li>Cảm biến ánh sáng trong điện thoại giúp tự điều chỉnh độ sáng màn hình.</li>
+                    <li>Cảm biến chuyển động trong đèn cầu thang tự bật khi có người đi qua.</li>
+                </ul>
+            </div>
+
+            <div class="image-box">
+                <img src="hinh2-cam-bien.png" alt="Hình minh họa cảm biến trong thiết bị thông minh">
+                <div class="caption">Hình 2: Cảm biến giúp thiết bị thu nhận dữ liệu từ môi trường.</div>
+            </div>
+
+            <h2>🌐 3. Internet vạn vật (IoT)</h2>
+            <p><b>IoT (Internet of Things)</b> là mạng lưới kết nối các thiết bị thông minh với Internet để <hl>trao đổi dữ liệu và điều khiển từ xa</hl>.</p>
+
+            <table>
+                <tr>
+                    <th>Thành phần</th>
+                    <th>Vai trò</th>
+                </tr>
+                <tr>
+                    <td>Thiết bị thông minh</td>
+                    <td>Thu thập và gửi dữ liệu (cảm biến nhiệt độ, camera,...)</td>
+                </tr>
+                <tr>
+                    <td>Mạng Internet</td>
+                    <td>Truyền dữ liệu giữa các thiết bị và máy chủ</td>
+                </tr>
+                <tr>
+                    <td>Hệ thống xử lí</td>
+                    <td>Phân tích dữ liệu, tự động ra quyết định</td>
+                </tr>
+            </table>
+
+            <p>💡 Nhờ IoT, con người có thể giám sát và điều khiển mọi thứ ở bất cứ đâu — như <hl>nhà thông minh</hl>, <hl>thành phố thông minh</hl>, hay <hl>nông nghiệp số</hl>.</p>
+
+            <div class="media-box">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/wXB-V_Keiu8"
+                        title="Video minh họa Internet vạn vật (IoT)"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="caption">Video 1: Nguyên lý hoạt động của IoT trong đời sống.</div>
+            </div>
+
+            <h2>📘 GHI NHỚ</h2>
+            <ul>
+                <li><hl>Hệ điều hành</hl> là phần mềm điều khiển và quản lý toàn bộ máy tính.</li>
+                <li><hl>Phần mềm hệ thống</hl> phục vụ cho hoạt động của máy, còn <hl>phần mềm ứng dụng</hl> phục vụ người dùng.</li>
+                <li><hl>Thiết bị thông minh</hl> có khả năng xử lí và kết nối mạng; <hl>cảm biến</hl> giúp thu nhận dữ liệu từ môi trường.</li>
+                <li><hl>IoT</hl> cho phép các thiết bị giao tiếp và hoạt động tự động thông qua Internet.</li>
+            </ul>
+        </div>
+
+        <div class="lesson-footer">
+          <button class="exercise-btn" onclick="location.href='/exercise/lop-11/bai-1'">
+            Làm bài tập
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/study/bai.js"></script>
+</body>
+</html>

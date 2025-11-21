@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài Mẫu | Học Tin Học NDGB</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/exercise/bai.css" />
+</head>
+<body>
+  <div class="window">
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo" aria-hidden>
+          <style>
+            .logo { border:0 !important; box-shadow:none !important; width:160px; height:160px; }
+            @media (max-width:880px){ .logo { width:100px; height:100px; } }
+          </style>
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB"
+              style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng - Gia Bảo</div>
+        </div>
+
+        <!-- ============ Navigation ============ -->
+        <nav aria-label="chức năng">
+          <div class="nav-item" data-id="home">
+            <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
+            <div class="label">Trang chủ</div>
+          </div>
+
+          <div class="nav-item" data-id="study">
+            <div class="ico"><img src="/file/lesson.svg" alt="Lesson Icon" width="25" height="25" /></div>
+            <div class="label">Học bài mới</div>
+          </div>
+
+          <div class="nav-item active" data-id="exercise">
+            <div class="ico"><img src="/file/exercise.png" alt="Exercise Icon" width="25" height="25" /></div>
+            <div class="label">Làm bài tập</div>
+          </div>
+
+          <div class="nav-item" data-id="test">
+            <div class="ico"><img src="/file/test.svg" alt="Test Icon" width="25" height="25" /></div>
+            <div class="label">Kiểm tra</div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ============ Main Content ============ -->
+    <main class="main">
+      <div class="lesson-page fade-in">
+        <div class="lesson-header">
+          <div class="topic">Chủ đề mẫu</div>
+          <h1>Bài Mẫu</h1>
+        </div>
+
+        <div class="lesson-footer">
+          <!-- KHUNG BÀI KIỂM TRA -->
+          <div id="quiz-container" class="quiz-container" aria-live="polite">
+            <h3 id="quiz-title">Bài kiểm tra trắc nghiệm</h3>
+
+            <div id="quiz-questions">
+              <!-- Câu hỏi 1 -->
+              <div class="quiz-q" data-answer="A">
+                <h4>Máy tính thực hiện các bước xử lý dữ liệu theo trình tự nào?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q1" value="A"> Nhập → Xử lý → Xuất</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="B"> Nhập → Xuất → Xử lý</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="C"> Xử lý → Nhập → Xuất</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="D"> Xuất → Nhập → Xử lý</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Máy tính thực hiện các bước xử lý dữ liệu theo trình tự: <b>Nhập → Xử lý → Xuất</b>.
+                </div>
+              </div>
+
+              <!-- Câu hỏi 2 -->
+              <div class="quiz-q" data-answer="B">
+                <h4>Đơn vị nhỏ nhất để đo lượng thông tin là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q2" value="A"> Byte</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="B"> Bit</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="C"> Kilobyte</label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="D"> Megabyte</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Đơn vị nhỏ nhất để đo lượng thông tin là <b>bit</b> (viết tắt của “binary digit”). 1 byte = 8 bit.
+                </div>
+              </div>
+
+              <!-- Câu hỏi 3 -->
+              <div class="quiz-q" data-answer="C">
+                <h4>Bộ nhớ nào là bộ nhớ tạm, mất khi tắt máy?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q3" value="A"> ROM</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="B"> HDD</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="C"> RAM</label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="D"> SSD</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> RAM (Random Access Memory) là bộ nhớ tạm thời, dữ liệu trong RAM sẽ bị mất khi tắt máy.
+                </div>
+              </div>
+            </div>
+
+            <!-- Nút nộp -->
+            <div style="text-align:center;margin-top:18px;">
+              <button id="submit-quiz" class="exercise-btn">Nộp bài</button>
+              <button id="next-lesson" class="exercise-btn" style="display:none;" onclick="location.href='/study/lop-10/bai-1'">Học bài tiếp theo</button>
+            </div>
+
+            <!-- Hiển thị điểm / đáp án -->
+            <div id="quiz-result" style="margin-top:14px; font-weight:700; display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/exercise/bai.js"></script>
+</body>
+</html>
