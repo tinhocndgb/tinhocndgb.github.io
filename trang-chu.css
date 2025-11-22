@@ -519,3 +519,14 @@ hl {
   padding: 0 4px;
   border-radius: 4px;
 }
+
+.btn {
+    width: 100%; max-width: 500px; min-width: 288px; margin: 10px auto;
+    color: white; font-size: 25px; padding: 18px 36px; border-radius: 50vw;
+    border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    font-weight: bold; text-align: center; display: block;
+}
+.btn:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+.btn:active { transform: translateY(2px); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.py-btn { background: linear-gradient(135deg, #0044ff, #1100ff); }

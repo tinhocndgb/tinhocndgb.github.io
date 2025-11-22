@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Đề mẫu (FULL) — MCQ + Đúng/Sai (button)</title>
+<style>
+  :root{
+    --bg:#f6f9ff; --card:#ffffff; --accent:#3b6fff;
+    --green:#00a542; --red:#ff3b30; --muted:#555;
+    --radius:12px; --shadow: 0 12px 30px rgba(30,30,60,0.08);
+    font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,#eaf4ff,#fbf7ff);color:#111}
+  .wrap{max-width:980px;margin:28px auto;padding:28px;background:var(--card);border-radius:16px;box-shadow:var(--shadow)}
+  header{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+  header h1{margin:0;color:var(--accent);font-size:20px}
+  header p{margin:0;color:var(--muted);font-size:13px}
+  .meta {display:flex;gap:12px;margin-top:10px;align-items:center}
+  .meta .chip{background:#f1f6ff;padding:6px 10px;border-radius:999px;color:var(--accent);font-weight:700;border:1px solid rgba(59,103,255,0.08)}
+  .quiz-area{margin-top:18px}
+  .section-title{font-weight:800;color:#222;margin:12px 0}
+  .quiz-q{margin:14px 0;padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);background:#fbfeff}
+  .quiz-q h4{margin:0 0 8px;color:var(--accent);font-size:16px}
+  .mcq-options, .tf-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .mcq-btn, .tf-btn{
+    display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #cfcfcf;background:white;text-align:left;
+    cursor:pointer;font-size:15px;transition:all .12s ease;width:100%;
+  }
+  .mcq-btn:hover, .tf-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(60,0,255,0.06)}
+  .mcq-btn .label{font-weight:700;margin-right:8px}
+  .selected{background:#d7e4ff !important;border-color:var(--accent) !important}
+  .correct{background:#d9ffe4 !important;border-color:var(--green) !important}
+  .wrong{background:#ffd6d6 !important;border-color:var(--red) !important}
+  .tf-row{display:flex;gap:8px;align-items:center}
+  .tf-row span{flex:1}
+  .tf-controls{display:flex;gap:8px;min-width:220px;justify-content:flex-end}
+  #controls{display:flex;gap:12px;justify-content:center;margin-top:18px}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),#5b2bff);color:#fff;padding:10px 20px;border-radius:999px;border:none;cursor:pointer;font-weight:800;box-shadow:0 8px 26px rgba(59,103,255,0.18)}
+  .btn-muted{background:#f4f6fb;border-radius:999px;padding:10px 16px;border:1px solid #e6e9f7;cursor:pointer}
+  #quiz-result{margin-top:14px;font-weight:800;text-align:center;display:none}
+  .explanation{display:none;margin-top:10px;padding:10px;border-left:4px solid var(--accent);color:var(--muted);background:#fbfdff;border-radius:6px}
+  footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+  /* Responsive */
+  @media (max-width:720px){
+    .tf-controls{min-width:auto;flex-direction:row}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div style="width:64px;height:64px;border-radius:14px;background:linear-gradient(180deg,#fff,#f7f9ff);display:grid;place-items:center;border:1px solid rgba(0,0,0,0.04)">
+        <strong style="color:var(--accent);font-size:20px">ND</strong>
+      </div>
+      <div>
+        <h1>Đề mẫu — MCQ + Đúng/Sai (button)</h1>
+        <p>Demo template: 20 câu trắc nghiệm (mỗi 0.25đ) + 2 câu đúng/sai (mỗi câu tối đa 1đ). Tổng = 7.00</p>
+        <div class="meta">
+          <div class="chip">Thời gian: 15 phút</div>
+          <div style="color:var(--muted)">Mỗi câu trắc nghiệm: 0.25đ</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="quiz-area">
+      <div class="section-title">PHẦN 1 — TRẮC NGHIỆM A/B/C/D (20 câu — 5.00 điểm)</div>
+
+      <!-- 20 câu MCQ (mỗi câu data-answer là đáp án đúng A/B/C/D) -->
+      <div id="part1">
+        <!-- For brevity we name 20 short MCQs. You can edit texts below. -->
+        <!-- Q1 -->
+        <div class="quiz-q mcq" data-answer="C">
+          <h4>1. Thiết bị nào là thiết bị nhập?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Màn hình</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Máy in</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Bàn phím</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Loa</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Bàn phím là thiết bị nhập dữ liệu.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-q mcq" data-answer="A">
+          <h4>2. Đơn vị xử lý trung tâm gọi tắt là gì?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> CPU</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> GPU</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> RAM</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> HDD</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> CPU = Central Processing Unit.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-q mcq" data-answer="B">
+          <h4>3. Thiết bị nào sau đây là thiết bị xuất?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Chuột</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Màn hình</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Microphone</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Bàn phím</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Màn hình xuất thông tin ra người dùng.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-q mcq" data-answer="D">
+          <h4>4. Thiết bị lưu trữ chính của máy tính là gì?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> RAM</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> CPU</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> GPU</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Ổ cứng (HDD/SSD)</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Ổ cứng dùng để lưu trữ lâu dài.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-q mcq" data-answer="B">
+          <h4>5. Phần mềm nào là hệ điều hành?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> MS Office</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Windows</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Chrome</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> VLC</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Windows là hệ điều hành.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-q mcq" data-answer="A">
+          <h4>6. Phần cứng không gồm?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Hệ điều hành</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> CPU</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> RAM</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> SSD</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Hệ điều hành là phần mềm.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-q mcq" data-answer="C">
+          <h4>7. Ký hiệu viết tắt của Random Access Memory là?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> ROM</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> CPU</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> RAM</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> HDD</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> RAM là bộ nhớ truy cập ngẫu nhiên.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-q mcq" data-answer="B">
+          <h4>8. Dạng thông tin nào sau đây có thể xử lý bằng máy tính?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Mùi vị</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Hình ảnh</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Vị giác</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Hương thơm</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Máy tính xử lý được hình ảnh (dữ liệu số).</div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-q mcq" data-answer="D">
+          <h4>9. Thiết bị xuất âm thanh là?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Bàn phím</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Chuột</button>
+            <button class="mc-btn mcq-btn" data-val="C"><span class="label">C</span> Webcam</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Loa</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Loa là thiết bị xuất âm thanh.</div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-q mcq" data-answer="A">
+          <h4>10. Khi lưu file, dữ liệu được ghi vào?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Ổ cứng/SSD</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Màn hình</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Bàn phím</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Máy in</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Lưu file vào bộ nhớ lâu dài như ổ cứng/SSD.</div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="quiz-q mcq" data-answer="C">
+          <h4>11. Hệ điều hành quản lý gì?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Internet duy nhất</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Word</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Tài nguyên phần cứng</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Màn hình nền</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Hệ điều hành điều phối tài nguyên phần cứng.</div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="quiz-q mcq" data-answer="B">
+          <h4>12. Kết nối mạng phổ biến là gì?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> USB</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Wi-Fi</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> HDMI</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> VGA</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Wi-Fi là kết nối mạng không dây phổ biến.</div>
+        </div>
+
+        <!-- Q13 -->
+        <div class="quiz-q mcq" data-answer="D">
+          <h4>13. Thiết bị nào dùng để chụp ảnh, quay video?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Máy in</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Loa</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Bàn phím</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Webcam / Camera</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Webcam/Camera dùng để ghi hình.</div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="quiz-q mcq" data-answer="B">
+          <h4>14. File văn bản thường có đuôi?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> .jpg</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> .docx</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> .mp3</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> .mp4</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> .docx là đuôi file văn bản MS Word.</div>
+        </div>
+
+        <!-- Q15 -->
+        <div class="quiz-q mcq" data-answer="A">
+          <h4>15. Phần mềm diệt virus thuộc loại?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Phần mềm ứng dụng</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Hệ điều hành</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Trình duyệt</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Driver</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Phần mềm diệt virus là ứng dụng bảo mật.</div>
+        </div>
+
+        <!-- Q16 -->
+        <div class="quiz-q mcq" data-answer="C">
+          <h4>16. Dạng dữ liệu biểu diễn âm thanh là?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> JPEG</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> PNG</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> WAV/MP3</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> DOCX</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> WAV/MP3 là định dạng âm thanh.</div>
+        </div>
+
+        <!-- Q17 -->
+        <div class="quiz-q mcq" data-answer="D">
+          <h4>17. Thiết bị lưu tạm thời được gọi là?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> HDD</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> SSD</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> USB</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> RAM</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> RAM lưu tạm thời dữ liệu khi xử lý.</div>
+        </div>
+
+        <!-- Q18 -->
+        <div class="quiz-q mcq" data-answer="A">
+          <h4>18. Gõ văn bản thường dùng thiết bị?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Bàn phím</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Loa</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Máy in</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Webcam</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Bàn phím để nhập văn bản.</div>
+        </div>
+
+        <!-- Q19 -->
+        <div class="quiz-q mcq" data-answer="B">
+          <h4>19. Phần mềm duyệt web phổ biến?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Word</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Chrome</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Excel</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> PowerPoint</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Chrome là trình duyệt web.</div>
+        </div>
+
+        <!-- Q20 -->
+        <div class="quiz-q mcq" data-answer="D">
+          <h4>20. Khi in tài liệu cần dùng thiết bị?</h4>
+          <div class="mcq-options">
+            <button class="mcq-btn" data-val="A"><span class="label">A</span> Màn hình</button>
+            <button class="mcq-btn" data-val="B"><span class="label">B</span> Bàn phím</button>
+            <button class="mcq-btn" data-val="C"><span class="label">C</span> Chuột</button>
+            <button class="mcq-btn" data-val="D"><span class="label">D</span> Máy in</button>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Máy in dùng để in tài liệu.</div>
+        </div>
+
+      </div> <!-- end part1 -->
+
+      <div class="section-title" style="margin-top:18px">PHẦN 2 — ĐÚNG / SAI (2 câu, mỗi câu tối đa 1.00 điểm)</div>
+
+      <div id="part2">
+        <!-- TFQ 1 -->
+        <div class="quiz-q tfq">
+          <h4>21. Câu đúng/sai 1 (chọn ĐÚNG/SAI cho từng ý)</h4>
+          <div class="tf-list">
+            <div class="tf-row" data-correct="true">
+              <span>Máy tính có thể xử lý số.</span>
+              <div class="tf-controls">
+                <button class="tf-btn" data-val="true">Đúng</button>
+                <button class="tf-btn" data-val="false">Sai</button>
+              </div>
+            </div>
+            <div class="tf-row" data-correct="false">
+              <span>Máy tính không thể xử lý hình ảnh.</span>
+              <div class="tf-controls">
+                <button class="tf-btn" data-val="true">Đúng</button>
+                <button class="tf-btn" data-val="false">Sai</button>
+              </div>
+            </div>
+            <div class="tf-row" data-correct="true">
+              <span>Máy tính có thể xử lý văn bản.</span>
+              <div class="tf-controls">
+                <button class="tf-btn" data-val="true">Đúng</button>
+                <button class="tf-btn" data-val="false">Sai</button>
+              </div>
+            </div>
+            <div class="tf-row" data-correct="true">
+              <span>Máy tính có thể xử lý âm thanh.</span>
+              <div class="tf-controls">
+                <button class="tf-btn" data-val="true">Đúng</button>
+                <button class="tf-btn" data-val="false">Sai</button>
+              </div>
+            </div>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> Máy tính xử lý được số, văn bản, hình ảnh, âm thanh.</div>
+        </div>
+
+        <!-- TFQ 2 -->
+        <div class="quiz-q tfq">
+          <h4>22. Câu đúng/sai 2 (chọn ĐÚNG/SAI cho từng ý)</h4>
+          <div class="tf-list">
+            <div class="tf-row" data-correct="true">
+              <span>CPU thực hiện xử lý dữ liệu.</span>
+              <div class="tf-controls">
+                <button class="tf-btn" data-val="true">Đúng</button>
+                <button class="tf-btn" data-val="false">Sai</button>
+              </div>
+            </div>
+            <div class="tf-row" data-correct="true">
+              <span>RAM lưu dữ liệu tạm thời.</span>
+              <div class="tf-controls">
+                <button class="tf-btn" data-val="true">Đúng</button>
+                <button class="tf-btn" data-val="false">Sai</button>
+              </div>
+            </div>
+            <div class="tf-row" data-correct="false">
+              <span>Bàn phím là thiết bị xuất dữ liệu.</span>
+              <div class="tf-controls">
+                <button class="tf-btn" data-val="true">Đúng</button>
+                <button class="tf-btn" data-val="false">Sai</button>
+              </div>
+            </div>
+            <div class="tf-row" data-correct="false">
+              <span>Màn hình là thiết bị nhập dữ liệu.</span>
+              <div class="tf-controls">
+                <button class="tf-btn" data-val="true">Đúng</button>
+                <button class="tf-btn" data-val="false">Sai</button>
+              </div>
+            </div>
+          </div>
+          <div class="explanation"><hl>Giải thích:</hl> CPU xử lý, RAM lưu tạm; bàn phím nhập – màn hình xuất.</div>
+        </div>
+
+      </div> <!-- end part2 -->
+
+      <div id="controls">
+        <button id="submit-quiz" class="btn-primary">Nộp bài</button>
+        <button id="next-lesson" class="btn-muted" style="display:none" onclick="alert('Nút Học tiếp — bạn đặt link ở onclick')">Học bài tiếp</button>
+      </div>
+
+      <div id="quiz-result"></div>
+
+    </div> <!-- quiz-area -->
+
+    <footer>Template bởi Học Tin Học NDGB — Mẫu full (button mode)</footer>
+  </div>
+
+<script>
+/* ============================
+  QUIZ (button-based) — FULL
+  - MCQ: .mcq .mcq-btn (data-val)
+  - TF: .tf-row (data-correct="true|false"), each row has .tf-btn (data-val "true"/"false")
+  - Scoring:
+      MCQ: each correct +0.25
+      TF per question: userCorrect count → map to points:
+         1 -> 0.1, 2 -> 0.25, 3 -> 0.5, 4 -> 1
+  - Total max: 7.00 (20 MCQ *0.25 =5 + 2 TF *1 =2)
+============================ */
+
+(function(){
+  const submitBtn = document.getElementById('submit-quiz');
+  const nextBtn = document.getElementById('next-lesson');
+  const resultBox = document.getElementById('quiz-result');
+
+  // helper
+  function qsAll(sel, ctx=document) { return Array.from(ctx.querySelectorAll(sel)); }
+  function addClass(el, cls){ el.classList.add(cls); }
+  function removeClass(el, cls){ el.classList.remove(cls); }
+  function disableAll(list){ list.forEach(b=>b.disabled=true); }
+
+  // SELECT BEHAVIOR (MCQ)
+  qsAll('.mcq-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const box = btn.closest('.mcq-options');
+      qsAll('.mcq-btn', box).forEach(b=>removeClass(b,'selected'));
+      addClass(btn,'selected');
+    });
+  });
+
+  // SELECT BEHAVIOR (TF)
+  qsAll('.tf-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const row = btn.closest('.tf-row');
+      qsAll('.tf-btn', row).forEach(b=>removeClass(b,'selected'));
+      addClass(btn,'selected');
+    });
+  });
+
+  // grading map for TF question depending on number of correct choices user picked
+  function tfPointsFromCorrectCount(n){
+    if(n===1) return 0.1;
+    if(n===2) return 0.25;
+    if(n===3) return 0.5;
+    if(n===4) return 1.0;
+    return 0;
+  }
+
+  // Submit
+  submitBtn.addEventListener('click', ()=>{
+    // prevent double submit
+    if(submitBtn.dataset.submitted==='true') return;
+    submitBtn.dataset.submitted='true';
+
+    let score = 0;
+
+    // Part 1: MCQ
+    const mcqs = qsAll('.mcq');
+    mcqs.forEach(q=>{
+      const correct = q.dataset.answer; // "A"/"B"/...
+      const selected = q.querySelector('.mcq-btn.selected');
+
+      // mark all buttons: correct / wrong if chosen wrong
+      const buttons = qsAll('.mcq-btn', q);
+      buttons.forEach(b=>{
+        const val = b.dataset.val;
+        if(val === correct){
+          addClass(b,'correct');
+        }
+        if(selected && b === selected && selected.dataset.val !== correct){
+          addClass(b,'wrong');
+        }
+        b.disabled = true;
+      });
+
+      if(selected && selected.dataset.val === correct){
+        score += 0.25;
+      }
+    });
+
+    // Part 2: TF (2 questions)
+    const tfqs = qsAll('.tfq');
+    tfqs.forEach(q=>{
+      // for each row, check selected button vs data-correct
+      let userCorrectCount = 0;
+      const rows = qsAll('.tf-row', q);
+      rows.forEach(row=>{
+        const correctVal = row.dataset.correct; // "true" or "false" as string
+        const selected = row.querySelector('.tf-btn.selected');
+
+        // mark buttons
+        const btns = qsAll('.tf-btn', row);
+        btns.forEach(b=>{
+          if(b.dataset.val === correctVal){
+            addClass(b,'correct'); // show correct
+          } else if(selected && b === selected && b.dataset.val !== correctVal){
+            addClass(b,'wrong'); // user chose wrong one
+          }
+          b.disabled = true;
+        });
+
+        if(selected && selected.dataset.val === correctVal){
+          userCorrectCount += 1;
+        }
+      });
+
+      // convert userCorrectCount to points for this TF question
+      const pts = tfPointsFromCorrectCount(userCorrectCount);
+      score += pts;
+    });
+
+    // Show result (rounded to 2 decimals)
+    resultBox.style.display = 'block';
+    resultBox.style.fontWeight = '800';
+    resultBox.style.marginTop = '12px';
+    resultBox.innerHTML = `Bạn đạt: <span style="color:var(--accent)">${score.toFixed(2)}</span> / 7.00 điểm`;
+
+    // UI changes
+    submitBtn.style.display = 'none';
+    nextBtn.style.display = 'inline-block';
+
+    // reveal explanations
+    qsAll('.explanation').forEach(e=>e.style.display='block');
+  });
+
+})(); // IIFE end
+</script>
+</body>
+</html>
