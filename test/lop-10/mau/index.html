@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bài Mẫu | Học Tin Học NDGB</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/test/bai.css" />
+</head>
+<body>
+  <div class="window">
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo" aria-hidden>
+          <style>
+            .logo { border:0 !important; box-shadow:none !important; width:160px; height:160px; }
+            @media (max-width:880px){ .logo { width:100px; height:100px; } }
+          </style>
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB"
+              style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng - Gia Bảo</div>
+        </div>
+
+        <!-- ============ Navigation ============ -->
+        <nav aria-label="chức năng">
+          <div class="nav-item" data-id="home">
+            <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
+            <div class="label">Trang chủ</div>
+          </div>
+
+          <div class="nav-item" data-id="study">
+            <div class="ico"><img src="/file/lesson.svg" alt="Lesson Icon" width="25" height="25" /></div>
+            <div class="label">Học bài mới</div>
+          </div>
+
+          <div class="nav-item" data-id="exercise">
+            <div class="ico"><img src="/file/exercise.png" alt="Exercise Icon" width="25" height="25" /></div>
+            <div class="label">Làm bài tập</div>
+          </div>
+
+          <div class="nav-item active" data-id="test">
+            <div class="ico"><img src="/file/test.svg" alt="Test Icon" width="25" height="25" /></div>
+            <div class="label">Kiểm tra</div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ============ Main Content ============ -->
+    <main class="main">
+      <div class="lesson-page fade-in">
+        <div class="lesson-header">
+          <div class="topic">Chủ đề mẫu</div>
+          <h1>Bài Mẫu</h1>
+        </div>
+
+        <div class="lesson-footer">
+          <!-- KHUNG BÀI KIỂM TRA -->
+          <div id="quiz-container" class="quiz-container" aria-live="polite">
+
+            <div id="quiz-questions">
+              <div class="quiz-q" data-answer="A"> <!-- data-point="1" -->
+                <h4 class="quiz-title">Đây là câu hỏi trắc nghiệm mẫu.</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q1" value="A"> Đáp án đúng</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="B"> Đáp án sai</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="C"> Đáp án sai</label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="D"> Đáp án sai</label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Đáp án <b>đúng</b>.
+                </div>
+              </div>
+
+              <div class="true-false-q" data-answer="F,T,F">
+                <h4>Đánh dấu Đúng (Đ) hoặc Sai (S) cho các câu sau:</h4>
+                <div class="true-false-list">
+
+                  <div class="true-false-item" data-correct-tf="F">
+                    <span class="true-false-item-text">Việt Nam nằm ở châu Phi.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#e04b4b"> Sai</b>, Việt Nam ở châu Á.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="T">
+                    <span class="true-false-item-text">H2O là công thức hóa học của nước.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#00a956"> Đúng</b>, H2O là công thức của nước.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="F">
+                    <span class="true-false-item-text">Trái Đất là hành tinh lớn nhất trong Hệ Mặt Trời.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#e04b4b"> Sai</b>, Sao Mộc là hành tinh lớn nhất.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="T">
+                    <span class="true-false-item-text">Python là một ngôn ngữ lập trình.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#00a956"> Đúng</b>, Python là ngôn ngữ lập trình phổ biến.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="short-answer-q" data-answer="12,5" data-point="0.5">
+                <h4 class="quiz-title">Tính giá trị biểu thức sau: 5 * 2 + 2,5</h4>
+                <div class="short-answer-controls">
+                    <input type="text" placeholder="Nhập đáp án" />
+                </div>
+                <div class="explanation">
+                    <hl>Giải thích:</hl><br>
+                    5 nhân 2 bằng 10. Cộng thêm 2,5 bằng 12,5. Đáp án đúng là <b style="color:#00a956">12,5</b>.
+                </div>
+            </div>
+
+            <div class="short-answer-q" data-answer="-10" data-point="0.5">
+                <h4 class="quiz-title">Kết quả của 5 - 15 là bao nhiêu?</h4>
+                <div class="short-answer-controls">
+                    <input type="text" placeholder="Nhập đáp án" />
+                </div>
+                <div class="explanation">
+                    <hl>Giải thích:</hl><br>
+                    5 trừ 15 bằng <b style="color:#00a956">-10</b>.
+                </div>
+            </div>
+
+            <div class="quiz-q essay-q">
+                <h4 class="quiz-title">
+                    Giải thích ngắn gọn tại sao HTML, CSS và JavaScript là 3 ngôn ngữ cốt lõi của phát triển web.
+                </h4>
+                <div class="short-answer-controls">
+                    <textarea placeholder="Nhập câu trả lời của bạn ở đây..."></textarea>
+                </div>
+                <div class="explanation" style="display:none;">
+                    <hl>Đáp án Tham khảo:</hl><br>
+                    - HTML chịu trách nhiệm về cấu trúc và nội dung (bộ xương).<br>
+                    - CSS chịu trách nhiệm về giao diện và thiết kế (trang phục).<br>
+                    - JavaScript chịu trách nhiệm về hành vi và tương tác (bộ não).<br>
+                    => Ba thành phần này độc lập nhưng cần thiết để xây dựng một trang web hiện đại hoàn chỉnh.
+                </div>
+            </div>
+
+            <!-- Nút nộp -->
+            <div style="text-align:center;margin-top:18px;">
+              <button id="submit-quiz" class="exercise-btn">Nộp bài</button>
+              <button id="redo-quiz" class="exercise-btn" style="display:none;" onclick="window.handleQuizInit()">Làm lại</button>
+              <button id="next-lesson" class="exercise-btn" style="display:none;" onclick="location.href='/study/lop-10/bai-1'">Học bài tiếp theo</button>
+            </div>
+
+            <!-- Hiển thị điểm / đáp án -->
+            <div id="quiz-result" style="margin-top:14px; font-weight:700; display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/test/bai.js"></script>
+</body>
+</html>
