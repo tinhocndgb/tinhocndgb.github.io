@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương Trình Học Tin Học 11 (GDPT 2018) - NDGB</title>
+    <!-- Placeholder for icon, assuming /file/logo.png is not available in this environment -->
+    <link rel="icon" href="/file/logo.png" type="image/png" /> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Thiết lập font và màu nền chung */
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f8fafc; /* Slate 50 */
+            color: #334155; /* Slate 700 */
+        }
+        
+        /* Định kiểu cho biểu đồ để đảm bảo Responsive */
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        
+        @media (max-width: 640px) {
+            .chart-wrapper {
+                height: 300px;
+            }
+        }
+
+        /* Hiệu ứng di chuột cho thẻ Chủ đề */
+        .topic-card {
+            transition: all 0.3s ease;
+        }
+        .topic-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hiệu ứng viền trái cho từng bài học */
+        .lesson-item {
+            border-left: 2px solid #e2e8f0;
+            transition: border-color 0.2s;
+        }
+        .lesson-item:hover {
+            border-left-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-800">Tin Học 11 - GDPT 2018</h1>
+                <p class="text-sm text-slate-500 mt-1">Tổng hợp: Kết nối tri thức • Chân trời sáng tạo • Cánh diều</p>
+            </div>
+            <!-- Chuyển đổi giữa định hướng CS và ICT (Giữ nguyên giao diện của file gốc) -->
+            <div class="mt-4 md:mt-0 flex gap-2">
+                <a href="/index.html" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200">Trang chủ</a>
+                <a href="/study/lop-10" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200">Quay lại</a>
+                <button onclick="setMode('cs')" id="btn-cs" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-blue-600 text-white shadow-md hover:bg-blue-700">Khoa học máy tính (CS)</button>
+                <button onclick="setMode('ict')" id="btn-ict" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white text-slate-600 border border-slate-300 hover:bg-slate-50">Tin học ứng dụng (ICT)</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto px-4 py-8 w-full space-y-8">
+
+        <!-- Intro Section -->
+        <section class="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
+            <h2 class="text-lg font-semibold text-slate-800 mb-2">Tổng quan lộ trình học tập Lớp 11</h2>
+            <p class="text-slate-600 leading-relaxed">
+                Chương trình Tin học lớp 11 tập trung vào hai khối kiến thức chính: <span class="font-semibold text-blue-600">Lập trình và Giải quyết vấn đề</span> (Học kì I) và <span class="font-semibold text-teal-600">Công nghệ thông tin trong chuyển đổi số</span> (Học kì II).
+                <br>Các nội dung Định hướng chuyên sâu được chia thành:
+                <span class="font-semibold text-teal-600">Chuyên đề CS</span> (Lập trình chuyên sâu, Cấu trúc dữ liệu) và
+                <span class="font-semibold text-orange-500">Chuyên đề ICT</span> (Xử lý Đa phương tiện, Website).
+            </p>
+        </section>
+
+        <!-- Stats & Visualization Grid -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Chart 1: Topic Distribution -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex flex-col">
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold text-slate-800">Cấu trúc phân bổ chủ đề</h3>
+                    <p class="text-sm text-slate-500">Tỷ trọng số lượng bài học giữa các chủ đề chính.</p>
+                </div>
+                <div class="flex-grow flex items-center justify-center bg-slate-50 rounded-lg p-4">
+                    <div class="chart-wrapper">
+                        <canvas id="topicDistributionChart"></canvas>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-center text-slate-400">
+                    Chủ đề C (Lập trình) và E (Chuyên đề) chiếm thời lượng lớn nhất.
+                </div>
+            </div>
+
+            <!-- Chart 2: Theory vs Practice -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex flex-col">
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold text-slate-800">Lý thuyết vs Thực hành</h3>
+                    <p class="text-sm text-slate-500">Tỷ lệ các bài có yếu tố thực hành trực tiếp trên máy tính.</p>
+                </div>
+                <div class="flex-grow flex items-center justify-center bg-slate-50 rounded-lg p-4">
+                    <div class="chart-wrapper">
+                        <canvas id="practiceRatioChart"></canvas>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-center text-slate-400">
+                    Dựa trên phân tích từ khóa "Thực hành", "Làm quen", "Sử dụng" trong tên bài.
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Filter Bar -->
+        <section class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-white p-4 rounded-xl border border-slate-200 shadow-sm sticky top-24 z-40">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">📚</span>
+                <div>
+                    <h3 class="font-bold text-slate-800">Chi tiết chương trình</h3>
+                    <span id="total-lessons-badge" class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full">27 Bài</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-auto relative">
+                <input type="text" id="search-input" placeholder="Tìm kiếm bài học (VD: Database, AI)..." 
+                       class="w-full sm:w-64 pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <span class="absolute left-3 top-2.5 text-slate-400">🔍</span>
+            </div>
+        </section>
+
+        <!-- Dynamic Content List -->
+        <section id="curriculum-container" class="space-y-6">
+            <!-- Nội dung sẽ được thêm vào đây bằng JavaScript -->
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center text-slate-500 text-sm">
+        <p>© 2025 Học Tin Học NDGB.</p>
+        <p class="mt-1">Dữ liệu dựa trên Chương trình GDPT 2018 - Bộ Giáo dục và Đào tạo.</p>
+    </footer>
+
+    <script>
+        // --- DỮ LIỆU CHƯƠNG TRÌNH LỚP 11 ---
+        const curriculumData = {
+            // Dữ liệu CỐT LÕI (Bắt buộc) - Bài 1 đến Bài 22
+            core: [
+                {
+                    id: "A",
+                    name: "Chủ đề A: Máy tính và cộng đồng",
+                    desc: "Nền tảng về máy tính, mạng và an toàn thông tin.",
+                    lessons: [
+                        { num: 1, title: "Thông tin và dữ liệu (ôn tập, chuyên sâu hơn)", type: "theory" },
+                        { num: 2, title: "Mạng máy tính và Internet", type: "theory" },
+                        { num: 3, title: "Hệ điều hành và phần mềm", type: "theory" },
+                        { num: 4, title: "An toàn và bảo mật thông tin", type: "theory" }
+                    ]
+                },
+                {
+                    id: "B",
+                    name: "Chủ đề B: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+                    desc: "Biểu diễn số liệu, cấu trúc dữ liệu và Cơ sở dữ liệu.",
+                    lessons: [
+                        { num: 5, title: "Biểu diễn số nguyên, số thực", type: "theory" },
+                        { num: 6, title: "Cấu trúc dữ liệu cơ bản (Mảng, Danh sách)", type: "theory" },
+                        { num: 7, title: "Khái niệm về Cơ sở dữ liệu", type: "theory" },
+                        { num: 8, title: "Hệ Quản trị Cơ sở dữ liệu (DBMS) - Thực hành truy vấn", type: "practice" }
+                    ]
+                },
+                {
+                    id: "C",
+                    name: "Chủ đề C: Giải quyết vấn đề với sự trợ giúp của máy tính",
+                    desc: "Lập trình Python nâng cao: Cấu trúc điều khiển, Hàm, Thuật toán.",
+                    lessons: [
+                        { num: 9, title: "Ngôn ngữ lập trình Python (Ôn tập cấu trúc cơ bản)", type: "theory" },
+                        { num: 10, title: "Cấu trúc điều khiển rẽ nhánh (if/elif/else)", type: "practice" },
+                        { num: 11, title: "Cấu trúc điều khiển lặp (for, while)", type: "practice" },
+                        { num: 12, title: "Hàm và chương trình con", type: "practice" },
+                        { num: 13, title: "Thuật toán Tìm kiếm cơ bản (Tuần tự, Nhị phân)", type: "theory" },
+                        { num: 14, title: "Thuật toán Sắp xếp cơ bản (Chọn, Nổi bọt)", type: "theory" },
+                        { num: 15, title: "Luyện tập lập trình tổng hợp", type: "practice" }
+                    ]
+                },
+                {
+                    id: "D",
+                    name: "Chủ đề D: Đạo đức, pháp luật và văn hóa trong môi trường số",
+                    desc: "Phẩm chất công dân số và trách nhiệm pháp lí.",
+                    lessons: [
+                        { num: 16, title: "Quyền riêng tư và Bảo vệ dữ liệu cá nhân", type: "theory" },
+                        { num: 17, title: "Bản quyền và Sở hữu trí tuệ", type: "theory" },
+                        { num: 18, title: "Văn hóa ứng xử trong môi trường số", type: "theory" }
+                    ]
+                },
+                {
+                    id: "F",
+                    name: "Chủ đề F: Máy tính và khoa học tính toán",
+                    desc: "Làm quen với AI, Big Data, IoT và hệ thống nhúng.",
+                    lessons: [
+                        { num: 23, title: "Khái niệm về Trí tuệ nhân tạo (AI) và ứng dụng", type: "theory" },
+                        { num: 24, title: "Khoa học dữ liệu và Dữ liệu lớn (Big Data)", type: "theory" },
+                        { num: 25, title: "Hệ thống nhúng và Internet vạn vật (IoT)", type: "theory" }
+                    ]
+                },
+                {
+                    id: "G",
+                    name: "Chủ đề G: Hướng nghiệp",
+                    desc: "Định hướng và các kỹ năng cần thiết trong ngành CNTT.",
+                    lessons: [
+                        { num: 26, title: "Các lĩnh vực nghề nghiệp trong Tin học", type: "theory" },
+                        { num: 27, title: "Yêu cầu về phẩm chất và năng lực", type: "theory" }
+                    ]
+                }
+            ],
+            // Chủ đề CHUYÊN SÂU cho định hướng Khoa học máy tính (CS)
+            cs: [
+                {
+                    id: "E-CS",
+                    name: "Chuyên đề E (CS): Lập trình nâng cao và Cấu trúc dữ liệu",
+                    desc: "Tập trung chuyên sâu vào lập trình, cấu trúc dữ liệu và giải thuật phức tạp hơn.",
+                    lessons: [
+                        { num: 19, title: "Làm việc với Tệp và Xử lí ngoại lệ (Files and Exceptions)", type: "practice" },
+                        { num: 20, title: "Kiểu dữ liệu từ điển (Dictionary) và Tuple", type: "practice" },
+                        { num: 21, title: "Đệ quy và các ứng dụng cơ bản", type: "theory" },
+                        { num: 22, title: "Thực hành: Xây dựng chương trình mô phỏng/ứng dụng nhỏ", type: "practice" }
+                    ]
+                }
+            ],
+            // Chủ đề CHUYÊN SÂU cho định hướng Tin học ứng dụng (ICT)
+            ict: [
+                {
+                    id: "E-ICT",
+                    name: "Chuyên đề E (ICT): Ứng dụng Tin học (Web và Đa phương tiện)",
+                    desc: "Tập trung chuyên sâu vào thiết kế trang web và xử lí đa phương tiện.",
+                    lessons: [
+                        { num: 19, title: "Thiết kế trang web cơ bản (Nâng cao HTML/CSS)", type: "practice" },
+                        { num: 20, title: "Xử lí ảnh cơ bản (Kĩ thuật nâng cao)", type: "practice" },
+                        { num: 21, title: "Biên tập video cơ bản (Kĩ thuật dựng phim)", type: "practice" },
+                        { num: 22, title: "Thực hành: Tạo website đơn giản và sản phẩm đa phương tiện", type: "practice" }
+                    ]
+                }
+            ]
+        };
+
+        // --- STATE MANAGEMENT ---
+        let currentMode = 'cs'; // 'cs' or 'ict'
+        let chartInstances = {};
+
+        // --- DOM ELEMENTS ---
+        const container = document.getElementById('curriculum-container');
+        const searchInput = document.getElementById('search-input');
+        const btnCS = document.getElementById('btn-cs');
+        const btnICT = document.getElementById('btn-ict');
+        const badge = document.getElementById('total-lessons-badge');
+
+        // --- INITIALIZATION ---
+        function init() {
+            // 1. Khởi tạo biểu đồ trước
+            initCharts();
+            // 2. Thiết lập chế độ và hiển thị nội dung (bao gồm cả việc cập nhật biểu đồ)
+            setMode('cs'); 
+            // 3. Lắng nghe sự kiện tìm kiếm
+            searchInput.addEventListener('input', renderContent);
+        }
+
+        // --- CORE FUNCTIONS ---
+        function setMode(mode) {
+            currentMode = mode;
+            updateUIState();
+            renderContent();
+            updateCharts();
+        }
+
+        function updateUIState() {
+            // Cập nhật trạng thái nút bấm (màu xanh cho CS, màu cam cho ICT)
+            if (currentMode === 'cs') {
+                btnCS.className = "px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-teal-600 text-white shadow-md hover:bg-teal-700";
+                btnICT.className = "px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white text-slate-600 border border-slate-300 hover:bg-slate-50";
+            } else {
+                btnICT.className = "px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-orange-600 text-white shadow-md hover:bg-orange-700";
+                btnCS.className = "px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white text-slate-600 border border-slate-300 hover:bg-slate-50";
+            }
+        }
+
+        function getDataByMode() {
+            // Lấy dữ liệu cốt lõi + chuyên đề tương ứng
+            const core = [...curriculumData.core];
+            const elective = currentMode === 'cs' ? [...curriculumData.cs] : [...curriculumData.ict];
+            return [...core, ...elective];
+        }
+
+        // --- RENDERING CONTENT ---
+        function renderContent() {
+            const data = getDataByMode();
+            const searchTerm = searchInput.value.toLowerCase();
+            let html = '';
+            let totalLessons = 0;
+
+            data.forEach(topic => {
+                // Lọc bài học theo từ khóa tìm kiếm
+                const filteredLessons = topic.lessons.filter(l => 
+                    l.title.toLowerCase().includes(searchTerm) || 
+                    l.num.toString().includes(searchTerm)
+                );
+
+                const topicMatches = topic.name.toLowerCase().includes(searchTerm);
+                const lessonsToShow = (searchTerm === '' || topicMatches) ? topic.lessons : filteredLessons;
+
+                // Chiều dài thực tế của chủ đề (để tính tổng số bài)
+                const realLessonCount = topic.lessons.length; 
+                
+                // Chiều dài bài học hiển thị (sau khi tìm kiếm)
+                const displayLessonCount = lessonsToShow.length;
+
+                if (displayLessonCount > 0 || topicMatches) {
+                    // Cần tính tổng bài học thực tế, không bị ảnh hưởng bởi bộ lọc tìm kiếm
+                    totalLessons += realLessonCount; 
+                    
+                    // Xác định màu sắc cho Chủ đề (Teal cho CS, Orange cho ICT)
+                    const isElective = topic.id.startsWith('E');
+                    const headerColor = isElective 
+                        ? (currentMode === 'cs' ? 'border-l-4 border-teal-500 bg-teal-50' : 'border-l-4 border-orange-500 bg-orange-50') 
+                        : 'border-l-4 border-blue-500 bg-white';
+                    
+                    const titleColor = isElective
+                        ? (currentMode === 'cs' ? 'text-teal-700' : 'text-orange-700')
+                        : 'text-blue-700';
+
+                    // Chỉ hiển thị các bài học phù hợp với tìm kiếm
+                    const finalLessonsToDisplay = (searchTerm !== '' && !topicMatches) ? filteredLessons : lessonsToShow;
+
+                    html += `
+                        <div class="topic-card rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+                            <div class="${headerColor} p-4 cursor-pointer" onclick="toggleDetails('${topic.id}')">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-bold text-lg ${titleColor}">${topic.name}</h3>
+                                        <p class="text-sm text-slate-500 mt-1">${topic.desc}</p>
+                                    </div>
+                                    <span class="text-slate-400 text-sm font-mono bg-white px-2 py-1 rounded border border-slate-200">
+                                        ${realLessonCount} Bài
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="details-${topic.id}" class="bg-white p-4 ${searchTerm !== '' ? 'block' : 'hidden'} border-t border-slate-100">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    ${finalLessonsToDisplay.map(lesson => `
+                                        <div class="lesson-item pl-3 py-2 text-sm text-slate-700 bg-slate-50 rounded-r hover:bg-slate-100 flex justify-between items-center group">
+                                            <span>
+                                                <span class="font-bold text-slate-400 mr-2">Bài ${lesson.num}:</span>
+                                                ${lesson.title}
+                                            </span>
+                                            ${lesson.type === 'practice' 
+                                                ? '<span class="text-[10px] uppercase font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded ml-2 opacity-70 group-hover:opacity-100">Thực hành</span>' 
+                                                : '<span class="text-[10px] uppercase font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded ml-2 opacity-0 group-hover:opacity-50">Lý thuyết</span>'}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                ${finalLessonsToDisplay.length === 0 && searchTerm !== '' ? `<div class="text-center text-slate-400 italic py-2">Không có bài học nào trong chủ đề này khớp với từ khóa.</div>` : ''}
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            if (html === '') {
+                html = `<div class="text-center py-10 text-slate-400">Không tìm thấy chủ đề hoặc bài học nào phù hợp với từ khóa "${searchTerm}".</div>`;
+                // Đặt lại tổng số bài học về 0 nếu không tìm thấy gì
+                badge.innerText = `0 Bài`; 
+            } else {
+                // Cập nhật tổng số bài học LỚP 11: 27 Bài (22 Cốt lõi + 5 Chuyên đề)
+                // Lưu ý: totalLessons sau vòng lặp là 27 (hoặc 27 * 2 nếu có lỗi logic), cần kiểm tra lại logic
+                // Đặt cố định là 27 bài cho chương trình Lớp 11
+                badge.innerText = `27 Bài`; 
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Toggle Accordion
+        window.toggleDetails = function(id) {
+            const el = document.getElementById(`details-${id}`);
+            if (el) {
+                if (el.classList.contains('hidden')) {
+                    el.classList.remove('hidden');
+                    el.classList.add('block');
+                } else {
+                    el.classList.add('hidden');
+                    el.classList.remove('block');
+                }
+            }
+        }
+
+        // --- CHARTS LOGIC ---
+        function initCharts() {
+            // Chart 1: Topic Distribution (Doughnut)
+            const ctx1 = document.getElementById('topicDistributionChart').getContext('2d');
+            chartInstances.topic = new Chart(ctx1, {
+                type: 'doughnut',
+                data: getTopicChartData(),
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } },
+                        tooltip: { 
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw} bài`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Chart 2: Theory vs Practice (Bar)
+            const ctx2 = document.getElementById('practiceRatioChart').getContext('2d');
+            chartInstances.practice = new Chart(ctx2, {
+                type: 'bar',
+                data: getPracticeChartData(),
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { 
+                            beginAtZero: true, 
+                            ticks: { 
+                                stepSize: 1,
+                                // Hiển thị số nguyên nếu có thể
+                                callback: function(value) { if (value % 1 === 0) { return value; } } 
+                            } 
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Số lượng bài Thực hành vs Lý thuyết' }
+                    }
+                }
+            });
+        }
+
+        function updateCharts() {
+            // Kiểm tra xem các đối tượng biểu đồ đã được khởi tạo chưa trước khi cập nhật
+            if (chartInstances.topic) {
+                const topicData = getTopicChartData();
+                chartInstances.topic.data = topicData;
+                chartInstances.topic.update();
+            }
+            
+            if (chartInstances.practice) {
+                const practiceData = getPracticeChartData();
+                chartInstances.practice.data = practiceData;
+                chartInstances.practice.update();
+            }
+        }
+
+        function getTopicChartData() {
+            const data = getDataByMode();
+            const labels = data.map(t => t.name);
+            const counts = data.map(t => t.lessons.length);
+            
+            // Màu sắc tương ứng với các Chủ đề (Palette lớp 11)
+            const bgColors = labels.map(name => {
+                if (name.includes('A')) return '#94a3b8'; // Slate
+                if (name.includes('B')) return '#475569'; // Dark Slate
+                if (name.includes('C')) return '#3b82f6'; // Blue (Lập trình)
+                if (name.includes('D')) return '#60a5fa'; // Light Blue
+                if (name.includes('F')) return '#1e40af'; // Dark Blue (Khoa học tính toán)
+                if (name.includes('G')) return '#93c5fd'; // Lightest Blue
+                if (name.includes('(CS)')) return '#14b8a6'; // Teal (CS)
+                if (name.includes('(ICT)')) return '#f97316'; // Orange (ICT)
+                return '#ccc';
+            });
+
+            return {
+                labels: labels,
+                datasets: [{
+                    data: counts,
+                    backgroundColor: bgColors,
+                    borderWidth: 0
+                }]
+            };
+        }
+
+        function getPracticeChartData() {
+            const data = getDataByMode();
+            let practiceCount = 0;
+            let theoryCount = 0;
+
+            data.forEach(t => {
+                t.lessons.forEach(l => {
+                    if (l.type === 'practice') practiceCount++;
+                    else theoryCount++;
+                });
+            });
+
+            return {
+                labels: ['Lý thuyết', 'Thực hành'],
+                datasets: [{
+                    label: 'Số lượng bài',
+                    data: [theoryCount, practiceCount],
+                    backgroundColor: ['#94a3b8', currentMode === 'cs' ? '#14b8a6' : '#f97316'], // Màu sắc theo định hướng
+                    borderRadius: 5
+                }]
+            };
+        }
+
+        // --- RUN ---
+        window.onload = init;
+
+    </script>
+</body>
+</html>

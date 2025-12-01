@@ -355,6 +355,11 @@ nav {
 
 .ico img { filter: brightness(0) invert(1); }
 
+.form-iframe {
+    width: 740px;
+    height: 1200px;
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 640px) {
     .window { flex-direction: column; height: 100vh; }
@@ -441,6 +446,11 @@ nav {
     .exercise-btn {
         font-size: 15px;
         padding: 10px 20px;
+    }
+
+    .form-iframe {
+        width: 450px;
+        height: 1200px;
     }
 }
 

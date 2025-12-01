@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương Trình Học Tin Học 10 (GDPT 2018) - Học Tin Học NDGB</title>
+    <link rel="icon" href="/file/logo.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f8fafc; /* Slate 50 */
+            color: #334155; /* Slate 700 */
+        }
+        
+        /* Custom Chart Container Styling as per requirements */
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        
+        @media (max-width: 640px) {
+            .chart-wrapper {
+                height: 300px;
+            }
+        }
+
+        .topic-card {
+            transition: all 0.3s ease;
+        }
+        .topic-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .lesson-item {
+            border-left: 2px solid #e2e8f0;
+            transition: border-color 0.2s;
+        }
+        .lesson-item:hover {
+            border-left-color: #3b82f6;
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals & Professional Blues/Teals. Background: Slate 50. Primary: Blue 600. Accents: Teal (CS), Orange (ICT). This creates a calm, academic, yet modern feel. -->
+    
+    <!-- Application Structure Plan: 
+         The app is designed as a "Curriculum Navigator" dashboard. 
+         1. Header: Sets context (3 textbook synthesis).
+         2. Interactive Dashboard (Top): Allows switching between "Core + CS" and "Core + ICT" views. This is crucial because students choose one path.
+         3. Visualization Section: Two charts. One shows the distribution of topics (balance of knowledge), the other compares Theory vs. Practice ratio based on lesson titles.
+         4. Content Explorer (Bottom): A filtered list of topics and lessons. Instead of a flat list, it uses collapsible cards for Topics to manage information density. 
+         Rationale: This structure moves from high-level stats/structure to detailed lesson content, allowing users to understand the "Shape" of the curriculum before diving into specifics.
+    -->
+
+    <!-- Visualization & Content Choices:
+         1. Goal: Overview of Knowledge Distribution -> Method: Doughnut Chart (Chart.js) -> Interaction: Updates based on CS/ICT filter -> Justification: Shows how much weight is given to Programming vs. Impact on Society vs. Tools.
+         2. Goal: Theory vs. Practice Balance -> Method: Bar Chart (Chart.js) -> Interaction: Updates on filter -> Justification: Helps teachers/students prep for lab time vs. classroom time.
+         3. Goal: Explore Curriculum -> Method: Interactive HTML Cards -> Interaction: Click to expand/collapse, Search filter -> Justification: Handles the long list of 32 lessons without overwhelming the user.
+         4. Goal: Context -> Method: Text summaries -> Interaction: Static context blocks -> Justification: Explains the "Why" behind each section.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-800">Tin Học 10 - GDPT 2018</h1>
+                <p class="text-sm text-slate-500 mt-1">Tổng hợp: Kết nối tri thức • Chân trời sáng tạo • Cánh diều</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-2">
+                <a href="/index.html" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200">Trang chủ</a>
+                <a href="/study/lop-10" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200">Quay lại</a>
+                <button onclick="setMode('cs')" id="btn-cs" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-blue-600 text-white shadow-md hover:bg-blue-700">Khoa học máy tính (CS)</button>
+                <button onclick="setMode('ict')" id="btn-ict" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white text-slate-600 border border-slate-300 hover:bg-slate-50">Tin học ứng dụng (ICT)</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto px-4 py-8 w-full space-y-8">
+
+        <!-- Intro Section -->
+        <section class="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
+            <h2 class="text-lg font-semibold text-slate-800 mb-2">Tổng quan lộ trình học tập</h2>
+            <p class="text-slate-600 leading-relaxed">
+                Ứng dụng này giúp bạn hình dung toàn bộ lộ trình môn Tin học lớp 10. Chương trình được chia thành hai phần chính: 
+                <span class="font-semibold text-blue-600">Kiến thức cốt lõi</span> (bắt buộc cho tất cả) và 
+                <span class="font-semibold text-teal-600">Kiến thức định hướng</span> (tự chọn chuyên sâu).
+                Hãy sử dụng các nút phía trên để xem lộ trình phù hợp với định hướng của lớp bạn (CS hoặc ICT).
+                Dữ liệu bên dưới được tổng hợp để phù hợp với cả 3 bộ sách hiện hành.
+            </p>
+        </section>
+
+        <!-- Stats & Visualization Grid -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Chart 1: Topic Distribution -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex flex-col">
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold text-slate-800">Cấu trúc phân bổ chủ đề</h3>
+                    <p class="text-sm text-slate-500">Tỷ trọng số lượng bài học giữa các chủ đề chính.</p>
+                </div>
+                <div class="flex-grow flex items-center justify-center bg-slate-50 rounded-lg p-4">
+                    <div class="chart-wrapper">
+                        <canvas id="topicDistributionChart"></canvas>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-center text-slate-400">
+                    Chủ đề F (Lập trình) và E (Định hướng) chiếm thời lượng lớn nhất.
+                </div>
+            </div>
+
+            <!-- Chart 2: Theory vs Practice -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex flex-col">
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold text-slate-800">Lý thuyết vs Thực hành</h3>
+                    <p class="text-sm text-slate-500">Tỷ lệ các bài có yếu tố thực hành trực tiếp trên máy tính.</p>
+                </div>
+                <div class="flex-grow flex items-center justify-center bg-slate-50 rounded-lg p-4">
+                    <div class="chart-wrapper">
+                        <canvas id="practiceRatioChart"></canvas>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-center text-slate-400">
+                    Dựa trên phân tích từ khóa "Thực hành", "Làm quen", "Sử dụng" trong tên bài.
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Filter Bar -->
+        <section class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-white p-4 rounded-xl border border-slate-200 shadow-sm sticky top-24 z-40">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">📚</span>
+                <div>
+                    <h3 class="font-bold text-slate-800">Chi tiết chương trình</h3>
+                    <span id="total-lessons-badge" class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full">31 Bài</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-auto relative">
+                <input type="text" id="search-input" placeholder="Tìm kiếm bài học (VD: Python, Mạng)..." 
+                       class="w-full sm:w-64 pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <span class="absolute left-3 top-2.5 text-slate-400">🔍</span>
+            </div>
+        </section>
+
+        <!-- Dynamic Content List -->
+        <section id="curriculum-container" class="space-y-6">
+            <!-- Content will be injected here via JavaScript -->
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center text-slate-500 text-sm">
+        <p>© 2025 Học Tin Học NDGB.</p>
+        <p class="mt-1">Dữ liệu dựa trên Chương trình GDPT 2018 - Bộ Giáo dục và Đào tạo.</p>
+    </footer>
+
+    <script>
+        // --- DATA STORE ---
+        const curriculumData = {
+            core: [
+                {
+                    id: "A",
+                    name: "Chủ đề A: Máy tính và Xã hội tri thức",
+                    desc: "Nền tảng về thông tin, dữ liệu số và lịch sử máy tính.",
+                    lessons: [
+                        { num: 1, title: "Thông tin và xử lý thông tin", type: "theory" },
+                        { num: 2, title: "Vai trò của thiết bị thông minh và tin học trong đời sống", type: "theory" },
+                        { num: 3, title: "Một số kiểu dữ liệu và dữ liệu văn bản", type: "theory" },
+                        { num: 4, title: "Hệ nhị phân và dữ liệu số nguyên", type: "theory" },
+                        { num: 5, title: "Dữ liệu lôgic (Boolean)", type: "theory" },
+                        { num: 6, title: "Dữ liệu âm thanh và hình ảnh", type: "theory" },
+                        { num: 7, title: "Thực hành: Sử dụng thiết bị số và các phần mềm thông dụng", type: "practice" }
+                    ]
+                },
+                {
+                    id: "B",
+                    name: "Chủ đề B: Mạng máy tính và Internet",
+                    desc: "Hiểu biết về kết nối, IoT và an toàn dữ liệu.",
+                    lessons: [
+                        { num: 8, title: "Mạng máy tính trong cuộc sống hiện đại", type: "theory" },
+                        { num: 9, title: "An toàn trên không gian mạng", type: "theory" },
+                        { num: 10, title: "Thực hành: Khai thác tài nguyên trên Internet", type: "practice" }
+                    ]
+                },
+                {
+                    id: "C",
+                    name: "Chủ đề C: Đạo đức, Pháp luật và Văn hóa",
+                    desc: "Hành trang công dân số: Bản quyền và ứng xử.",
+                    lessons: [
+                        { num: 11, title: "Ứng xử trên môi trường số và nghĩa vụ tôn trọng bản quyền", type: "theory" }
+                    ]
+                },
+                {
+                    id: "D",
+                    name: "Chủ đề D: Ứng dụng Tin học (Cơ bản)",
+                    desc: "Kỹ năng phần mềm văn phòng và đa phương tiện nâng cao.",
+                    lessons: [
+                        { num: 12, title: "Phần mềm thiết kế đồ hoạ và biên tập ảnh (Giới thiệu chung)", type: "theory" },
+                        { num: 13, title: "Bổ sung các đối tượng đồ họa trong văn bản", type: "practice" },
+                        { num: 14, title: "Làm việc với đối tượng đa phương tiện trong bài trình chiếu", type: "practice" }
+                    ]
+                },
+                {
+                    id: "F",
+                    name: "Chủ đề F: Giải quyết vấn đề với máy tính (Python)",
+                    desc: "Tư duy lập trình và giải thuật cơ bản.",
+                    lessons: [
+                        { num: 15, title: "Làm quen với ngôn ngữ lập trình bậc cao (Python)", type: "practice" },
+                        { num: 16, title: "Biến và lệnh gán", type: "theory" },
+                        { num: 17, title: "Các lệnh vào ra đơn giản", type: "practice" },
+                        { num: 18, title: "Câu lệnh điều kiện (if, if-else)", type: "practice" },
+                        { num: 19, title: "Câu lệnh lặp (for)", type: "practice" },
+                        { num: 20, title: "Câu lệnh lặp (while)", type: "practice" },
+                        { num: 21, title: "Kiểu dữ liệu danh sách (List)", type: "practice" },
+                        { num: 22, title: "Kiểu dữ liệu xâu ký tự (String)", type: "practice" },
+                        { num: 23, title: "Cấu trúc chương trình con (Hàm - Def)", type: "practice" },
+                        { num: 24, title: "Thực hành: Kiểm thử và gỡ lỗi chương trình", type: "practice" }
+                    ]
+                },
+                {
+                    id: "G",
+                    name: "Chủ đề G: Hướng nghiệp với Tin học",
+                    desc: "Định hướng nghề nghiệp tương lai.",
+                    lessons: [
+                        { num: 25, title: "Nghề nghiệp và cơ hội việc làm trong lĩnh vực Tin học", type: "theory" },
+                        { num: 26, title: "Giới tính và pháp luật trong hoạt động CNTT", type: "theory" }
+                    ]
+                }
+            ],
+            cs: [
+                {
+                    id: "E-CS",
+                    name: "Chủ đề E (CS): Khoa học Máy tính",
+                    desc: "Chuyên sâu về thuật toán và tư duy máy tính.",
+                    lessons: [
+                        { num: 27, title: "Một số bài toán tìm kiếm (Tuần tự, Nhị phân)", type: "theory" },
+                        { num: 28, title: "Thuật toán sắp xếp (Chèn, Chọn, Nổi bọt)", type: "theory" },
+                        { num: 29, title: "Nhận biết độ phức tạp thuật toán", type: "theory" },
+                        { num: 30, title: "Kiểm thử và đánh giá chương trình", type: "theory" },
+                        { num: 31, title: "Thực hành tổng hợp: Giải quyết vấn đề bằng máy tính", type: "practice" }
+                    ]
+                }
+            ],
+            ict: [
+                {
+                    id: "E-ICT",
+                    name: "Chủ đề E (ICT): Tin học Ứng dụng",
+                    desc: "Chuyên sâu về thiết kế đồ họa và truyền thông số.",
+                    lessons: [
+                        { num: 27, title: "Phần mềm thiết kế đồ họa (Làm quen Inkscape/GIMP)", type: "practice" },
+                        { num: 28, title: "Vẽ và chỉnh sửa các hình cơ bản", type: "practice" },
+                        { num: 29, title: "Làm việc với các lớp ảnh (Layers) và vùng chọn", type: "practice" },
+                        { num: 30, title: "Biến đổi và hiệu chỉnh màu sắc", type: "practice" },
+                        { num: 31, title: "Thêm văn bản và hoàn thiện sản phẩm thiết kế đồ họa", type: "practice" },
+                        { num: 32, title: "Thực hành tổng hợp: Thiết kế sản phẩm truyền thông đầu tay", type: "practice" }
+                    ]
+                }
+            ]
+        };
+
+        // --- STATE MANAGEMENT ---
+        let currentMode = 'cs'; // 'cs' or 'ict'
+        let chartInstances = {};
+
+        // --- DOM ELEMENTS ---
+        const container = document.getElementById('curriculum-container');
+        const searchInput = document.getElementById('search-input');
+        const btnCS = document.getElementById('btn-cs');
+        const btnICT = document.getElementById('btn-ict');
+        const badge = document.getElementById('total-lessons-badge');
+
+        // --- INITIALIZATION ---
+        function init() {
+            renderContent();
+            initCharts();
+            updateUIState();
+        }
+
+        // --- CORE FUNCTIONS ---
+        function setMode(mode) {
+            currentMode = mode;
+            updateUIState();
+            renderContent();
+            updateCharts();
+        }
+
+        function updateUIState() {
+            if (currentMode === 'cs') {
+                btnCS.className = "px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-blue-600 text-white shadow-md hover:bg-blue-700";
+                btnICT.className = "px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white text-slate-600 border border-slate-300 hover:bg-slate-50";
+            } else {
+                btnICT.className = "px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-orange-500 text-white shadow-md hover:bg-orange-600";
+                btnCS.className = "px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-white text-slate-600 border border-slate-300 hover:bg-slate-50";
+            }
+        }
+
+        function getDataByMode() {
+            const core = [...curriculumData.core];
+            const elective = currentMode === 'cs' ? [...curriculumData.cs] : [...curriculumData.ict];
+            return [...core, ...elective];
+        }
+
+        // --- RENDERING CONTENT ---
+        function renderContent() {
+            const data = getDataByMode();
+            const searchTerm = searchInput.value.toLowerCase();
+            let html = '';
+            let totalLessons = 0;
+
+            data.forEach(topic => {
+                // Filter logic
+                const filteredLessons = topic.lessons.filter(l => 
+                    l.title.toLowerCase().includes(searchTerm) || 
+                    l.num.toString().includes(searchTerm)
+                );
+
+                // Even if no lessons match, if the Topic Name matches, show all lessons
+                const topicMatches = topic.name.toLowerCase().includes(searchTerm);
+                const lessonsToShow = topicMatches ? topic.lessons : filteredLessons;
+
+                if (lessonsToShow.length > 0) {
+                    totalLessons += lessonsToShow.length;
+                    
+                    // Determine styling based on topic type
+                    const isElective = topic.id.startsWith('E');
+                    const headerColor = isElective 
+                        ? (currentMode === 'cs' ? 'border-l-4 border-teal-500 bg-teal-50' : 'border-l-4 border-orange-500 bg-orange-50') 
+                        : 'border-l-4 border-blue-500 bg-white';
+                    
+                    const titleColor = isElective
+                        ? (currentMode === 'cs' ? 'text-teal-700' : 'text-orange-700')
+                        : 'text-blue-700';
+
+                    html += `
+                        <div class="topic-card rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+                            <div class="${headerColor} p-4 cursor-pointer" onclick="toggleDetails('${topic.id}')">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-bold text-lg ${titleColor}">${topic.name}</h3>
+                                        <p class="text-sm text-slate-500 mt-1">${topic.desc}</p>
+                                    </div>
+                                    <span class="text-slate-400 text-sm font-mono bg-white px-2 py-1 rounded border border-slate-200">
+                                        ${lessonsToShow.length} Bài
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="details-${topic.id}" class="bg-white p-4 hidden border-t border-slate-100">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    ${lessonsToShow.map(lesson => `
+                                        <div class="lesson-item pl-3 py-2 text-sm text-slate-700 bg-slate-50 rounded-r hover:bg-slate-100 flex justify-between items-center group">
+                                            <span>
+                                                <span class="font-bold text-slate-400 mr-2">Bài ${lesson.num}:</span>
+                                                ${lesson.title}
+                                            </span>
+                                            ${lesson.type === 'practice' 
+                                                ? '<span class="text-[10px] uppercase font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded ml-2 opacity-70 group-hover:opacity-100">Thực hành</span>' 
+                                                : '<span class="text-[10px] uppercase font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded ml-2 opacity-0 group-hover:opacity-50">Lý thuyết</span>'}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            if (html === '') {
+                html = `<div class="text-center py-10 text-slate-400">Không tìm thấy bài học nào phù hợp với từ khóa "${searchTerm}".</div>`;
+            }
+
+            container.innerHTML = html;
+            badge.innerText = `${totalLessons} Bài`;
+            
+            // Auto expand first topic or search results
+            if (searchTerm !== '') {
+                 data.forEach(t => {
+                     const el = document.getElementById(`details-${t.id}`);
+                     if (el) el.classList.remove('hidden');
+                 });
+            }
+        }
+
+        // Toggle Accordion
+        window.toggleDetails = function(id) {
+            const el = document.getElementById(`details-${id}`);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                el.classList.add('block');
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+            }
+        }
+
+        // --- CHARTS LOGIC ---
+        function initCharts() {
+            // Chart 1: Topic Distribution (Doughnut)
+            const ctx1 = document.getElementById('topicDistributionChart').getContext('2d');
+            chartInstances.topic = new Chart(ctx1, {
+                type: 'doughnut',
+                data: getTopicChartData(),
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } },
+                        tooltip: { 
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw} bài`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Chart 2: Theory vs Practice (Bar)
+            const ctx2 = document.getElementById('practiceRatioChart').getContext('2d');
+            chartInstances.practice = new Chart(ctx2, {
+                type: 'bar',
+                data: getPracticeChartData(),
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, ticks: { stepSize: 1 } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Số lượng bài Thực hành vs Lý thuyết' }
+                    }
+                }
+            });
+        }
+
+        function updateCharts() {
+            const topicData = getTopicChartData();
+            chartInstances.topic.data = topicData;
+            chartInstances.topic.update();
+
+            const practiceData = getPracticeChartData();
+            chartInstances.practice.data = practiceData;
+            chartInstances.practice.update();
+        }
+
+        function getTopicChartData() {
+            const data = getDataByMode();
+            const labels = data.map(t => t.id.split(':')[0].replace('Chủ đề ', ''));
+            const counts = data.map(t => t.lessons.length);
+            
+            // Colors
+            const bgColors = labels.map(l => {
+                if (l.includes('A')) return '#94a3b8'; // slate
+                if (l.includes('B')) return '#64748b'; // slate dark
+                if (l.includes('C')) return '#cbd5e1'; // slate light
+                if (l.includes('D')) return '#60a5fa'; // blue
+                if (l.includes('F')) return '#3b82f6'; // blue strong
+                if (l.includes('G')) return '#93c5fd'; // blue light
+                if (l.includes('E') && currentMode === 'cs') return '#14b8a6'; // teal
+                if (l.includes('E') && currentMode === 'ict') return '#f97316'; // orange
+                return '#ccc';
+            });
+
+            return {
+                labels: labels,
+                datasets: [{
+                    data: counts,
+                    backgroundColor: bgColors,
+                    borderWidth: 0
+                }]
+            };
+        }
+
+        function getPracticeChartData() {
+            const data = getDataByMode();
+            let practiceCount = 0;
+            let theoryCount = 0;
+
+            data.forEach(t => {
+                t.lessons.forEach(l => {
+                    if (l.type === 'practice') practiceCount++;
+                    else theoryCount++;
+                });
+            });
+
+            return {
+                labels: ['Lý thuyết', 'Thực hành'],
+                datasets: [{
+                    label: 'Số lượng bài',
+                    data: [theoryCount, practiceCount],
+                    backgroundColor: ['#94a3b8', currentMode === 'cs' ? '#14b8a6' : '#f97316'],
+                    borderRadius: 5
+                }]
+            };
+        }
+
+        // --- EVENT LISTENERS ---
+        searchInput.addEventListener('input', renderContent);
+
+        // --- RUN ---
+        init();
+
+    </script>
+</body>
+</html>

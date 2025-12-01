@@ -48,7 +48,6 @@ function applyLessonClicks() {
 
 // Trang chủ
 function renderHome() {
-  mainH1.textContent = 'Trang chủ';
   document.title = 'Trang chủ - Học Tin Học NDGB';
   contentArea.innerHTML = `<p class="lead">Trang web nhằm cung cấp nền tảng học môn <a>Tin Học</a> mọi lúc mọi nơi với mọi công cụ bạn có bên mình. Nội dung học tập, kiểm tra sẽ cập nhật thường xuyên để bạn tiếp thu kiến thức mới một cách hiệu quả hơn. Bạn có thể liên lạc với chúng tôi qua email: <a href="mailto:tinhoc.ndgb@gmail.com">tinhoc.ndgb@gmail.com</a></p>`;
 }
