@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bài 1 - Giới thiệu về Trí tuệ nhân tạo (AI) | Học Tin Học NDGB</title>
+  <title>Bài 1 - Khái niệm về hệ cơ sở dữ liệu | Tin học 12 | Học Tin Học NDGB</title>
   <link rel="icon" href="/file/logo.png" type="image/png" />
   <link rel="stylesheet" href="/study/bai.css" />
 </head>
@@ -58,149 +58,392 @@
     <main class="main">
       <div class="lesson-page fade-in">
         <div class="lesson-header">
-          <div class="topic">Chủ đề A: Chủ đề A – Trí tuệ nhân tạo (AI) – Tin học 12</div>
-          <h1>BÀI 1: GIỚI THIỆU VỀ TRÍ TUỆ NHÂN TẠO (AI)</h1>
+          <div class="topic">Chương 1: Khái niệm về cơ sở dữ liệu và hệ quản trị cơ sở dữ liệu - Tin học 12</div>
+          <h1>BÀI 1: KHÁI NIỆM VỀ HỆ CƠ SỞ DỮ LIỆU</h1>
+          <p class="subtitle">Nền tảng của quản lý thông tin trong thời đại số</p>
         </div>
 
         <div class="lesson-content">
-          <h2>1. Khái niệm trí tuệ nhân tạo (AI)</h2>
 
-          <h4>a. Trí tuệ nhân tạo là gì?</h4>
-          <p>•  Trí tuệ nhân tạo (Artificial Intelligence – AI) là lĩnh vực khoa học máy tính nghiên cứu và phát triển các hệ thống có khả năng thực hiện các công việc đòi hỏi trí thông minh của con người như học tập, suy luận, nhận thức, hiểu ngôn ngữ tự nhiên và xử lý hình ảnh.</p>
-          <p>•  AI giúp máy tính có thể “tự học” từ dữ liệu để đưa ra quyết định mà không cần được lập trình chi tiết cho từng tình huống.</p>
-          <p>👉 Ví dụ:</p>
-          <p>•  Ứng dụng dịch tự động, trợ lý ảo như Siri, ChatGPT, Google Assistant,... đều sử dụng AI.</p>
+          <!-- 🎯 MỤC TIÊU -->
+          <h2>🎯 Mục tiêu bài học</h2>
+          <ul>
+            <li>Hiểu được nhu cầu của <hl>cơ sở dữ liệu</hl> (CSDL) trong quản lý thông tin.</li>
+            <li>Phân biệt được <hl>các mô hình quản lý dữ liệu</hl>: tệp văn bản, hệ quản trị tệp, CSDL.</li>
+            <li>Trình bày được <hl>khái niệm hệ CSDL</hl> và <hl>hệ QTCSDL</hl>.</li>
+            <li>Xác định được các <hl>vai trò</hl> trong hệ CSDL.</li>
+            <li>Nhận biết các <hl>bước xây dựng CSDL</hl>.</li>
+          </ul>
+
+          <!-- 📚 I. Nhu cầu quản lý dữ liệu -->
+          <h2>📚 I. Nhu cầu quản lý dữ liệu trong tổ chức</h2>
+          <p>
+            Trong xã hội hiện đại, mỗi tổ chức đều cần <hl>lưu trữ và quản lý</hl> một lượng lớn thông tin:
+          </p>
+          
+          <div class="example-box">
+            <h3>Ví dụ thực tế:</h3>
+            <ul>
+              <li>📚 <b>Trường học</b>: Quản lý học sinh, giáo viên, điểm số, thời khóa biểu</li>
+              <li>🏥 <b>Bệnh viện</b>: Quản lý bệnh nhân, hồ sơ bệnh án, thuốc men</li>
+              <li>🏦 <b>Ngân hàng</b>: Quản lý tài khoản, giao dịch, khách hàng</li>
+              <li>🛒 <b>Siêu thị</b>: Quản lý hàng hóa, nhà cung cấp, hóa đơn</li>
+            </ul>
+          </div>
+          
+          <p>
+            Các tổ chức này cần <hl>cơ sở dữ liệu</hl> để:
+          </p>
+          <ul>
+            <li>📈 <hl>Lưu trữ</hl> thông tin lâu dài, an toàn</li>
+            <li>🔍 <hl>Tìm kiếm</hl> thông tin nhanh chóng</li>
+            <li>📊 <hl>Xử lý</hl> và phân tích dữ liệu</li>
+            <li>🤝 <hl>Chia sẻ</hl> thông tin giữa nhiều người dùng</li>
+            <li>🔒 <hl>Bảo mật</hl> thông tin nhạy cảm</li>
+          </ul>
+
+          <!-- 💾 II. CÁC MÔ HÌNH QUẢN LÝ DỮ LIỆU -->
+          <h2>💾 II. Các mô hình quản lý dữ liệu</h2>
+          
+          <h3>1. Mô hình quản lý bằng tệp văn bản (File-based System)</h3>
+          <p>
+            <i>Ưu điểm:</i> Đơn giản, dễ thực hiện với ít dữ liệu.<br>
+            <i>Nhược điểm:</i> Dữ liệu <hl>trùng lặp</hl>, khó <hl>cập nhật</hl>, khó <hl>chia sẻ</hl>.
+          </p>
+          
           <div class="image-box">
-            <img src="hinh1.png" alt="Minh họa về trí tuệ nhân tạo">
-            <div class="caption">Hình 1: Minh họa trí tuệ nhân tạo</div>
+            <img src="hinh1-tin12.png" alt="Mô hình quản lý bằng tệp văn bản" />
+            <div class="caption">📁 Hình 1: Mô hình quản lý dữ liệu bằng tệp văn bản</div>
+          </div>
+          
+          <h3>2. Mô hình quản lý bằng hệ quản trị tệp</h3>
+          <p>
+            Sử dụng hệ thống tệp của hệ điều hành để quản lý.<br>
+            <i>Vấn đề:</i> Vẫn còn <hl>dư thừa dữ liệu</hl>, khó <hl>bảo mật</hl> và <hl>chia sẻ</hl>.
+          </p>
+          
+          <h3>3. Mô hình cơ sở dữ liệu (Database)</h3>
+          <p>
+            <b>Cơ sở dữ liệu</b> là một tập hợp các dữ liệu có liên quan với nhau, được lưu trữ theo một cấu trúc nhất định, có thể được truy xuất và quản lý bởi nhiều người dùng.
+          </p>
+          
+          <div class="definition-box">
+            <h4>Định nghĩa CSDL:</h4>
+            <p>CSDL = Dữ liệu + Mối quan hệ giữa các dữ liệu</p>
           </div>
 
-          <h4>b. Mục tiêu của AI</h4>
-          <p>•  Tạo ra các hệ thống có khả năng học hỏi, suy nghĩ, đưa ra quyết định giống con người.</p>
-          <p>•  Giúp tự động hóa các công việc phức tạp, giảm sai sót, tăng hiệu quả lao động.</p>
-
-          <h2>2. Phân biệt AI với chương trình thông thường</h2>
-          <p>•  <b>Chương trình thông thường</b> hoạt động theo các lệnh cố định, chỉ thực hiện được những gì người lập trình quy định sẵn.</p>
-          <p>•  <b>AI</b> có khả năng <i>tự học</i> và <i>thích nghi</i> với dữ liệu mới, từ đó đưa ra quyết định mà không cần được hướng dẫn cụ thể trước.</p>
-          <p>👉 Ví dụ:</p>
-          <p>•  Một phần mềm tra cứu chỉ trả về kết quả cố định khi gõ từ khóa.</p>
-          <p>•  Trong khi đó, ChatGPT có thể hiểu câu hỏi và tạo ra câu trả lời tự nhiên nhờ khả năng học ngôn ngữ.</p>
-
-          <h2>3. Ứng dụng của AI trong đời sống</h2>
-          <p>•  AI được ứng dụng trong nhiều lĩnh vực của đời sống:</p>
+          <!-- 🗄️ III. HỆ CƠ SỞ DỮ LIỆU -->
+          <h2>🗄️ III. Hệ cơ sở dữ liệu (Database System)</h2>
+          
+          <h3>1. Khái niệm</h3>
+          <p>
+            <b>Hệ cơ sở dữ liệu</b> bao gồm:
+          </p>
+          
+          <div class="formula-box">
+            <p><b>Hệ CSDL = CSDL + Phần mềm quản lý + Người dùng + Phần cứng</b></p>
+          </div>
+          
+          <h3>2. Các thành phần của hệ CSDL</h3>
           <table>
             <tr>
-              <th>Lĩnh vực</th>
-              <th>Ví dụ ứng dụng</th>
+              <th>Thành phần</th>
+              <th>Mô tả</th>
+              <th>Ví dụ</th>
             </tr>
             <tr>
-              <td>📱 Trợ lý ảo</td>
-              <td>Siri, Google Assistant, ChatGPT</td>
+              <td><hl>CSDL (Database)</hl></td>
+              <td>Tập hợp dữ liệu có cấu trúc</td>
+              <td>Tệp QLHS.mdb chứa thông tin học sinh</td>
             </tr>
             <tr>
-              <td>🚗 Giao thông</td>
-              <td>Xe tự hành, nhận dạng biển báo</td>
+              <td><hl>Hệ QTCSDL (DBMS)</hl></td>
+              <td>Phần mềm quản lý CSDL</td>
+              <td>Microsoft Access, MySQL, Oracle</td>
             </tr>
             <tr>
-              <td>🏥 Y tế</td>
-              <td>Hỗ trợ chẩn đoán hình ảnh, phân tích bệnh án</td>
+              <td><hl>Con người (Users)</hl></td>
+              <td>Người tạo, quản trị, sử dụng CSDL</td>
+              <td>Giáo viên, học sinh, quản trị viên</td>
             </tr>
             <tr>
-              <td>🏫 Giáo dục</td>
-              <td>Hệ thống học tập cá nhân hóa, chấm điểm tự động</td>
-            </tr>
-            <tr>
-              <td>🛍️ Thương mại điện tử</td>
-              <td>Gợi ý sản phẩm, dự đoán nhu cầu khách hàng</td>
+              <td><hl>Phần cứng (Hardware)</hl></td>
+              <td>Máy tính, thiết bị lưu trữ</td>
+              <td>Máy chủ, ổ cứng, mạng</td>
             </tr>
           </table>
+          
           <div class="image-box">
-            <img src="hinh2.png" alt="Ứng dụng AI trong các lĩnh vực đời sống">
-            <img src="hinh3.png" alt="Ứng dụng AI trong các lĩnh vực đời sống">
-            <div class="caption">Hình 2: Một số ứng dụng tiêu biểu của trí tuệ nhân tạo</div>
+            <img src="hinh2-tin12.png" alt="Các thành phần của hệ CSDL" />
+            <div class="caption">🔧 Hình 2: Các thành phần của một hệ cơ sở dữ liệu</div>
           </div>
 
-          <h2>4. Cơ hội và thách thức của AI</h2>
-          <h4>a. Cơ hội</h4>
-          <p>•  Tăng năng suất lao động, giảm chi phí sản xuất.</p>
-          <p>•  Tạo ra sản phẩm, dịch vụ mới và mở ra các ngành nghề sáng tạo.</p>
-          <p>•  Hỗ trợ con người ra quyết định nhanh và chính xác hơn.</p>
+          <!-- 👥 IV. VAI TRÒ TRONG HỆ CSDL -->
+          <h2>👥 IV. Các vai trò trong hệ CSDL</h2>
+          
+          <h3>1. Người quản trị CSDL (DBA - Database Administrator)</h3>
+          <ul>
+            <li>🏗️ <hl>Thiết kế</hl> và xây dựng CSDL</li>
+            <li>🔧 <hl>Cấp phát</hl> quyền truy cập cho người dùng</li>
+            <li>💾 <hl>Sao lưu</hl> và phục hồi dữ liệu</li>
+            <li>⚙️ <hl>Tối ưu hóa</hl> hiệu suất hệ thống</li>
+          </ul>
+          
+          <h3>2. Người lập trình ứng dụng (Programmer)</h3>
+          <ul>
+            <li>💻 <hl>Viết chương trình</hl> tương tác với CSDL</li>
+            <li>🔄 <hl>Phát triển</hl> giao diện người dùng</li>
+            <li>🔗 <hl>Kết nối</hl> ứng dụng với CSDL</li>
+          </ul>
+          
+          <h3>3. Người dùng cuối (End User)</h3>
+          <ul>
+            <li>👩‍💼 <hl>Khai thác</hl> thông tin từ CSDL</li>
+            <li>📝 <hl>Cập nhật</hl> dữ liệu mới</li>
+            <li>📊 <hl>Tạo báo cáo</hl> từ dữ liệu</li>
+          </ul>
 
-          <h4>b. Thách thức</h4>
-          <p>•  Gây mất việc làm do tự động hóa.</p>
-          <p>•  Vấn đề đạo đức và quyền riêng tư khi AI xử lý dữ liệu cá nhân.</p>
-          <p>•  Nguy cơ sai lệch nếu dữ liệu huấn luyện không chính xác.</p>
-          <div class="image-box">
-            <img src="hinh4.png" alt="Cơ hội và thách thức của AI">
-            <div class="caption">Hình 4: Cơ hội và thách thức khi phát triển trí tuệ nhân tạo</div>
+          <!-- 🏗️ V. QUY TRÌNH XÂY DỰNG CSDL -->
+          <h2>🏗️ V. Quy trình xây dựng cơ sở dữ liệu</h2>
+          
+          <div class="process-box">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Khảo sát và phân tích</h3>
+                <p>Xác định nhu cầu, mục tiêu của hệ thống thông tin</p>
+              </div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Thiết kế</h3>
+                <ul>
+                  <li>Thiết kế <hl>mức khái niệm</hl>: Mô hình ER</li>
+                  <li>Thiết kế <hl>mức logic</hl>: Chuyển sang mô hình quan hệ</li>
+                  <li>Thiết kế <hl>mức vật lý</hl>: Tạo CSDL cụ thể</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Tạo lập CSDL</h3>
+                <p>Sử dụng hệ QTCSDL để tạo bảng, quan hệ, ràng buộc</p>
+              </div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>Kiểm thử và triển khai</h3>
+                <p>Kiểm tra tính đúng đắn, hiệu suất, bảo mật trước khi đưa vào sử dụng</p>
+              </div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h3>Bảo trì và nâng cấp</h3>
+                <p>Điều chỉnh, cập nhật để đáp ứng nhu cầu thay đổi</p>
+              </div>
+            </div>
           </div>
 
-          <h2>5. Tương lai của AI</h2>
-          <p>•  AI sẽ ngày càng được tích hợp vào mọi lĩnh vực của đời sống như y học, giáo dục, năng lượng, sáng tạo nội dung.</p>
-          <p>•  Con người cần phát triển AI một cách có trách nhiệm để đảm bảo lợi ích chung cho xã hội.</p>
-          <div class="image-box">
-            <img src="hinh5.png" alt="Tương lai của AI">
-            <div class="caption">Hình 5: Xu hướng phát triển AI trong tương lai</div>
+          <!-- 💡 VI. LỢI ÍCH CỦA HỆ CSDL -->
+          <h2>💡 VI. Lợi ích của hệ cơ sở dữ liệu</h2>
+          
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <div class="benefit-icon">📈</div>
+              <h3>Tính nhất quán</h3>
+              <p>Dữ liệu được lưu trữ tập trung, tránh trùng lặp và mâu thuẫn</p>
+            </div>
+            
+            <div class="benefit-card">
+              <div class="benefit-icon">🔍</div>
+              <h3>Truy xuất hiệu quả</h3>
+              <p>Tìm kiếm, truy vấn dữ liệu nhanh chóng bằng ngôn ngữ SQL</p>
+            </div>
+            
+            <div class="benefit-card">
+              <div class="benefit-icon">🤝</div>
+              <h3>Chia sẻ dữ liệu</h3>
+              <p>Nhiều người dùng có thể truy cập đồng thời một CSDL</p>
+            </div>
+            
+            <div class="benefit-card">
+              <div class="benefit-icon">🔒</div>
+              <h3>Bảo mật cao</h3>
+              <p>Kiểm soát quyền truy cập ở nhiều mức độ khác nhau</p>
+            </div>
+            
+            <div class="benefit-card">
+              <div class="benefit-icon">💾</div>
+              <h3>Toàn vẹn dữ liệu</h3>
+              <p>Đảm bảo tính chính xác và hợp lệ của dữ liệu</p>
+            </div>
+            
+            <div class="benefit-card">
+              <div class="benefit-icon">⚡</div>
+              <h3>Hiệu suất cao</h3>
+              <p>Xử lý được lượng lớn dữ liệu với tốc độ nhanh</p>
+            </div>
           </div>
 
-          <h2>🎧 Âm thanh minh họa</h2>
-          <div class="media-box">
-            <audio controls>
-              <source src="amthanh1.mp3" type="audio/mpeg">
-              Trình duyệt của bạn không hỗ trợ phát âm thanh.
-            </audio>
-            <div class="caption">Âm thanh 1: Ví dụ mô phỏng giọng nói của trợ lý ảo sử dụng AI</div>
+          <!-- 📝 VII. VÍ DỤ MINH HỌA -->
+          <h2>📝 VII. Ví dụ minh họa: CSDL Quản lý học sinh</h2>
+          
+          <div class="example-box">
+            <h3>Cấu trúc CSDL đơn giản:</h3>
+            
+            <h4>Bảng HOCSINH:</h4>
+            <table class="data-table">
+              <tr>
+                <th>MaHS</th>
+                <th>HoTen</th>
+                <th>NgaySinh</th>
+                <th>GioiTinh</th>
+                <th>DiaChi</th>
+              </tr>
+              <tr>
+                <td>HS001</td>
+                <td>Nguyễn Văn A</td>
+                <td>15/05/2005</td>
+                <td>Nam</td>
+                <td>Hà Nội</td>
+              </tr>
+              <tr>
+                <td>HS002</td>
+                <td>Trần Thị B</td>
+                <td>20/08/2005</td>
+                <td>Nữ</td>
+                <td>Hải Phòng</td>
+              </tr>
+            </table>
+            
+            <h4>Bảng MONHOC:</h4>
+            <table class="data-table">
+              <tr>
+                <th>MaMH</th>
+                <th>TenMH</th>
+                <th>SoTiet</th>
+              </tr>
+              <tr>
+                <td>MH01</td>
+                <td>Toán</td>
+                <td>45</td>
+              </tr>
+              <tr>
+                <td>MH02</td>
+                <td>Văn</td>
+                <td>30</td>
+              </tr>
+            </table>
+            
+            <h4>Bảng KETQUA:</h4>
+            <table class="data-table">
+              <tr>
+                <th>MaHS</th>
+                <th>MaMH</th>
+                <th>Diem</th>
+              </tr>
+              <tr>
+                <td>HS001</td>
+                <td>MH01</td>
+                <td>8.5</td>
+              </tr>
+              <tr>
+                <td>HS001</td>
+                <td>MH02</td>
+                <td>7.0</td>
+              </tr>
+            </table>
+            
+            <p class="note"><i>Lưu ý: Các bảng có mối quan hệ với nhau thông qua khóa chính (MaHS, MaMH)</i></p>
           </div>
 
-          <h2>🎥 Video tham khảo</h2>
+          <!-- 🎓 VIII. ỨNG DỤNG THỰC TẾ -->
+          <h2>🎓 VIII. Ứng dụng thực tế của CSDL</h2>
+          
           <div class="media-box">
             <div class="video-wrapper">
               <iframe 
-                src="https://www.youtube.com/embed/mJeNghZXtMo" 
-                title="Video: Giới thiệu cơ bản về trí tuệ nhân tạo (AI)"
+                src="https://www.youtube.com/embed/wR0jg0eQsZA" 
+                title="Video giới thiệu về cơ sở dữ liệu và ứng dụng"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
               </iframe>
             </div>
-            <div class="caption">Video: Giới thiệu cơ bản về trí tuệ nhân tạo (AI)</div>
+            <div class="caption">🎬 Video 1: Giới thiệu về cơ sở dữ liệu và ứng dụng trong đời sống</div>
           </div>
 
-          <h2>🧩 Tóm tắt ghi nhớ</h2>
-          <table>
-            <tr>
-              <th>Nội dung</th>
-              <th>Ý chính</th>
-            </tr>
-            <tr>
-              <td>Khái niệm AI</td>
-              <td>Máy tính mô phỏng khả năng tư duy, học hỏi của con người</td>
-            </tr>
-            <tr>
-              <td>Phân biệt</td>
-              <td>AI có thể học và thích nghi; chương trình thường chỉ làm theo lệnh</td>
-            </tr>
-            <tr>
-              <td>Ứng dụng</td>
-              <td>Trợ lý ảo, xe tự hành, giáo dục, y tế, thương mại</td>
-            </tr>
-            <tr>
-              <td>Cơ hội</td>
-              <td>Tăng hiệu suất, mở rộng lĩnh vực sáng tạo</td>
-            </tr>
-            <tr>
-              <td>Thách thức</td>
-              <td>Đạo đức, quyền riêng tư, việc làm</td>
-            </tr>
-          </table>
-        </div>
+          <!-- 📚 GHI NHỚ -->
+          <h2>📚 GHI NHỚ</h2>
+          <ul>
+            <li><hl>Cơ sở dữ liệu (CSDL)</hl> là tập hợp dữ liệu có liên quan, được lưu trữ có cấu trúc.</li>
+            <li><hl>Hệ CSDL</hl> bao gồm: CSDL + Hệ QTCSDL + Con người + Phần cứng.</li>
+            <li><hl>Hệ QTCSDL</hl> là phần mềm để tạo lập, cập nhật và khai thác CSDL.</li>
+            <li>Các vai trò trong hệ CSDL: Người quản trị, lập trình viên, người dùng cuối.</li>
+            <li>Quy trình xây dựng CSDL: Khảo sát → Thiết kế → Tạo lập → Kiểm thử → Bảo trì.</li>
+            <li>Lợi ích của CSDL: Nhất quán, chia sẻ, bảo mật, toàn vẹn, hiệu suất cao.</li>
+          </ul>
 
+          <!-- 📝 BÀI TẬP -->
+          <h2>📝 Bài tập củng cố</h2>
+          
+          <div class="exercise-box">
+            <h3>Câu hỏi trắc nghiệm</h3>
+            <ol>
+              <li>Hệ cơ sở dữ liệu KHÔNG bao gồm thành phần nào sau đây?
+                <ul>
+                  <li>A. Cơ sở dữ liệu</li>
+                  <li>B. Hệ quản trị cơ sở dữ liệu</li>
+                  <li>C. Phần mềm ứng dụng</li>
+                  <li>D. Con người</li>
+                </ul>
+              </li>
+              
+              <li>Ai là người có quyền cao nhất trong hệ CSDL?
+                <ul>
+                  <li>A. Người lập trình ứng dụng</li>
+                  <li>B. Người dùng cuối</li>
+                  <li>C. Người quản trị CSDL</li>
+                  <li>D. Kỹ thuật viên phần cứng</li>
+                </ul>
+              </li>
+              
+              <li>Lợi ích nào sau đây KHÔNG phải của hệ CSDL?
+                <ul>
+                  <li>A. Giảm dư thừa dữ liệu</li>
+                  <li>B. Tăng tính nhất quán</li>
+                  <li>C. Dễ dàng chia sẻ dữ liệu</li>
+                  <li>D. Giảm chi phí phần cứng</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          
+          <div class="exercise-box">
+            <h3>Câu hỏi tự luận</h3>
+            <ol>
+              <li>Hãy phân biệt CSDL và hệ QTCSDL. Cho ví dụ minh họa.</li>
+              <li>Giải thích vì sao CSDL giúp giảm dư thừa dữ liệu so với quản lý bằng tệp?</li>
+              <li>Trình bày quy trình xây dựng một CSDL quản lý thư viện.</li>
+            </ol>
+          </div>
+        </div>
         <div class="lesson-footer">
           <button class="exercise-btn" onclick="location.href='/exercise/lop-12/bai-1'">
-            Làm bài tập (Hiện chưa hoạt động)
+            Làm bài tập
+          </button>
+          <button class="next-btn" onclick="location.href='/study/lop-12/bai-2'">
+            Bài tiếp theo: Hệ quản trị cơ sở dữ liệu →
           </button>
         </div>
-
       </div>
     </main>
   </div>

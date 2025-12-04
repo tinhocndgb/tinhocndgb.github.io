@@ -52,10 +52,57 @@
 
         <main class="main">
             <h1>Trang chủ</h1>
-            <div id="content-area"></div>
-            <button id="content-area" class="btn ks-btn" onclick="location.href='/khao-sat/1'">Khảo sát 1</button>
-            <buttun id="content-area" class="btn py-btn" onclick="location.href='/python'">Viết code Python</button>
+            
+            <!-- Nội dung động sẽ được render ở đây -->
+            <div id="content-area">
+                <p class="lead">Trang web nhằm cung cấp nền tảng học môn <a>Tin Học</a> mọi lúc mọi nơi với mọi công cụ bạn có bên mình. Nội dung học tập, kiểm tra sẽ cập nhật thường xuyên để bạn tiếp thu kiến thức mới một cách hiệu quả hơn. Bạn có thể liên lạc với chúng tôi qua email: <a href="mailto:tinhoc.ndgb@gmail.com">tinhoc.ndgb@gmail.com</a></p>
+            </div>
+            
+            <!-- Các nút chỉ hiển thị ở trang chủ -->
+            <div id="home-buttons" class="home-buttons">
+                <button class="btn ks-btn" onclick="window.location.href='/khao-sat/1'">Khảo sát 1</button>
+                <button class="btn py-btn" onclick="window.location.href='/python'">Viết code Python</button>
+            </div>
+            
+            <!-- Danh sách chọn lớp (sẽ được ẩn/hiện bằng JS) -->
+            <div id="study-content" class="hidden-content">
+                <div class="lessons">
+                    <h2>Chọn lớp học</h2>
+                    <ul>
+                        <li><button class="lesson-btn" data-href="/study/lop-10">Lớp 10</button></li>
+                        <li><button class="lesson-btn" data-href="/study/lop-11">Lớp 11</button></li>
+                        <li><button class="lesson-btn" data-href="/study/lop-12">Lớp 12</button></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="exercise-content" class="hidden-content">
+                <div class="lessons">
+                    <h2>Chọn khối làm bài tập</h2>
+                    <ul>
+                        <li><button class="lesson-btn" data-href="/exercise/lop-10">Lớp 10</button></li>
+                        <li><button class="lesson-btn" data-href="/exercise/lop-11">Lớp 11</button></li>
+                        <li><button class="lesson-btn" data-href="/exercise/lop-12">Lớp 12</button></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="test-content" class="hidden-content">
+                <div class="lessons">
+                    <h2>Chọn khối kiểm tra</h2>
+                    <ul>
+                        <li><button class="lesson-btn" data-href="/test/lop-10">Lớp 10</button></li>
+                        <li><button class="lesson-btn" data-href="/test/lop-11">Lớp 11</button></li>
+                        <li><button class="lesson-btn" data-href="/test/lop-12">Lớp 12</button></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="coming-soon-content" class="hidden-content">
+                <p class="lead">Nội dung sẽ được cập nhật sau.</p>
+            </div>
         </main>
+    </div>
     <script src="trang-chu.js"></script>
 </body>
 </html>

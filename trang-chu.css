@@ -239,6 +239,12 @@ nav {
     opacity: 0;
     animation: fadeIn 0.5s ease-out forwards;
     transition: all 0.2s ease;
+    color: var(--text);
+    display: block;
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .lesson-btn:hover {
@@ -520,14 +526,77 @@ hl {
   border-radius: 4px;
 }
 
-.btn {
-    width:50%; max-width: 500px; min-width: 288px; margin: 10px auto;
-    color: white; font-size: 25px; padding: 18px 36px; border-radius: 50vw;
-    border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    font-weight: bold; text-align: center; display: block;
+/* ========== HIDDEN CONTENT ========== */
+.hidden-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.btn:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
-.btn:active { transform: translateY(2px); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-.py-btn { background: linear-gradient(135deg, #0044ff, #1100ff); }
-.ks-btn { background: linear-gradient(135deg, #b700ff, #5900ff); }
+
+.hidden-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: pageIn 0.5s ease-out;
+}
+
+/* ========== HOME BUTTONS ========== */
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+    transition: opacity 0.3s ease;
+}
+
+.home-buttons.hidden {
+    display: none;
+}
+
+/* ========== BUTTON STYLES ========== */
+.btn {
+    width: 250px; /* Thay đổi từ 50% xuống 250px */
+    max-width: 80%;
+    min-width: 200px;
+    margin: 10px auto;
+    color: white;
+    font-size: 18px; /* Giảm từ 25px xuống 18px */
+    padding: 12px 24px; /* Giảm padding */
+    border-radius: 50vw;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.py-btn {
+    background: linear-gradient(135deg, #0044ff, #1100ff);
+}
+
+.ks-btn {
+    background: linear-gradient(135deg, #b700ff, #5900ff);
+}
+
+/* Responsive cho nút */
+@media (max-width: 640px) {
+    .btn {
+        width: 200px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}

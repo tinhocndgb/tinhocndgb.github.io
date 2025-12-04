@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bài 1 - Thông tin và dữ liệu | Học Tin Học NDGB</title>
+  <title>Bài 2 - Máy tính và chương trình máy tính | Tin học 10 | Học Tin Học NDGB</title>
   <link rel="icon" href="/file/logo.png" type="image/png" />
   <link rel="stylesheet" href="/study/bai.css" />
 </head>
@@ -59,48 +59,429 @@
       <div class="lesson-page fade-in">
         <div class="lesson-header">
           <div class="topic">Chủ đề A: Máy tính và xã hội tri thức – Tin học 10</div>
-          <h1>BÀI 2: HỆ THỐNG SỐ VÀ MÃ HÓA THÔNG TIN</h1>
+          <h1>BÀI 2: MÁY TÍNH VÀ CHƯƠNG TRÌNH MÁY TÍNH</h1>
+          <p class="subtitle">Tìm hiểu cách máy tính hoạt động và vai trò của chương trình</p>
         </div>
 
         <div class="lesson-content">
-          <h2>I. HỆ THỐNG SỐ</h2>
-          <h3>1. Hệ thập phân</h3>
-          <p>Hệ thập phân (Decimal system) là hệ thống số mà chúng ta thường sử dụng trong cuộc sống hàng ngày. Nó bao gồm 10 chữ số từ 0 đến 9. Mỗi chữ số trong một số thập phân có vị trí xác định, và giá trị của nó phụ thuộc vào vị trí đó (hàng đơn vị, hàng chục, hàng trăm, v.v.).</p>
-          <p>Ví dụ: Số 345 trong hệ thập phân có thể được phân tích như sau:</p>
+
+          <!-- 🎯 MỤC TIÊU -->
+          <h2>🎯 Mục tiêu bài học</h2>
           <ul>
-            <li>3 × 10² (hàng trăm) = 300</li>
-            <li>4 × 10¹ (hàng chục) = 40</li>
-            <li>5 × 10⁰ (hàng đơn vị) = 5</li>
+            <li>Hiểu được <hl>cấu trúc cơ bản</hl> của máy tính và cách nó hoạt động.</li>
+            <li>Biết được <hl>chương trình máy tính</hl> là gì và tại sao cần có chương trình.</li>
+            <li>Phân biệt được <hl>phần cứng</hl> và <hl>phần mềm</hl>.</li>
+            <li>Nắm được <hl>quy trình</hl> thực hiện một chương trình trên máy tính.</li>
+            <li>Hiểu <hl>nguyên lý hoạt động</hl> theo chương trình của máy tính.</li>
           </ul>
-          <p>Tổng cộng: 300 + 40 + 5 = 345</p>
-          <h3>2. Hệ nhị phân</h3>
-          <p>Hệ nhị phân (Binary system) là hệ thống số chỉ sử dụng hai chữ số: 0 và 1. Đây là hệ thống số cơ bản được sử dụng trong máy tính và các thiết bị điện tử vì chúng dễ dàng biểu diễn bằng hai trạng thái điện (bật và tắt).</p>
-          <p>Ví dụ: Số 1011 trong hệ nhị phân có thể được phân tích như sau:</p>
+
+          <!-- 💻 I. CẤU TRÚC CƠ BẢN CỦA MÁY TÍNH -->
+          <h2>💻 I. Cấu trúc cơ bản của máy tính</h2>
+          
+          <p>
+            Máy tính điện tử hiện đại được xây dựng dựa trên <hl>mô hình Von Neumann</hl>, gồm 4 thành phần chính:
+          </p>
+          
+          <div class="components-grid">
+            <div class="component-card">
+              <div class="component-icon">🧠</div>
+              <h3>1. Bộ xử lý trung tâm (CPU)</h3>
+              <p><hl>"Bộ não"</hl> của máy tính, thực hiện các phép tính và điều khiển hoạt động</p>
+              <ul>
+                <li>Đơn vị điều khiển (CU)</li>
+                <li>Đơn vị tính toán (ALU)</li>
+                <li>Thanh ghi (Registers)</li>
+              </ul>
+            </div>
+            
+            <div class="component-card">
+              <div class="component-icon">💾</div>
+              <h3>2. Bộ nhớ (Memory)</h3>
+              <p>Nơi lưu trữ <hl>chương trình</hl> và <hl>dữ liệu</hl></p>
+              <ul>
+                <li>Bộ nhớ trong: RAM, ROM</li>
+                <li>Bộ nhớ ngoài: HDD, SSD, USB</li>
+              </ul>
+            </div>
+            
+            <div class="component-card">
+              <div class="component-icon">⌨️</div>
+              <h3>3. Thiết bị vào (Input)</h3>
+              <p>Đưa <hl>dữ liệu</hl> và <hl>lệnh</hl> vào máy tính</p>
+              <ul>
+                <li>Bàn phím, chuột</li>
+                <li>Máy quét, webcam</li>
+                <li>Micro, cảm biến</li>
+              </ul>
+            </div>
+            
+            <div class="component-card">
+              <div class="component-icon">🖥️</div>
+              <h3>4. Thiết bị ra (Output)</h3>
+              <p>Đưa <hl>kết quả</hl> xử lý ra ngoài</p>
+              <ul>
+                <li>Màn hình, máy in</li>
+                <li>Loa, máy chiếu</li>
+                <li>Đèn báo, còi</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="image-box">
+            <img src="hinh1-bai2.png" alt="Cấu trúc cơ bản của máy tính" />
+            <div class="caption">🔧 Hình 1: Sơ đồ cấu trúc cơ bản của máy tính theo mô hình Von Neumann</div>
+          </div>
+
+          <!-- 📀 II. PHẦN CỨNG VÀ PHẦN MỀM -->
+          <h2>📀 II. Phần cứng và phần mềm</h2>
+          
+          <div class="comparison-box">
+            <div class="comparison-item">
+              <h3>📟 Phần cứng (Hardware)</h3>
+              <p><hl>Các thiết bị vật lý</hl> của máy tính mà ta có thể sờ thấy, cầm nắm được</p>
+              <ul>
+                <li><b>Ví dụ:</b> Màn hình, bàn phím, chuột, CPU, RAM, ổ cứng</li>
+                <li><b>Đặc điểm:</b> Có hình dạng cụ thể, hao mòn theo thời gian</li>
+                <li><b>Vai trò:</b> Cung cấp nền tảng vật lý để chạy phần mềm</li>
+              </ul>
+            </div>
+            
+            <div class="comparison-item">
+              <h3>💿 Phần mềm (Software)</h3>
+              <p><hl>Các chương trình</hl> và dữ liệu được lưu trữ trong máy tính</p>
+              <ul>
+                <li><b>Ví dụ:</b> Windows, Word, Chrome, game, ứng dụng</li>
+                <li><b>Đặc điểm:</b> Không có hình dạng vật lý, không hao mòn</li>
+                <li><b>Vai trò:</b> Điều khiển phần cứng thực hiện công việc</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="analogy-box">
+            <h4>🔍 So sánh dễ hiểu:</h4>
+            <p><hl>Phần cứng</hl> giống như <b>cơ thể</b> con người (tay, chân, mắt, não)</p>
+            <p><hl>Phần mềm</hl> giống như <b>kiến thức và kỹ năng</b> trong đầu con người</p>
+            <p>→ Máy tính cần cả hai mới hoạt động được!</p>
+          </div>
+
+          <!-- 📜 III. CHƯƠNG TRÌNH MÁY TÍNH -->
+          <h2>📜 III. Chương trình máy tính là gì?</h2>
+          
+          <div class="definition-box">
+            <h3>Định nghĩa:</h3>
+            <p><hl>Chương trình máy tính</hl> là một dãy các <b>lệnh</b> được sắp xếp theo một trình tự xác định để chỉ dẫn cho máy tính thực hiện một công việc cụ thể.</p>
+          </div>
+          
+          <h3>1. Tại sao cần chương trình?</h3>
+          <p>
+            Máy tính không tự biết làm việc. Nó cần <hl>chương trình</hl> để:
+          </p>
           <ul>
-            <li>1 × 2³ = 8</li>
-            <li>0 × 2² = 0</li>
-            <li>1 × 2¹ = 2</li>
-            <li>1 × 2⁰ = 1</li>
+            <li>🎯 <b>Hướng dẫn cụ thể</b>: Từng bước phải làm gì</li>
+            <li>⚡ <b>Tự động hóa</b>: Thực hiện công việc nhanh, chính xác</li>
+            <li>🔄 <b>Lặp lại</b>: Thực hiện nhiều lần mà không mệt</li>
+            <li>📊 <b>Xử lý phức tạp</b>: Giải quyết bài toán khó</li>
           </ul>
-          <p>Tổng cộng: 8 + 0 + 2 + 1 = 11 (trong hệ thập phân)</p>
-          <h3>3. Chuyển đổi giữa hệ thập phân và hệ nhị phân</h3>
-          <p>Để chuyển đổi từ hệ thập phân sang hệ nhị phân, ta có thể sử dụng phương pháp chia liên tiếp cho 2 và ghi lại các số dư. Ngược lại, để chuyển đổi từ hệ nhị phân sang hệ thập phân, ta nhân mỗi chữ số nhị phân với 2 mũ vị trí của nó và cộng lại.</p>
-          <h2>II. MÃ HÓA THÔNG TIN</h2>
-          <h3>1. Khái niệm mã hóa thông tin</h3>
-          <p>Mã hóa thông tin là quá trình chuyển đổi dữ liệu từ dạng này sang dạng khác để dễ dàng lưu trữ, truyền tải hoặc bảo mật. Trong máy tính, thông tin thường được mã hóa dưới dạng nhị phân để máy tính có thể xử lý.</p>
-          <h3>2. Các phương pháp mã hóa thông tin</h3>
-          <p>Có nhiều phương pháp mã hóa thông tin khác nhau, bao gồm:</p>
+          
+          <h3>2. Ví dụ về chương trình đơn giản</h3>
+          <div class="code-example">
+            <h4>Chương trình tính tổng hai số:</h4>
+            <pre><code>BẮT ĐẦU
+  1. Nhập số thứ nhất (a)
+  2. Nhập số thứ hai (b)
+  3. Tính tổng: S = a + b
+  4. Hiển thị kết quả S
+KẾT THÚC</code></pre>
+          </div>
+          
+          <div class="image-box">
+            <img src="hinh2-bai2.png" alt="Chương trình máy tính hoạt động" />
+            <div class="caption">🖥️ Hình 2: Máy tính thực hiện các lệnh trong chương trình một cách tuần tự</div>
+          </div>
+
+          <!-- 🔄 IV. NGUYÊN LÝ HOẠT ĐỘNG THEO CHƯƠNG TRÌNH -->
+          <h2>🔄 IV. Nguyên lý hoạt động theo chương trình</h2>
+          
+          <h3>1. Nguyên lý lưu trữ chương trình</h3>
+          <p>
+            <hl>Chương trình</hl> được lưu trữ trong <hl>bộ nhớ</hl> giống như dữ liệu. CPU lấy lệnh từ bộ nhớ và thực hiện tuần tự.
+          </p>
+          
+          <h3>2. Chu trình thực hiện lệnh</h3>
+          <div class="process-box">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Lấy lệnh (Fetch)</h3>
+                <p>CPU lấy lệnh từ bộ nhớ</p>
+              </div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Giải mã (Decode)</h3>
+                <p>CPU phân tích xem lệnh yêu cầu làm gì</p>
+              </div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Thực hiện (Execute)</h3>
+                <p>CPU thực hiện lệnh (tính toán, di chuyển dữ liệu)</p>
+              </div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>Ghi kết quả (Write-back)</h3>
+                <p>Ghi kết quả vào bộ nhớ hoặc thanh ghi</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="note-box">
+            <h4>💡 Điều đặc biệt:</h4>
+            <p>Máy tính thực hiện hàng triệu chu trình như vậy <hl>mỗi giây</hl>! Một CPU 2GHz có thể thực hiện khoảng 2 tỷ lệnh mỗi giây.</p>
+          </div>
+
+          <!-- 🎮 V. PHÂN LOẠI CHƯƠNG TRÌNH -->
+          <h2>🎮 V. Phân loại chương trình máy tính</h2>
+          
+          <table>
+            <tr>
+              <th>Loại chương trình</th>
+              <th>Ví dụ</th>
+              <th>Chức năng chính</th>
+              <th>Người sử dụng</th>
+            </tr>
+            <tr>
+              <td><hl>Hệ điều hành</hl></td>
+              <td>Windows, macOS, Linux</td>
+              <td>Quản lý phần cứng, chạy ứng dụng</td>
+              <td>Tất cả người dùng</td>
+            </tr>
+            <tr>
+              <td><hl>Phần mềm ứng dụng</hl></td>
+              <td>Word, Excel, Chrome, Zoom</td>
+              <td>Giải quyết nhu cầu cụ thể</td>
+              <td>Người dùng cuối</td>
+            </tr>
+            <tr>
+              <td><hl>Công cụ phát triển</hl></td>
+              <td>Visual Studio, Python IDE</td>
+              <td>Viết chương trình mới</td>
+              <td>Lập trình viên</td>
+            </tr>
+            <tr>
+              <td><hl>Tiện ích</hl></td>
+              <td>WinRAR, CCleaner</td>
+              <td>Hỗ trợ, bảo trì hệ thống</td>
+              <td>Người dùng có kinh nghiệm</td>
+            </tr>
+          </table>
+          
+          <div class="image-box">
+            <img src="hinh3-bai2.png" alt="Các loại phần mềm trên máy tính" />
+            <div class="caption">📊 Hình 3: Các loại phần mềm khác nhau cùng hoạt động trên một máy tính</div>
+          </div>
+
+          <!-- 🏗️ VI. CÁCH TẠO RA CHƯƠNG TRÌNH -->
+          <h2>🏗️ VI. Cách tạo ra một chương trình máy tính</h2>
+          
+          <div class="creation-process">
+            <h3>Quy trình 4 bước:</h3>
+            
+            <div class="creation-step">
+              <h4>1. 📝 Xác định bài toán</h4>
+              <p>Hiểu rõ yêu cầu: Máy tính cần làm gì?</p>
+              <p><i>Ví dụ:</i> "Cần chương trình tính điểm trung bình của học sinh"</p>
+            </div>
+            
+            <div class="creation-step">
+              <h4>2. 🧮 Thiết kế thuật toán</h4>
+              <p>Vạch ra các bước giải quyết bài toán</p>
+              <p><i>Ví dụ:</i> 
+                <ol>
+                  <li>Nhập điểm Toán, Văn, Anh</li>
+                  <li>Tính tổng điểm</li>
+                  <li>Chia cho 3 để ra điểm trung bình</li>
+                  <li>Hiển thị kết quả</li>
+                </ol>
+              </p>
+            </div>
+            
+            <div class="creation-step">
+              <h4>3. 💻 Viết chương trình</h4>
+              <p>Dùng ngôn ngữ lập trình để viết thành mã</p>
+              <div class="code-example">
+                <p><i>Ví dụ bằng Python:</i></p>
+                <pre><code>toan = float(input("Nhập điểm Toán: "))
+van = float(input("Nhập điểm Văn: "))
+anh = float(input("Nhập điểm Anh: "))
+
+diem_tb = (toan + van + anh) / 3
+
+print("Điểm trung bình là:", diem_tb)</code></pre>
+              </div>
+            </div>
+            
+            <div class="creation-step">
+              <h4>4. 🧪 Kiểm thử và sửa lỗi</h4>
+              <p>Chạy thử, tìm lỗi và sửa cho đến khi chương trình chạy đúng</p>
+              <p><i>Ví dụ:</i> Thử nhập điểm 8, 7, 9 → Kiểm tra xem có ra 8.0 không?</p>
+            </div>
+          </div>
+
+          <!-- 🎬 VII. VIDEO MINH HỌA -->
+          <h2>🎬 VII. Video minh họa</h2>
+          
+          <div class="media-box">
+            <div class="video-wrapper">
+              <iframe 
+                src="https://www.youtube.com/embed/mCq8-xTH7jA" 
+                title="Video giải thích cách máy tính hoạt động"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="caption">🎥 Video 1: Giải thích cách CPU xử lý lệnh và chương trình hoạt động</div>
+          </div>
+
+          <!-- 💡 VIII. ỨNG DỤNG THỰC TẾ -->
+          <h2>💡 VIII. Ứng dụng thực tế của chương trình máy tính</h2>
+          
+          <div class="application-cards">
+            <div class="app-card">
+              <div class="app-icon">🎮</div>
+              <h3>Giải trí</h3>
+              <p>Game, phim, nhạc, mạng xã hội</p>
+            </div>
+            
+            <div class="app-card">
+              <div class="app-icon">📚</div>
+              <h3>Học tập</h3>
+              <p>Phần mềm học tập, từ điển, thư viện số</p>
+            </div>
+            
+            <div class="app-card">
+              <div class="app-icon">🏥</div>
+              <h3>Y tế</h3>
+              <p>Chẩn đoán bệnh, quản lý bệnh án, robot phẫu thuật</p>
+            </div>
+            
+            <div class="app-card">
+              <div class="app-icon">🏭</div>
+              <h3>Sản xuất</h3>
+              <p>Điều khiển robot, dây chuyền tự động</p>
+            </div>
+            
+            <div class="app-card">
+              <div class="app-icon">🚗</div>
+              <h3>Giao thông</h3>
+              <p>Điều khiển đèn giao thông, xe tự lái</p>
+            </div>
+            
+            <div class="app-card">
+              <div class="app-icon">🏠</div>
+              <h3>Nhà thông minh</h3>
+              <p>Điều khiển đèn, điều hòa, an ninh tự động</p>
+            </div>
+          </div>
+
+          <!-- 📝 GHI NHỚ -->
+          <h2>📝 GHI NHỚ</h2>
           <ul>
-            <li>Mã hóa ký tự: Chuyển đổi ký tự thành mã số (ví dụ: mã ASCII, Unicode).</li>
-            <li>Mã hóa hình ảnh: Chuyển đổi hình ảnh thành dữ liệu số (ví dụ: JPEG, PNG).</li>
-            <li>Mã hóa âm thanh: Chuyển đổi âm thanh thành dữ liệu số (ví dụ: MP3, WAV).</li>
+            <li>Máy tính gồm 4 phần chính: <hl>CPU</hl>, <hl>Bộ nhớ</hl>, <hl>Thiết bị vào</hl>, <hl>Thiết bị ra</hl>.</li>
+            <li><hl>Phần cứng</hl> là thiết bị vật lý, <hl>phần mềm</hl> là chương trình và dữ liệu.</li>
+            <li><hl>Chương trình máy tính</hl> là dãy lệnh để máy tính thực hiện công việc.</li>
+            <li>Máy tính hoạt động theo nguyên lý <hl>lưu trữ chương trình</hl> và thực hiện tuần tự.</li>
+            <li>Quy trình tạo chương trình: Xác định bài toán → Thiết kế thuật toán → Viết mã → Kiểm thử.</li>
+            <li>Chương trình máy tính có mặt ở mọi lĩnh vực trong cuộc sống hiện đại.</li>
           </ul>
-          <h3>3. Ứng dụng của mã hóa thông tin</h3>
-          <p>Mã hóa thông tin được sử dụng rộng rãi trong nhiều lĩnh vực, bao gồm truyền thông, lưu trữ dữ liệu, và bảo mật thông tin. Ví dụ, khi bạn gửi email hoặc truy cập trang web, dữ liệu của bạn thường được mã hóa để bảo vệ khỏi việc bị truy cập trái phép.</p>
+
+          <!-- 🧪 BÀI TẬP THỰC HÀNH -->
+          <h2>🧪 Bài tập thực hành</h2>
+          
+          <div class="practice-exercise">
+            <h3>Bài 1: Xác định phần cứng/ phần mềm</h3>
+            <p>Hãy phân loại các thành phần sau vào đúng nhóm:</p>
+            <table>
+              <tr>
+                <th>Thành phần</th>
+                <th>Phần cứng</th>
+                <th>Phần mềm</th>
+              </tr>
+              <tr>
+                <td>1. Màn hình LCD</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+              </tr>
+              <tr>
+                <td>2. Microsoft Word</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+              </tr>
+              <tr>
+                <td>3. Ổ cứng SSD</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+              </tr>
+              <tr>
+                <td>4. Trình duyệt Chrome</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+              </tr>
+              <tr>
+                <td>5. Webcam</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+              </tr>
+            </table>
+          </div>
+          
+          <div class="practice-exercise">
+            <h3>Bài 2: Thiết kế thuật toán đơn giản</h3>
+            <p>Hãy viết các bước (thuật toán) để máy tính thực hiện công việc:</p>
+            <p><b>"Kiểm tra xem một học sinh có được lên lớp hay không?"</b></p>
+            <p><i>Biết rằng:</i> Điểm trung bình ≥ 5.0 thì được lên lớp, ngược lại thì ở lại lớp.</p>
+            
+            <div class="answer-box">
+              <p>Gợi ý trả lời:</p>
+              <ol>
+                <li>Nhập điểm trung bình của học sinh</li>
+                <li>Nếu điểm trung bình ≥ 5.0 thì...</li>
+                <li>Ngược lại thì...</li>
+                <li>Hiển thị kết quả</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="practice-exercise">
+            <h3>Bài 3: Tư duy lập trình</h3>
+            <p>Giả sử bạn là CPU, hãy mô tả các bước bạn thực hiện để tính biểu thức:</p>
+            <p><code>A = (15 + 25) × 2</code></p>
+            <p>Hãy viết thành các lệnh đơn giản mà CPU có thể hiểu:</p>
+            
+            <div class="answer-box">
+              <p>Ví dụ:</p>
+              <ol>
+                <li>Lấy số 15</li>
+                <li>Lấy số 25</li>
+                <li>Cộng 15 với 25 → được 40</li>
+                <li>Lấy số 2</li>
+                <li>Nhân 40 với 2 → được 80</li>
+                <li>Lưu kết quả 80 vào biến A</li>
+              </ol>
+            </div>
+          </div>
         </div>
         <div class="lesson-footer">
           <button class="exercise-btn" onclick="location.href='/exercise/lop-10/bai-2'">
-            Làm bài tập
+            Làm bài tập đầy đủ
           </button>
         </div>
       </div>

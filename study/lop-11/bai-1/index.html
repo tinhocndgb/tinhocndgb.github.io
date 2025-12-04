@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bài 1: Bên trong máy tính | Học Tin Học NDGB</title>
+  <title>Bài 1 - Thông tin và dữ liệu | Tin học 11 | Học Tin Học NDGB</title>
   <link rel="icon" href="/file/logo.png" type="image/png" />
   <link rel="stylesheet" href="/study/bai.css" />
 </head>
 <body>
   <div class="window">
+    <!-- ============ Sidebar ============ -->
     <aside class="sidebar">
       <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
         <div class="logo" aria-hidden>
@@ -28,6 +29,7 @@
           <div class="slogan">Nhật Đăng - Gia Bảo</div>
         </div>
 
+        <!-- ============ Navigation ============ -->
         <nav aria-label="chức năng">
           <div class="nav-item" data-id="home">
             <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
@@ -52,181 +54,238 @@
       </div>
     </aside>
 
+    <!-- ============ Main Content ============ -->
     <main class="main">
       <div class="lesson-page fade-in">
         <div class="lesson-header">
-          <div class="topic">Chủ đề A: Máy tính và xã hội tri thức – Tin học 11</div>
-          <h1>BÀI 1: BÊN TRONG MÁY TÍNH</h1>
+          <div class="topic">Chương 1: Một số khái niệm về lập trình và ngôn ngữ lập trình - Tin học 11</div>
+          <h1>BÀI 1: THÔNG TIN VÀ DỮ LIỆU</h1>
+          <p class="subtitle">Khái niệm cơ bản trong tin học và lập trình</p>
         </div>
 
         <div class="lesson-content">
 
+          <!-- 🎯 MỤC TIÊU -->
           <h2>🎯 Mục tiêu bài học</h2>
-          <p>Sau khi học xong bài này, học sinh có khả năng:</p>
           <ul>
-            <li>Phân tích chi tiết <hl>vai trò</hl> và <hl>cấu trúc</hl> của CPU (CU, ALU, Registers) và các khối chức năng chính khác.</li>
-            <li>Giải thích sự khác biệt giữa các loại bộ nhớ (<hl>RAM khả biến</hl>, <hl>ROM bất biến</hl>) và thiết bị lưu trữ (HDD, SSD).</li>
-            <li>Trình bày đầy đủ <hl>chu trình lệnh</hl> (Fetch, Decode, Execute) trong nguyên lý hoạt động của máy tính.</li>
-            <li>Thực hành: Nhận diện được vị trí và dây cáp kết nối của các linh kiện phần cứng.</li>
+            <li>Hiểu và phân biệt được <hl>thông tin</hl> và <hl>dữ liệu</hl> trong lập trình.</li>
+            <li>Nắm được cách máy tính biểu diễn và xử lý thông tin.</li>
+            <li>Hiểu khái niệm về <hl>đơn vị đo thông tin</hl> và <hl>hệ đếm</hl>.</li>
+            <li>Biết cách biểu diễn dữ liệu trong máy tính.</li>
+            <li>Áp dụng kiến thức vào việc học lập trình Pascal.</li>
           </ul>
 
-          <hr/>
-
-          <h2>📘 I. Các khối chức năng chính của máy tính</h2>
+          <!-- 📘 I. KHÁI NIỆM THÔNG TIN VÀ DỮ LIỆU -->
+          <h2>📘 I. Thông tin và dữ liệu trong lập trình</h2>
           <p>
-            Cấu tạo phần cứng của máy tính tuân theo Kiến trúc Von Neumann, bao gồm Bộ xử lý trung tâm, Bộ nhớ chính và các thiết bị Vào/Ra.
+            Trong lập trình, việc phân biệt rõ ràng giữa <hl>thông tin</hl> và <hl>dữ liệu</hl> là rất quan trọng.
           </p>
-
-          <h3>1. Bộ xử lý trung tâm (CPU - Central Processing Unit)</h3>
+          
+          <h3>1. Thông tin (Information)</h3>
           <p>
-            CPU là trung tâm điều hành mọi hoạt động, xử lý dữ liệu và điều khiển thiết bị, được kết nối với các thành phần khác qua <hl>Bus hệ thống</hl>.
+            <b>Thông tin</b> là những gì có <hl>ý nghĩa</hl> đối với con người, giúp con người hiểu biết và ra quyết định.
           </p>
-          <h4>1.1. Cấu trúc bên trong CPU:</h4>
-          <ul>
-            <li><hl>Khối Điều khiển (CU)</hl>: Giải mã lệnh và tạo ra các tín hiệu điều khiển để điều phối hoạt động giữa CPU, bộ nhớ và các thiết bị ngoại vi.</li>
-            <li><hl>Khối Tính toán số học và Logic (ALU)</hl>: Thực hiện mọi phép tính toán (cộng, trừ, nhân, chia) và các phép toán logic (AND, OR, NOT).</li>
-            <li><hl>Thanh ghi (Registers)</hl>: Là các ô nhớ cực nhỏ, tốc độ truy cập nhanh nhất, dùng để tạm thời lưu trữ các lệnh, địa chỉ và dữ liệu đang được CPU xử lý tức thời.</li>
-          </ul>
-
+          <p>
+            <i>Ví dụ trong lập trình:</i> Kết quả "Điểm trung bình của học sinh là 8.5" là một thông tin có ý nghĩa.
+          </p>
+          
+          <h3>2. Dữ liệu (Data)</h3>
+          <p>
+            <b>Dữ liệu</b> là cách <hl>biểu diễn thông tin</hl> để máy tính có thể xử lý, lưu trữ và truyền tải.
+          </p>
+          <p>
+            <i>Ví dụ trong lập trình:</i> Dãy số <code>8, 9, 7, 8, 10</code> là dữ liệu. Khi tính trung bình, ta có thông tin.
+          </p>
+          
           <div class="image-box">
-            <img src="hinh1.png" alt="Sơ đồ khối chức năng của CPU" />
-            <div class="caption">🖥️ Hình 1: Mô hình khối chức năng của Bộ xử lý trung tâm (CPU).</div>
+            <img src="hinh1.png" alt="Chuyển đổi dữ liệu thành thông tin trong lập trình" />
+            <div class="caption">🔄 Hình 1: Quá trình chuyển đổi từ dữ liệu thành thông tin trong lập trình.</div>
+          </div>
+
+          <!-- 💾 II. BIỂU DIỄN THÔNG TIN TRONG MÁY TÍNH -->
+          <h2>💾 II. Biểu diễn thông tin trong máy tính</h2>
+          <p>
+            Máy tính sử dụng <hl>hệ nhị phân</hl> (Binary system) để biểu diễn mọi thông tin.
+          </p>
+          
+          <h3>1. Hệ nhị phân</h3>
+          <ul>
+            <li>Chỉ sử dụng hai ký hiệu: <code>0</code> và <code>1</code></li>
+            <li>Mỗi ký hiệu <code>0</code> hoặc <code>1</code> gọi là một <hl>bit</hl> (Binary digit)</li>
+            <li>Bit là đơn vị nhỏ nhất của thông tin trong máy tính</li>
+          </ul>
+          
+          <div class="code-example">
+            <h4>Ví dụ: Biểu diễn số 10 trong hệ nhị phân</h4>
+            <p>Hệ thập phân: 10<sub>10</sub></p>
+            <p>Hệ nhị phân: 1010<sub>2</sub> = (1 × 2³) + (0 × 2²) + (1 × 2¹) + (0 × 2⁰)</p>
           </div>
           
-          <h4>1.2. Thông số CPU:</h4>
-          <p>
-            Hiệu năng của CPU phụ thuộc vào <b>tốc độ xung nhịp</b> (số chu kỳ xử lý mỗi giây, đo bằng GHz) và <b>số lượng nhân</b> (Core) xử lý độc lập.
-          </p>
-
-          <h3>2. Bộ nhớ trong (Internal Memory)</h3>
-          <p>
-            Phân biệt hai loại bộ nhớ chính dựa trên tính chất lưu trữ dữ liệu:
-          </p>
-          <ul>
-            <li><hl>RAM (Bộ nhớ Khả biến - Volatile)</hl>: 
-                Lưu trữ tạm thời chương trình và dữ liệu đang được CPU thực thi. 
-                Đặc điểm quan trọng là <hl>dữ liệu bị mất hoàn toàn khi tắt máy</hl> (mất điện).
-                RAM được chia thành DRAM (thường dùng làm bộ nhớ chính) và SRAM (thường dùng làm bộ nhớ cache bên trong CPU).
-            </li>
-            <li><hl>ROM (Bộ nhớ Bất biến - Non-Volatile)</hl>: 
-                Chỉ cho phép đọc (Read Only), chứa các chương trình khởi động cơ bản (BIOS/UEFI). 
-                Dữ liệu <hl>không bị mất</hl> khi không có nguồn điện.
-            </li>
-          </ul>
-
-          <h3>3. Thiết bị lưu trữ (Storage Devices)</h3>
-          <p>
-            Dùng để lưu trữ dữ liệu <hl>ổn định, lâu dài</hl>, độc lập với nguồn điện:
-          </p>
+          <h3>2. Các đơn vị đo thông tin</h3>
           <table>
             <tr>
-              <th>Loại Thiết bị</th>
-              <th>Cơ chế hoạt động</th>
-              <th>Ưu điểm nổi bật</th>
+              <th>Đơn vị</th>
+              <th>Ký hiệu</th>
+              <th>Giá trị</th>
+              <th>Ví dụ</th>
             </tr>
             <tr>
-              <td><hl>HDD (Hard Disk Drive)</hl></td>
-              <td>Sử dụng đĩa từ quay và đầu đọc/ghi cơ học.</td>
-              <td>Dung lượng lớn, giá thành rẻ.</td>
+              <td>Bit</td>
+              <td>b</td>
+              <td>0 hoặc 1</td>
+              <td>Một ký tự nhị phân</td>
             </tr>
             <tr>
-              <td><hl>SSD (Solid State Drive)</hl></td>
-              <td>Sử dụng chip nhớ flash (không có bộ phận chuyển động).</td>
-              <td><hl>Tốc độ truy cập và truyền dữ liệu rất nhanh</hl>, chống sốc tốt.</td>
+              <td>Byte</td>
+              <td>B</td>
+              <td>8 bit</td>
+              <td>Một ký tự văn bản</td>
+            </tr>
+            <tr>
+              <td>Kilobyte</td>
+              <td>KB</td>
+              <td>1024 byte</td>
+              <td>Một trang văn bản</td>
+            </tr>
+            <tr>
+              <td>Megabyte</td>
+              <td>MB</td>
+              <td>1024 KB</td>
+              <td>Một bài hát MP3</td>
+            </tr>
+            <tr>
+              <td>Gigabyte</td>
+              <td>GB</td>
+              <td>1024 MB</td>
+              <td>Một bộ phim HD</td>
             </tr>
           </table>
 
-          <h3>4. Thiết bị Vào/Ra (Input/Output Devices)</h3>
+          <!-- 🖥️ III. CÁC KIỂU DỮ LIỆU TRONG PASCAL -->
+          <h2>🖥️ III. Các kiểu dữ liệu trong Pascal</h2>
           <p>
-            Chúng là cầu nối giữa máy tính và thế giới bên ngoài.
+            Trong ngôn ngữ lập trình Pascal (ngôn ngữ được học trong Tin học 11), dữ liệu được phân thành các kiểu khác nhau:
           </p>
+          
+          <h3>1. Kiểu dữ liệu cơ bản</h3>
           <ul>
-            <li><b>Thiết bị Vào:</b> (Bàn phím, Chuột, Webcam, Microphone) - <hl>Chuyển đổi dữ liệu từ ngoài vào tín hiệu số</hl> cho máy tính.</li>
-            <li><b>Thiết bị Ra:</b> (<hl>Màn hình, Máy in</hl>, Loa) - <hl>Chuyển đổi tín hiệu số thành dạng vật lý</hl> hoặc hình ảnh/âm thanh con người nhận biết được.</li>
+            <li><hl>Integer</hl>: Kiểu số nguyên (-32768 đến 32767)</li>
+            <li><hl>Real</hl>: Kiểu số thực (ví dụ: 3.14, -0.5)</li>
+            <li><hl>Char</hl>: Kiểu ký tự (ví dụ: 'A', 'b', '5')</li>
+            <li><hl>String</hl>: Kiểu xâu ký tự (ví dụ: "Xin chào")</li>
+            <li><hl>Boolean</hl>: Kiểu logic (TRUE hoặc FALSE)</li>
           </ul>
+          
+          <h3>2. Khai báo biến trong Pascal</h3>
+          <div class="code-example">
+            <h4>Cú pháp khai báo biến:</h4>
+            <pre><code>VAR
+  ten_bien : kieu_du_lieu;</code></pre>
+            
+            <h4>Ví dụ:</h4>
+            <pre><code>VAR
+  tuoi : Integer;
+  diemTB : Real;
+  hoTen : String;
+  gioiTinh : Char;
+  passed : Boolean;</code></pre>
+          </div>
 
-          <hr/>
-
-          <h2>⚙️ II. Nguyên lý hoạt động cơ bản và Chu trình lệnh</h2>
-
-          <h3>1. Chu trình Nhập – Xử lý – Xuất</h3>
+          <!-- ⚙️ IV. XỬ LÝ THÔNG TIN TRONG LẬP TRÌNH -->
+          <h2>⚙️ IV. Quá trình xử lý thông tin trong lập trình</h2>
           <p>
-            Tất cả hoạt động của máy tính là sự luân chuyển dữ liệu theo ba bước chính, dưới dạng tín hiệu <hl>nhị phân (0 và 1)</hl>:
+            Trong lập trình, quá trình xử lý thông tin gồm các bước:
           </p>
-          <div class="image-box">
-            <img src="hinh2.png" alt="Sơ đồ khối chức năng và luồng dữ liệu" />
-            <div class="caption">⚙️ Hình 2: Luồng dữ liệu qua các khối chức năng của máy tính.</div>
+          
+          <table>
+            <tr>
+              <th>Bước</th>
+              <th>Mô tả</th>
+              <th>Ví dụ trong Pascal</th>
+            </tr>
+            <tr>
+              <td><hl>1. Nhập dữ liệu</hl></td>
+              <td>Thu thập dữ liệu đầu vào từ người dùng</td>
+              <td><code>Readln(diemToan);</code></td>
+            </tr>
+            <tr>
+              <td><hl>2. Xử lý dữ liệu</hl></td>
+              <td>Thực hiện tính toán, phân tích dữ liệu</td>
+              <td><code>diemTB := (diemToan + diemVan)/2;</code></td>
+            </tr>
+            <tr>
+              <td><hl>3. Xuất thông tin</hl></td>
+              <td>Hiển thị kết quả có ý nghĩa cho người dùng</td>
+              <td><code>Writeln('Diem trung binh: ', diemTB:0:2);</code></td>
+            </tr>
+          </table>
+          
+          <div class="code-example">
+            <h4>Ví dụ chương trình Pascal hoàn chỉnh:</h4>
+            <pre><code>PROGRAM TinhDiemTB;
+VAR
+  diemToan, diemVan, diemTB : Real;
+BEGIN
+  Write('Nhap diem Toan: ');
+  Readln(diemToan);
+  Write('Nhap diem Van: ');
+  Readln(diemVan);
+  
+  diemTB := (diemToan + diemVan) / 2;
+  
+  Writeln('=====================');
+  Writeln('Diem Toan: ', diemToan:0:2);
+  Writeln('Diem Van: ', diemVan:0:2);
+  Writeln('Diem trung binh: ', diemTB:0:2);
+  
+  IF diemTB >= 8.0 THEN
+    Writeln('Xep loai: Gioi')
+  ELSE IF diemTB >= 6.5 THEN
+    Writeln('Xep loai: Kha')
+  ELSE IF diemTB >= 5.0 THEN
+    Writeln('Xep loai: Trung binh')
+  ELSE
+    Writeln('Xep loai: Yeu');
+    
+  Readln;
+END.</code></pre>
           </div>
 
-          <h3>2. Chu trình lệnh (Fetch – Decode – Execute)</h3>
-          <p>
-            Đây là quá trình CPU thực thi liên tục mọi chương trình:
-          </p>
-          <ol>
-            <li><hl>Nạp lệnh (Fetch)</hl>: Khối Điều khiển (CU) đọc lệnh tiếp theo từ Bộ nhớ RAM và đưa vào Thanh ghi lệnh.</li>
-            <li><hl>Giải mã lệnh (Decode)</hl>: Lệnh trong Thanh ghi được Khối Điều khiển phân tích để xác định loại thao tác cần thực hiện và các dữ liệu liên quan.</li>
-            <li><hl>Thực thi (Execute)</hl>:
-              <ul>
-                <li>Nếu là phép tính: Khối Điều khiển kích hoạt Khối ALU thực hiện tính toán.</li>
-                <li>Nếu là lệnh điều khiển: Khối Điều khiển gửi tín hiệu đến thiết bị tương ứng (bộ nhớ, I/O).</li>
-              </ul>
-            </li>
-            <li><hl>Ghi kết quả (Write-back)</hl>: Kết quả từ ALU được ghi vào Bộ nhớ hoặc Thanh ghi để sử dụng cho lệnh tiếp theo.</li>
-          </ol>
+          <!-- 📊 V. BÀI TẬP VẬN DỤNG -->
+          <h2>📊 V. Bài tập vận dụng</h2>
           
-          <div class="image-box">
-            <img src="hinh3.png" alt="Chu trình Fetch Decode Execute" />
-            <div class="caption">🔄 Hình 3: Minh họa chi tiết Chu trình lệnh (F-D-E) trong CPU.</div>
+          <div class="exercise-box">
+            <h3>Bài tập 1: Phân biệt thông tin và dữ liệu</h3>
+            <p>Hãy phân biệt đâu là thông tin, đâu là dữ liệu trong các trường hợp sau:</p>
+            <ol>
+              <li>Số 37.5</li>
+              <li>Nhiệt độ cơ thể của bệnh nhân là 37.5°C</li>
+              <li>Dãy số: 18, 19, 20, 17</li>
+              <li>Tuổi trung bình của nhóm học sinh là 18.5 tuổi</li>
+            </ol>
           </div>
           
-          <hr/>
-
-          <h2>🛠️ III. Thực hành: Quan sát cấu trúc máy tính</h2>
-          <p>
-            <hl>Yêu cầu</hl>: Quan sát và xác định các thành phần phần cứng chi tiết:
-          </p>
-          <ul>
-            <li>Nhận diện <hl>Bộ tản nhiệt</hl> (Heatsink) nằm trực tiếp trên CPU.</li>
-            <li>Phân biệt các khe cắm <hl>RAM</hl> (DDR4/DDR5) và khe cắm <hl>Card đồ họa</hl> (PCIe) trên Mainboard.</li>
-            <li>Xác định <hl>Bộ nguồn (PSU)</hl> và các dây cáp cấp điện chính cho Mainboard và Ổ đĩa.</li>
-            <li>Chỉ ra các cổng kết nối dữ liệu (SATA, NVMe/M.2) dành cho thiết bị lưu trữ.</li>
-          </ul>
-
-          <div class="media-box">
-            <div class="video-wrapper">
-              <iframe 
-                src="https://www.youtube.com/embed/c1f5a5V5g1o" 
-                title="Cấu tạo chi tiết bên trong máy tính và cách hoạt động"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="caption">🎬 Video 1: Phân tích sâu các thành phần phần cứng máy tính.</div>
-          </div>
-          
-          <div class="media-box">
-            <audio controls>
-              <source src="nhacnen.mp3" type="audio/mpeg">
-              Trình duyệt của bạn không hỗ trợ phát âm thanh.
-            </audio>
-            <div class="caption">🎵 Âm thanh 1: Mô phỏng âm thanh hệ thống (ví dụ: tiếng quạt, ổ cứng cơ).</div>
+          <div class="exercise-box">
+            <h3>Bài tập 2: Chuyển đổi đơn vị</h3>
+            <p>Thực hiện các phép chuyển đổi sau:</p>
+            <ol>
+              <li>2 KB = ? byte</li>
+              <li>4096 byte = ? KB</li>
+              <li>3 MB = ? byte</li>
+              <li>Một tệp văn bản có kích thước 2.5 MB, hỏi tệp đó chứa khoảng bao nhiêu trang giấy? (Biết 1 trang ≈ 2 KB)</li>
+            </ol>
           </div>
 
-          <hr/>
-          
+          <!-- 📝 GHI NHỚ -->
           <h2>📝 GHI NHỚ</h2>
-          <div style="background: #eef6fc; padding: 20px; border-left: 5px solid #2196f3; border-radius: 4px;">
-            <p style="margin:0 0 10px 0;"><strong>1. Cấu trúc:</strong> Máy tính gồm CPU, Bộ nhớ, Thiết bị lưu trữ, và Thiết bị Vào/Ra.</p>
-            <p style="margin:0 0 10px 0;"><strong>2. Chức năng chính:</strong></p>
-            <ul style="margin:0; padding-left: 20px;">
-              <li><hl>CPU</hl>: Gồm CU (Điều khiển) và ALU (Tính toán).</li>
-              <li><hl>Bộ nhớ trong</hl>: RAM (tạm thời, mất khi tắt) và ROM (cố định, không mất).</li>
-              <li><hl>SSD</hl>: Tốc độ nhanh hơn HDD nhờ sử dụng bộ nhớ Flash.</li>
-            </ul>
-            <p style="margin:10px 0 0 0;"><strong>3. Nguyên lý:</strong> Mọi lệnh được thực thi qua <hl>Chu trình F-D-E</hl> (Nạp - Giải mã - Thực thi) dựa trên mã nhị phân.</p>
-          </div>
-
+          <ul>
+            <li><hl>Thông tin</hl> là ý nghĩa rút ra từ dữ liệu, có giá trị với con người.</li>
+            <li><hl>Dữ liệu</hl> là cách biểu diễn thông tin để máy tính xử lý.</li>
+            <li>Máy tính sử dụng hệ nhị phân (0 và 1) để biểu diễn mọi thông tin.</li>
+            <li>Bit là đơn vị nhỏ nhất của thông tin; 1 byte = 8 bit.</li>
+            <li>Pascal có các kiểu dữ liệu: Integer, Real, Char, String, Boolean.</li>
+            <li>Quá trình xử lý thông tin: Nhập → Xử lý → Xuất.</li>
+          </ul>
         </div>
         <div class="lesson-footer">
           <button class="exercise-btn" onclick="location.href='/exercise/lop-11/bai-1'">
