@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Đề kiểm tra GHK I - Tin học 12 - Đề 3 | Học Tin Học NDGB</title>
+  <link rel="icon" href="/file/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/test/bai.css" />
+</head>
+<body>
+  <div class="window">
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
+        <div class="logo" aria-hidden>
+          <style>
+            .logo { border:0 !important; box-shadow:none !important; width:160px; height:160px; }
+            @media (max-width:880px){ .logo { width:100px; height:100px; } }
+          </style>
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:#fff"></span>
+            <img src="/file/logo.png" alt="Logo NDGB"
+              style="width:100%;height:100%;object-fit:contain;position:relative;display:block;border-radius:50%;border:0" />
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <div class="brand">HỌC TIN HỌC - NDGB</div>
+          <div class="slogan">Nhật Đăng - Gia Bảo</div>
+        </div>
+
+        <!-- ============ Navigation ============ -->
+        <nav aria-label="chức năng">
+          <div class="nav-item" data-id="home">
+            <div class="ico"><img src="/file/home.svg" alt="Home Icon" width="25" height="25" /></div>
+            <div class="label">Trang chủ</div>
+          </div>
+
+          <div class="nav-item" data-id="study">
+            <div class="ico"><img src="/file/lesson.svg" alt="Lesson Icon" width="25" height="25" /></div>
+            <div class="label">Học bài mới</div>
+          </div>
+
+          <div class="nav-item" data-id="exercise">
+            <div class="ico"><img src="/file/exercise.png" alt="Exercise Icon" width="25" height="25" /></div>
+            <div class="label">Làm bài tập</div>
+          </div>
+
+          <div class="nav-item active" data-id="test">
+            <div class="ico"><img src="/file/test.svg" alt="Test Icon" width="25" height="25" /></div>
+            <div class="label">Kiểm tra</div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ============ Main Content ============ -->
+    <main class="main">
+      <div class="lesson-page fade-in">
+        <div class="lesson-header">
+          <div class="topic">Đề kiểm tra GHK I - Tin học 12 - Đề 3</div>
+          <h1></h1>
+        </div>
+
+        <div class="lesson-footer">
+          <!-- KHUNG BÀI KIỂM TRA -->
+          <div id="quiz-container" class="quiz-container" aria-live="polite">
+            <div id="quiz-questions">
+
+              <div class="quiz-q" data-answer="C">
+                <h4 class="quiz-title">Ý nào sau đây KHÔNG phải là đặc điểm của hệ QTCSDL phân tán?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q1" value="A"> Dữ liệu được lưu trữ ở nhiều vị trí vật lý khác nhau </label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="B"> Người dùng truy cập dữ liệu như một CSDL thống nhất </label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="C"> Tất cả dữ liệu phải được lưu trữ trên một máy chủ duy nhất </label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="D"> Có khả năng chịu lỗi cao hơn CSDL tập trung </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Hệ QTCSDL phân tán có dữ liệu phân tán trên nhiều máy, không phải một máy duy nhất.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="B">
+                <h4 class="quiz-title">Kiểu dữ liệu DECIMAL(10,2) trong SQL có ý nghĩa gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q2" value="A"> Số nguyên có 10 chữ số </label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="B"> Số thập phân có tối đa 10 chữ số, trong đó 2 chữ số sau dấu phẩy </label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="C"> Chuỗi có độ dài tối đa 10 ký tự </label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="D"> Số thực với độ chính xác kép </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> DECIMAL(precision, scale): precision là tổng số chữ số, scale là số chữ số sau dấu phẩy.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="D">
+                <h4 class="quiz-title">Câu lệnh SQL nào dùng để xóa tất cả dữ liệu trong bảng nhưng giữ nguyên cấu trúc?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q3" value="A"> DROP TABLE </label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="B"> REMOVE TABLE </label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="C"> DELETE ALL </label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="D"> TRUNCATE TABLE </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> TRUNCATE TABLE xóa nhanh tất cả dữ liệu, giữ cấu trúc. DELETE xóa từng dòng, có thể rollback.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="A">
+                <h4 class="quiz-title">Mệnh đề LIKE trong SQL dùng để làm gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q4" value="A"> Tìm kiếm theo mẫu (pattern matching) </label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="B"> So sánh số học </label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="C"> Sắp xếp kết quả </label>
+                  <label class="quiz-option"><input type="radio" name="q4" value="D"> Nhóm dữ liệu </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> LIKE dùng với ký tự đại diện % (nhiều ký tự) và _ (một ký tự).
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="C">
+                <h4 class="quiz-title">Khóa ứng viên (candidate key) là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q5" value="A"> Khóa có thể NULL </label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="B"> Khóa chỉ gồm một cột </label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="C"> Tập hợp các thuộc tính có thể được chọn làm khóa chính </label>
+                  <label class="quiz-option"><input type="radio" name="q5" value="D"> Khóa tham chiếu đến bảng khác </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Candidate key là tập thuộc tính có thể xác định duy nhất bản ghi, một trong số đó được chọn làm primary key.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="B">
+                <h4 class="quiz-title">Hàm nào trả về giá trị lớn nhất trong một cột?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q6" value="A"> MIN() </label>
+                  <label class="quiz-option"><input type="radio" name="q6" value="B"> MAX() </label>
+                  <label class="quiz-option"><input type="radio" name="q6" value="C"> TOP() </label>
+                  <label class="quiz-option"><input type="radio" name="q6" value="D"> FIRST() </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> MAX() tìm giá trị lớn nhất, MIN() tìm giá trị nhỏ nhất.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="D">
+                <h4 class="quiz-title">View trong CSDL là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q7" value="A"> Bảng vật lý lưu trữ dữ liệu </label>
+                  <label class="quiz-option"><input type="radio" name="q7" value="B"> Chỉ mục để tăng tốc truy vấn </label>
+                  <label class="quiz-option"><input type="radio" name="q7" value="C"> Ràng buộc toàn vẹn dữ liệu </label>
+                  <label class="quiz-option"><input type="radio" name="q7" value="D"> Bảng ảo dựa trên kết quả của một câu lệnh SELECT </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> View là bảng ảo, không lưu trữ dữ liệu vật lý, được tạo từ truy vấn SELECT.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="A">
+                <h4 class="quiz-title">Câu lệnh nào tạo chỉ mục (index) cho cột TenSP trong bảng SANPHAM?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q8" value="A"> CREATE INDEX idx_tenSP ON SANPHAM(TenSP) </label>
+                  <label class="quiz-option"><input type="radio" name="q8" value="B"> ADD INDEX idx_tenSP TO SANPHAM(TenSP) </label>
+                  <label class="quiz-option"><input type="radio" name="q8" value="C"> MAKE INDEX idx_tenSP FOR SANPHAM(TenSP) </label>
+                  <label class="quiz-option"><input type="radio" name="q8" value="D"> INDEX CREATE idx_tenSP ON SANPHAM(TenSP) </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> CREATE INDEX tạo chỉ mục để tăng tốc truy vấn trên cột được chỉ mục.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="C">
+                <h4 class="quiz-title">Phụ thuộc hàm (functional dependency) X → Y có nghĩa là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q9" value="A"> X và Y luôn bằng nhau </label>
+                  <label class="quiz-option"><input type="radio" name="q9" value="B"> Y xác định X </label>
+                  <label class="quiz-option"><input type="radio" name="q9" value="C"> Giá trị của X xác định duy nhất giá trị của Y </label>
+                  <label class="quiz-option"><input type="radio" name="q9" value="D"> X và Y độc lập với nhau </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Phụ thuộc hàm X→Y: với mỗi giá trị của X, có duy nhất một giá trị của Y.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="B">
+                <h4 class="quiz-title">Câu lệnh nào thay đổi kiểu dữ liệu của cột trong bảng?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q10" value="A"> UPDATE COLUMN </label>
+                  <label class="quiz-option"><input type="radio" name="q10" value="B"> ALTER TABLE ... ALTER COLUMN </label>
+                  <label class="quiz-option"><input type="radio" name="q10" value="C"> MODIFY TABLE </label>
+                  <label class="quiz-option"><input type="radio" name="q10" value="D"> CHANGE COLUMN </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> ALTER TABLE ... ALTER COLUMN đổi kiểu dữ liệu (SQL Server), MODIFY (MySQL), ALTER (PostgreSQL).
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="D">
+                <h4 class="quiz-title">Dị thường cập nhật (update anomaly) trong CSDL là gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q11" value="A"> Không thể thêm bản ghi mới </label>
+                  <label class="quiz-option"><input type="radio" name="q11" value="B"> Tốc độ truy vấn chậm </label>
+                  <label class="quiz-option"><input type="radio" name="q11" value="C"> Dữ liệu bị mất khi mất điện </label>
+                  <label class="quiz-option"><input type="radio" name="q11" value="D"> Cập nhật không nhất quán do dữ liệu dư thừa </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> Dị thường cập nhật xảy ra khi phải cập nhật nhiều nơi cùng dữ liệu, dễ gây không nhất quán.
+                </div>
+              </div>
+
+              <div class="quiz-q" data-answer="A">
+                <h4 class="quiz-title">Mệnh đề UNION trong SQL dùng để làm gì?</h4>
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="q12" value="A"> Kết hợp kết quả của hai hoặc nhiều câu lệnh SELECT </label>
+                  <label class="quiz-option"><input type="radio" name="q12" value="B"> Kết nối hai bảng </label>
+                  <label class="quiz-option"><input type="radio" name="q12" value="C"> Nhóm dữ liệu từ nhiều bảng </label>
+                  <label class="quiz-option"><input type="radio" name="q12" value="D"> Sắp xếp kết quả từ nhiều bảng </label>
+                </div>
+                <div class="explanation">
+                  <hl>Giải thích:</hl> UNION kết hợp kết quả, loại bỏ trùng lặp. UNION ALL giữ lại trùng lặp.
+                </div>
+              </div>
+
+              <!-- Đúng / Sai-->
+              <div class="true-false-q" data-answer="T,F,T,F">
+                <h4>Đánh dấu Đúng (Đ) hoặc Sai (S) cho các câu sau:</h4>
+                <div class="true-false-list">
+
+                  <div class="true-false-item" data-correct-tf="T">
+                    <span class="true-false-item-text">Stored Procedure là tập hợp các câu lệnh SQL được lưu trữ trên server để thực thi nhiều lần.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#00a956"> Đúng</b>, stored procedure cải thiện hiệu suất và bảo mật.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="F">
+                    <span class="true-false-item-text">Khóa chính (primary key) và khóa ngoại (foreign key) phải luôn có cùng tên.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#e04b4b"> Sai</b>, chúng có thể có tên khác nhau, chỉ cần cùng kiểu dữ liệu và giá trị.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="T">
+                    <span class="true-false-item-text">Phép kết nối tự nhiên (natural join) tự động kết nối các bảng dựa trên các cột có cùng tên.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#00a956"> Đúng</b>, natural join không cần chỉ định điều kiện ON.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="F">
+                    <span class="true-false-item-text">Một bảng chỉ có thể có một khóa ngoại (foreign key).</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#e04b4b"> Sai</b>, một bảng có thể có nhiều khóa ngoại tham chiếu đến các bảng khác.
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="true-false-q" data-answer="F,T,T,F">
+                <h4>Đánh dấu Đúng (Đ) hoặc Sai (S) cho các câu sau:</h4>
+                <div class="true-false-list">
+
+                  <div class="true-false-item" data-correct-tf="F">
+                    <span class="true-false-item-text">Câu lệnh SELECT có thể thay đổi dữ liệu trong bảng.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#e04b4b"> Sai</b>, SELECT chỉ đọc dữ liệu, không thay đổi.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="T">
+                    <span class="true-false-item-text">Trigger là một loại stored procedure tự động thực thi khi có sự kiện xảy ra trên bảng.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#00a956"> Đúng</b>, trigger kích hoạt khi INSERT, UPDATE, DELETE.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="T">
+                    <span class="true-false-item-text">Mệnh đề DISTINCT loại bỏ các bản ghi trùng lặp trong kết quả truy vấn.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#00a956"> Đúng</b>, SELECT DISTINCT cột FROM bảng.
+                    </div>
+                  </div>
+
+                  <div class="true-false-item" data-correct-tf="F">
+                    <span class="true-false-item-text">Kiểu dữ liệu TEXT trong SQL chỉ lưu được tối đa 255 ký tự.</span>
+                    <div class="tf-controls">
+                      <button data-value="T">Đúng</button>
+                      <button data-value="F">Sai</button>
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl><b style="color:#e04b4b"> Sai</b>, TEXT lưu được lượng lớn văn bản (thường 65KB trở lên), VARCHAR(255) mới là 255 ký tự.
+                    </div>
+                  </div>
+
+                  <div class="short-answer-q" data-answer="BETWEEN" data-point="0.5">
+                    <h4 class="quiz-title">Toán tử nào trong SQL dùng để chọn giá trị trong một khoảng?</h4>
+                    <div class="short-answer-controls">
+                      <input type="text" placeholder="Nhập đáp án" />
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl> <b style="color:#00a956">BETWEEN</b> - Ví dụ: WHERE Diem BETWEEN 5 AND 10
+                    </div>
+                  </div>
+
+                  <div class="short-answer-q" data-answer="INNER JOIN" data-point="0.5">
+                    <h4 class="quiz-title">Loại JOIN nào chỉ trả về các bản ghi có khớp ở cả hai bảng?</h4>
+                    <div class="short-answer-controls">
+                      <input type="text" placeholder="Nhập đáp án" />
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl> <b style="color:#00a956">INNER JOIN</b> - Còn gọi là JOIN thông thường
+                    </div>
+                  </div>
+
+                  <div class="short-answer-q" data-answer="CHECK" data-point="0.5">
+                    <h4 class="quiz-title">Ràng buộc nào trong SQL đảm bảo giá trị trong cột thỏa mãn một điều kiện?</h4>
+                    <div class="short-answer-controls">
+                      <input type="text" placeholder="Nhập đáp án" />
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl> <b style="color:#00a956">CHECK</b> - Ví dụ: CHECK (Tuoi >= 18)
+                    </div>
+                  </div>
+
+                  <div class="short-answer-q" data-answer="GRANT" data-point="0.5">
+                    <h4 class="quiz-title">Câu lệnh nào cấp quyền truy cập cho người dùng trong SQL?</h4>
+                    <div class="short-answer-controls">
+                      <input type="text" placeholder="Nhập đáp án" />
+                    </div>
+                    <div class="explanation">
+                      <hl>Giải thích:</hl> <b style="color:#00a956">GRANT</b> - Ví dụ: GRANT SELECT ON SinhVien TO user1
+                    </div>
+                  </div>
+
+                  <div class="quiz-q essay-q">
+                    <h4 class="quiz-title">
+                      Cho CSDL QUANLYDAUTU với các bảng:<br>
+                      KHACHHANG(MaKH, HoTen, DiaChi, SoDT)<br>
+                      COPHIEU(MaCP, TenCT, GiaHienTai, SanGiaoDich)<br>
+                      GIAODICH(MaGD, MaKH, MaCP, NgayGD, SoLuong, GiaGiaoDich, LoaiGD) -- LoaiGD: 'MUA' hoặc 'BAN'<br>
+                      Viết các câu lệnh SQL để:<br>
+                      a) Tìm khách hàng có giao dịch mua nhiều hơn 1000 cổ phiếu<br>
+                      b) Tính tổng giá trị giao dịch theo từng loại (MUA/BÁN)<br>
+                      c) Tìm cổ phiếu có biến động giá lớn nhất (chênh lệch giữa giá cao nhất và thấp nhất trong giao dịch)
+                    </h4>
+                    <div class="short-answer-controls">
+                      <textarea placeholder="Nhập câu trả lời của bạn ở đây..."></textarea>
+                    </div>
+                    <div class="explanation" style="display:none;">
+                      <hl>Đáp án Tham khảo:</hl><br>
+                      a) Tìm khách hàng có giao dịch mua nhiều hơn 1000 cổ phiếu:<br>
+                      ```sql<br>
+                      SELECT KH.MaKH, KH.HoTen, SUM(GD.SoLuong) AS TongMua<br>
+                      FROM KHACHHANG KH<br>
+                      INNER JOIN GIAODICH GD ON KH.MaKH = GD.MaKH<br>
+                      WHERE GD.LoaiGD = 'MUA'<br>
+                      GROUP BY KH.MaKH, KH.HoTen<br>
+                      HAVING SUM(GD.SoLuong) > 1000;<br>
+                      ```<br><br>
+                      b) Tính tổng giá trị giao dịch theo từng loại:<br>
+                      ```sql<br>
+                      SELECT LoaiGD, <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;COUNT(*) AS SoGiaoDich,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;SUM(SoLuong) AS TongSoLuong,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;SUM(SoLuong * GiaGiaoDich) AS TongGiaTri<br>
+                      FROM GIAODICH<br>
+                      GROUP BY LoaiGD;<br>
+                      ```<br><br>
+                      c) Tìm cổ phiếu có biến động giá lớn nhất:<br>
+                      ```sql<br>
+                      SELECT CP.MaCP, CP.TenCT,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;MAX(GD.GiaGiaoDich) AS GiaCaoNhat,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;MIN(GD.GiaGiaoDich) AS GiaThapNhat,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;MAX(GD.GiaGiaoDich) - MIN(GD.GiaGiaoDich) AS BienDong<br>
+                      FROM COPHIEU CP<br>
+                      INNER JOIN GIAODICH GD ON CP.MaCP = GD.MaCP<br>
+                      GROUP BY CP.MaCP, CP.TenCT<br>
+                      ORDER BY BienDong DESC<br>
+                      LIMIT 1;<br>
+                      ```
+                    </div>
+                  </div>
+
+                  <div class="quiz-q essay-q">
+                    <h4 class="quiz-title">
+                      Trình bày các dị thường (anomalies) trong CSDL: dị thường thêm (insert), dị thường xóa (delete), dị thường cập nhật (update). 
+                      Cho ví dụ minh họa và giải thích cách chuẩn hóa khắc phục các dị thường này.
+                    </h4>
+                    <div class="short-answer-controls">
+                      <textarea placeholder="Nhập câu trả lời của bạn ở đây..."></textarea>
+                    </div>
+                    <div class="explanation" style="display:none;">
+                      <hl>Đáp án Tham khảo:</hl><br>
+                      - <b>Dị thường thêm (Insert Anomaly):</b><br>
+                      &nbsp;&nbsp;+ Không thể thêm dữ liệu mới nếu thiếu thông tin không liên quan<br>
+                      &nbsp;&nbsp;+ <i>Ví dụ:</i> Không thể thêm phòng ban mới nếu chưa có nhân viên (trong bảng kết hợp nhân viên-phòng)<br><br>
+                      - <b>Dị thường xóa (Delete Anomaly):</b><br>
+                      &nbsp;&nbsp;+ Xóa một bản ghi làm mất thông tin quan trọng khác<br>
+                      &nbsp;&nbsp;+ <i>Ví dụ:</i> Xóa nhân viên cuối cùng của phòng làm mất thông tin phòng đó<br><br>
+                      - <b>Dị thường cập nhật (Update Anomaly):</b><br>
+                      &nbsp;&nbsp;+ Phải cập nhật nhiều nơi cùng dữ liệu, dễ gây không nhất quán<br>
+                      &nbsp;&nbsp;+ <i>Ví dụ:</i> Đổi địa chỉ phòng phải cập nhật cho tất cả nhân viên trong phòng<br><br>
+                      <b>Ví dụ minh họa:</b><br>
+                      Bảng chưa chuẩn hóa: NHANVIEN_PHONG(MaNV, TenNV, MaPhong, TenPhong, DiaChiPhong, Luong)<br>
+                      - <b>Insert anomaly:</b> Không thể thêm phòng mới nếu chưa có nhân viên<br>
+                      - <b>Delete anomaly:</b> Xóa nhân viên cuối cùng của phòng làm mất thông tin phòng<br>
+                      - <b>Update anomaly:</b> Đổi địa chỉ phòng phải cập nhật cho tất cả nhân viên<br><br>
+                      <b>Giải pháp bằng chuẩn hóa:</b><br>
+                      Tách thành 2 bảng:<br>
+                      1. PHONGBAN(MaPhong, TenPhong, DiaChiPhong)<br>
+                      2. NHANVIEN(MaNV, TenNV, MaPhong, Luong)<br>
+                      → Khắc phục được tất cả dị thường.
+                    </div>
+                  </div>
+
+                  <div class="quiz-q essay-q">
+                    <h4 class="quiz-title">
+                      Thiết kế CSDL cho hệ thống đặt phòng khách sạn với yêu cầu:<br>
+                      - Khách hàng: mã KH, họ tên, CMND, số điện thoại, email<br>
+                      - Phòng: mã phòng, số phòng, loại phòng, giá thuê/đêm, tình trạng (trống/đã đặt)<br>
+                      - Đặt phòng: mã đặt, mã KH, mã phòng, ngày đặt, ngày nhận phòng, ngày trả phòng, số người, tổng tiền<br>
+                      - Hóa đơn: mã HD, mã đặt, ngày thanh toán, phương thức thanh toán, tổng thanh toán<br>
+                      a) Xác định các bảng, khóa chính, khóa ngoại, ràng buộc<br>
+                      b) Viết câu lệnh SQL tạo các bảng với đầy đủ ràng buộc<br>
+                      c) Viết truy vấn thống kê doanh thu theo tháng và loại phòng
+                    </h4>
+                    <div class="short-answer-controls">
+                      <textarea placeholder="Nhập câu trả lời của bạn ở đây..."></textarea>
+                    </div>
+                    <div class="explanation" style="display:none;">
+                      <hl>Đáp án Tham khảo:</hl><br>
+                      a) <b>Thiết kế CSDL:</b><br>
+                      - KHACHHANG(MaKH, HoTen, CMND, SoDT, Email)<br>
+                      &nbsp;&nbsp;PK: MaKH, UNIQUE: CMND<br>
+                      - PHONG(MaPhong, SoPhong, LoaiPhong, GiaThue, TinhTrang)<br>
+                      &nbsp;&nbsp;PK: MaPhong, CHECK: TinhTrang IN ('TRONG', 'DA_DAT')<br>
+                      - DATPHONG(MaDat, MaKH, MaPhong, NgayDat, NgayNhan, NgayTra, SoNguoi, TongTien)<br>
+                      &nbsp;&nbsp;PK: MaDat, FK: MaKH→KHACHHANG, MaPhong→PHONG<br>
+                      &nbsp;&nbsp;CHECK: NgayNhan < NgayTra<br>
+                      - HOADON(MaHD, MaDat, NgayThanhToan, PhuongThucTT, TongThanhToan)<br>
+                      &nbsp;&nbsp;PK: MaHD, FK: MaDat→DATPHONG<br>
+                      &nbsp;&nbsp;CHECK: PhuongThucTT IN ('TIEN_MAT', 'CHUYEN_KHOAN', 'THE')<br><br>
+                      b) <b>Câu lệnh SQL tạo bảng:</b><br>
+                      ```sql<br>
+                      CREATE TABLE KHACHHANG (<br>
+                      &nbsp;&nbsp;MaKH INT PRIMARY KEY,<br>
+                      &nbsp;&nbsp;HoTen VARCHAR(50) NOT NULL,<br>
+                      &nbsp;&nbsp;CMND VARCHAR(12) UNIQUE NOT NULL,<br>
+                      &nbsp;&nbsp;SoDT VARCHAR(10),<br>
+                      &nbsp;&nbsp;Email VARCHAR(50)<br>
+                      );<br>
+                      <br>
+                      CREATE TABLE PHONG (<br>
+                      &nbsp;&nbsp;MaPhong INT PRIMARY KEY,<br>
+                      &nbsp;&nbsp;SoPhong VARCHAR(10) NOT NULL UNIQUE,<br>
+                      &nbsp;&nbsp;LoaiPhong VARCHAR(20) NOT NULL,<br>
+                      &nbsp;&nbsp;GiaThue DECIMAL(10,2) NOT NULL CHECK(GiaThue > 0),<br>
+                      &nbsp;&nbsp;TinhTrang VARCHAR(10) DEFAULT 'TRONG' CHECK(TinhTrang IN ('TRONG', 'DA_DAT'))<br>
+                      );<br>
+                      <br>
+                      CREATE TABLE DATPHONG (<br>
+                      &nbsp;&nbsp;MaDat INT PRIMARY KEY,<br>
+                      &nbsp;&nbsp;MaKH INT NOT NULL,<br>
+                      &nbsp;&nbsp;MaPhong INT NOT NULL,<br>
+                      &nbsp;&nbsp;NgayDat DATE NOT NULL,<br>
+                      &nbsp;&nbsp;NgayNhan DATE NOT NULL,<br>
+                      &nbsp;&nbsp;NgayTra DATE NOT NULL,<br>
+                      &nbsp;&nbsp;SoNguoi INT CHECK(SoNguoi > 0),<br>
+                      &nbsp;&nbsp;TongTien DECIMAL(12,2),<br>
+                      &nbsp;&nbsp;FOREIGN KEY (MaKH) REFERENCES KHACHHANG(MaKH),<br>
+                      &nbsp;&nbsp;FOREIGN KEY (MaPhong) REFERENCES PHONG(MaPhong),<br>
+                      &nbsp;&nbsp;CHECK (NgayNhan < NgayTra)<br>
+                      );<br>
+                      <br>
+                      CREATE TABLE HOADON (<br>
+                      &nbsp;&nbsp;MaHD INT PRIMARY KEY,<br>
+                      &nbsp;&nbsp;MaDat INT NOT NULL UNIQUE,<br>
+                      &nbsp;&nbsp;NgayThanhToan DATE NOT NULL,<br>
+                      &nbsp;&nbsp;PhuongThucTT VARCHAR(20) CHECK(PhuongThucTT IN ('TIEN_MAT', 'CHUYEN_KHOAN', 'THE')),<br>
+                      &nbsp;&nbsp;TongThanhToan DECIMAL(12,2) NOT NULL,<br>
+                      &nbsp;&nbsp;FOREIGN KEY (MaDat) REFERENCES DATPHONG(MaDat)<br>
+                      );<br>
+                      ```<br><br>
+                      c) <b>Truy vấn thống kê doanh thu:</b><br>
+                      ```sql<br>
+                      -- Doanh thu theo tháng<br>
+                      SELECT YEAR(H.NgayThanhToan) AS Nam,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONTH(H.NgayThanhToan) AS Thang,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM(H.TongThanhToan) AS DoanhThu<br>
+                      FROM HOADON H<br>
+                      GROUP BY YEAR(H.NgayThanhToan), MONTH(H.NgayThanhToan)<br>
+                      ORDER BY Nam DESC, Thang DESC;<br>
+                      <br>
+                      -- Doanh thu theo loại phòng<br>
+                      SELECT P.LoaiPhong,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COUNT(D.MaDat) AS SoLanDat,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM(H.TongThanhToan) AS TongDoanhThu,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVG(H.TongThanhToan) AS DoanhThuTrungBinh<br>
+                      FROM PHONG P<br>
+                      INNER JOIN DATPHONG D ON P.MaPhong = D.MaPhong<br>
+                      INNER JOIN HOADON H ON D.MaDat = H.MaDat<br>
+                      GROUP BY P.LoaiPhong<br>
+                      ORDER BY TongDoanhThu DESC;<br>
+                      ```
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Nút nộp -->
+            <div style="text-align:center;margin-top:18px;">
+              <button id="submit-quiz" class="exercise-btn">Nộp bài</button>
+              <button id="redo-quiz" class="exercise-btn" style="display:none;" onclick="window.handleQuizInit()">Làm lại</button>
+              <button id="next-lesson" class="exercise-btn" style="display:none;" onclick="location.href='/test/lop-12/de3-gk1'">Bài kiểm tra tiếp theo</button>
+            </div>
+
+            <!-- Hiển thị điểm / đáp án -->
+            <div id="quiz-result" style="margin-top:14px; font-weight:700; display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/test/bai.js"></script>
+</body>
+</html>
