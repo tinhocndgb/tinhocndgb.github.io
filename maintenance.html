@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống đang bảo trì - Học Tin Học NDGB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #1a252f;
+            --success-color: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .maintenance-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+            border-radius: 5px;
+            background-color: white;
+            padding: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+        
+        .maintenance-tag {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Main Content */
+        .maintenance-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .maintenance-icon {
+            font-size: 100px;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .maintenance-title {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .maintenance-subtitle {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        
+        .maintenance-description {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        /* Progress and Timer */
+        .progress-section {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--success-color);
+            width: 65%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+        
+        .timer-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .timer-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 100px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .timer-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .timer-label {
+            font-size: 14px;
+            color: #777;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        
+        /* Contact Info */
+        .contact-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .contact-title {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .maintenance-footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .copyright {
+            font-size: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Notification Banner (for other pages) */
+        .notification-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        
+        .notification-icon {
+            font-size: 20px;
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .maintenance-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .maintenance-title {
+                font-size: 32px;
+            }
+            
+            .maintenance-subtitle {
+                font-size: 18px;
+            }
+            
+            .timer-box {
+                min-width: 80px;
+                padding: 15px;
+            }
+            
+            .timer-value {
+                font-size: 28px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .maintenance-title {
+                font-size: 28px;
+            }
+            
+            .maintenance-icon {
+                font-size: 80px;
+            }
+            
+            .timer-container {
+                gap: 15px;
+            }
+            
+            .timer-box {
+                min-width: 70px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header với logo và tên trang -->
+    <header class="maintenance-header">
+        <div class="logo-container">
+            <!-- Logo từ /file/logo.png -->
+            <img src="/file/logo.png" alt="Logo Học Tin Học NDGB" class="logo" onerror="this.src='https://via.placeholder.com/60x60/2c3e50/ffffff?text=LT'">
+            <div class="logo-text">HỌC TIN HỌC <span>NDGB</span></div>
+        </div>
+        <div class="maintenance-tag">
+            <i class="fas fa-tools"></i>
+            ĐANG BẢO TRÌ HỆ THỐNG
+        </div>
+    </header>
+
+    <!-- Nội dung chính -->
+    <main class="maintenance-container">
+        <div class="maintenance-icon">
+            <i class="fas fa-cogs"></i>
+        </div>
+        
+        <h1 class="maintenance-title">Hệ Thống Đang Bảo Trì</h1>
+        
+        <p class="maintenance-subtitle">
+            Chúng tôi đang nâng cấp hệ thống để mang đến trải nghiệm tốt hơn cho bạn
+        </p>
+        
+        <div class="maintenance-description">
+            <p><strong>Học Tin Học NDGB</strong> hiện đang thực hiện bảo trì hệ thống để cải thiện hiệu suất và bổ sung tính năng mới.</p>
+            <p>Thời gian dự kiến hoàn thành: <strong>22:00 ngày 15/12/2023</strong>. Chúng tôi xin lỗi vì sự bất tiện này và cảm ơn sự kiên nhẫn của bạn.</p>
+        </div>
+        
+        <!-- Thanh tiến độ -->
+        <div class="progress-section">
+            <div class="progress-info">
+                <span>Tiến độ bảo trì</span>
+                <span>65%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+        
+        <!-- Bộ đếm thời gian -->
+        <div class="timer-container">
+            <div class="timer-box">
+                <div class="timer-value" id="days">02</div>
+                <div class="timer-label">Ngày</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-value" id="hours">08</div>
+                <div class="timer-label">Giờ</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-value" id="minutes">45</div>
+                <div class="timer-label">Phút</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-value" id="seconds">30</div>
+                <div class="timer-label">Giây</div>
+            </div>
+        </div>
+        
+        <!-- Thông tin liên hệ -->
+        <div class="contact-section">
+            <h2 class="contact-title">
+                <i class="fas fa-headset"></i>
+                Cần hỗ trợ?
+            </h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <strong>Email</strong>
+                        <p>support@hoctinhocndgb.edu.vn</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <strong>Điện thoại</strong>
+                        <p>(024) 1234 5678</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <strong>Giờ làm việc</strong>
+                        <p>8:00 - 17:00 (T2 - T6)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Thông báo thêm -->
+        <div style="background-color: #e8f4fc; padding: 20px; border-radius: 10px; max-width: 600px; border-left: 4px solid #3498db;">
+            <p style="color: #2c3e50; margin-bottom: 10px;"><i class="fas fa-info-circle" style="color: #3498db; margin-right: 10px;"></i> <strong>Thông tin quan trọng:</strong></p>
+            <p style="color: #555;">Trong thời gian bảo trì, một số tính năng có thể không khả dụng. Mọi dữ liệu của bạn đều được bảo vệ an toàn.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="maintenance-footer">
+        <div class="footer-content">
+            <div class="copyright">
+                &copy; 2023 Học Tin Học NDGB. Tất cả các quyền được bảo lưu.
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mã JavaScript cho bộ đếm thời gian và thông báo -->
+    <script>
+        // Bộ đếm thời gian
+        function updateCountdown() {
+            // Thời gian kết thúc bảo trì (ngày 15/12/2023 22:00)
+            const endDate = new Date('December 15, 2023 22:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = endDate - now;
+            
+            if (timeLeft < 0) {
+                // Nếu thời gian đã hết
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            // Tính ngày, giờ, phút, giây
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Hiển thị
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Cập nhật bộ đếm mỗi giây
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Gọi ngay lần đầu
+        
+        // Hàm để hiển thị thông báo trên tất cả các trang
+        function showMaintenanceNotification() {
+            // Tạo banner thông báo
+            const notification = document.createElement('div');
+            notification.className = 'notification-banner';
+            notification.innerHTML = `
+                <div class="notification-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                    <strong>Hệ thống Học Tin Học NDGB đang bảo trì</strong> - Một số tính năng có thể tạm thời không khả dụng.
+                    <a href="/maintenance.html" style="color: white; text-decoration: underline; margin-left: 10px;">Xem chi tiết</a>
+                </div>
+                <button class="notification-close" id="closeNotification">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            // Thêm vào đầu trang
+            document.body.prepend(notification);
+            
+            // Xử lý nút đóng
+            document.getElementById('closeNotification').addEventListener('click', function() {
+                notification.style.display = 'none';
+                // Lưu vào localStorage để không hiển thị lại trong 24h
+                localStorage.setItem('maintenanceNotificationClosed', Date.now().toString());
+            });
+            
+            // Tự động đóng sau 30 giây
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.opacity = '0';
+                    notification.style.transition = 'opacity 0.5s';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.remove();
+                        }
+                    }, 500);
+                }
+            }, 30000);
+        }
+        
+        // Kiểm tra nếu đang ở trang bảo trì thì không hiển thị thông báo
+        if (!window.location.pathname.includes('maintenance.html')) {
+            // Kiểm tra nếu người dùng đã đóng thông báo trong 24h
+            const notificationClosed = localStorage.getItem('maintenanceNotificationClosed');
+            const twentyFourHours = 24 * 60 * 60 * 1000;
+            
+            if (!notificationClosed || (Date.now() - parseInt(notificationClosed)) > twentyFourHours) {
+                // Hiển thị thông báo sau 2 giây
+                setTimeout(showMaintenanceNotification, 2000);
+            }
+        }
+        
+        // Xử lý logo bị lỗi
+        document.querySelector('.logo').onerror = function() {
+            this.src = 'https://via.placeholder.com/60x60/2c3e50/ffffff?text=LT';
+            this.alt = 'Logo thay thế - Học Tin Học NDGB';
+        };
+    </script>
+</body>
+  </html>
