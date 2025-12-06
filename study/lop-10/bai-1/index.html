@@ -200,6 +200,33 @@
       </div>
     </main>
   </div>
+
   <script src="/study/bai.js"></script>
+  <!-- CHATBOT AI - CHẠY NGAY, KHÔNG CẦN API KEY -->
+  <div class="chatbot-container">
+    <button class="chat-toggle" id="aiBtn">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 5v-5H4c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2h-6l-5 5z"/></svg>
+    </button>
+
+    <div class="chat-box" id="aiBox">
+      <div class="chat-header">
+        Trợ lý AI Tin học NDGB
+        <button id="closeAI">×</button>
+      </div>
+      <div class="chat-body" id="aiBody">
+        <div class="msg bot">
+          Xin chào bạn! Mình là trợ lý AI chuyên Tin học 10 đây<br>
+          Hỏi mình bất cứ gì về bài học nha! Ví dụ: “Thông tin khác dữ liệu thế nào?”, “Giải thích IPO”, “Bài 1 có những nội dung gì?” …
+        </div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="aiInput" placeholder="Hỏi mình gì cũng được..." autocomplete="off">
+        <button id="aiSend">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Puter.js - Free AI API, no key needed -->
+  <script src="https://js.puter.com/v2/"></script>
 </body>
 </html>
